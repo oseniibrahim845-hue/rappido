@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rappido — Temporärbüro Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface2: #1a1a24;
+  --surface3: #22222f;
+  --border: #2a2a3a;
+  --accent: #00e5a0;
+  --accent2: #0099ff;
+  --accent3: #ff6b35;
+  --text: #f0f0f8;
+  --text2: #8888a8;
+  --text3: #555570;
+  --pending: #ffb347;
+  --approved: #00e5a0;
+  --rejected: #ff4757;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+/* Login */
+#loginPage {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  background-image: radial-gradient(ellipse at 20% 50%, rgba(0,229,160,0.08) 0%, transparent 60%),
+                    radial-gradient(ellipse at 80% 20%, rgba(0,153,255,0.06) 0%, transparent 50%);
+}
+.login-card {
+  width: 420px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 48px; position: relative; overflow: hidden;
+}
+.login-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.login-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+.login-logo .logo-mark {
+  width: 40px; height: 40px; background: var(--accent); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: var(--bg);
+}
+.login-logo .logo-text { font-size: 22px; font-weight: 600; letter-spacing: -0.5px; }
+.login-logo .logo-sub { font-size: 12px; color: var(--text2); margin-top: 2px; }
+.login-title { font-size: 26px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
+.login-sub { font-size: 14px; color: var(--text2); margin-bottom: 32px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 12px; color: var(--text2); margin-bottom: 8px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; }
+.form-group input {
+  width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 12px 16px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--accent); }
+.btn-primary {
+  width: 100%; background: var(--accent); color: var(--bg); border: none;
+  border-radius: var(--radius-sm); padding: 14px; font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; margin-top: 8px;
+}
+.btn-primary:hover { opacity: 0.9; }
+.login-error { color: var(--rejected); font-size: 13px; margin-top: 12px; text-align: center; display: none; }
+.login-footer { text-align: center; margin-top: 24px; font-size: 12px; color: var(--text3); }
+
+/* App Layout */
+#appPage { display: none; min-height: 100vh; }
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 240px;
+  background: var(--surface); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; z-index: 100;
+}
+.sidebar-logo {
+  padding: 24px 20px; display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-logo .logo-mark {
+  width: 32px; height: 32px; background: var(--accent); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--bg);
+}
+.sidebar-logo .logo-text { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+.sidebar-nav { flex: 1; padding: 16px 12px; }
+.nav-section { font-size: 10px; color: var(--text3); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0 8px; margin: 16px 0 8px; }
+.nav-item {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius-sm);
+  cursor: pointer; transition: all 0.15s; color: var(--text2); font-size: 14px; font-weight: 500;
+  margin-bottom: 2px; text-decoration: none;
+}
+.nav-item:hover { background: var(--surface2); color: var(--text); }
+.nav-item.active { background: rgba(0,229,160,0.1); color: var(--accent); }
+.nav-item .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+.nav-badge { margin-left: auto; background: var(--accent); color: var(--bg); font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 10px; }
+.sidebar-footer { padding: 16px 12px; border-top: 1px solid var(--border); }
+.user-info { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius-sm); }
+.user-avatar { width: 32px; height: 32px; background: var(--accent2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; }
+.user-name { font-size: 13px; font-weight: 500; }
+.user-plan { font-size: 11px; color: var(--text2); }
+.btn-logout { margin-top: 8px; width: 100%; background: var(--surface2); border: 1px solid var(--border); color: var(--text2); padding: 8px; border-radius: var(--radius-sm); font-size: 13px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.15s; }
+.btn-logout:hover { border-color: var(--rejected); color: var(--rejected); }
+
+/* Main Content */
+.main { margin-left: 240px; padding: 32px; min-height: 100vh; }
+.page { display: none; }
+.page.active { display: block; }
+.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.page-title { font-size: 26px; font-weight: 600; letter-spacing: -0.5px; }
+.page-sub { font-size: 14px; color: var(--text2); margin-top: 4px; }
+
+/* Stats Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.stat-label { font-size: 12px; color: var(--text2); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
+.stat-value { font-size: 32px; font-weight: 600; letter-spacing: -1px; font-family: 'DM Mono', monospace; }
+.stat-change { font-size: 12px; color: var(--text2); margin-top: 6px; }
+.stat-change.up { color: var(--approved); }
+.stat-change.down { color: var(--rejected); }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.card-header { padding: 20px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.card-title { font-size: 15px; font-weight: 600; }
+.card-body { padding: 24px; }
+
+/* Buttons */
+.btn { padding: 9px 16px; border-radius: var(--radius-sm); font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+.btn-accent { background: var(--accent); color: var(--bg); }
+.btn-accent:hover { opacity: 0.85; }
+.btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn-danger { background: rgba(255,71,87,0.1); color: var(--rejected); border: 1px solid rgba(255,71,87,0.2); }
+.btn-danger:hover { background: rgba(255,71,87,0.2); }
+.btn-approve { background: rgba(0,229,160,0.1); color: var(--approved); border: 1px solid rgba(0,229,160,0.2); }
+.btn-approve:hover { background: rgba(0,229,160,0.2); }
+
+/* Table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-size: 11px; color: var(--text3); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+td { padding: 14px 16px; font-size: 13px; border-bottom: 1px solid rgba(42,42,58,0.5); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Badge */
+.badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.badge-pending { background: rgba(255,179,71,0.1); color: var(--pending); border: 1px solid rgba(255,179,71,0.2); }
+.badge-approved { background: rgba(0,229,160,0.1); color: var(--approved); border: 1px solid rgba(0,229,160,0.2); }
+.badge-rejected { background: rgba(255,71,87,0.1); color: var(--rejected); border: 1px solid rgba(255,71,87,0.2); }
+.badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+/* Filter Bar */
+.filter-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.filter-bar input, .filter-bar select {
+  background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 9px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; outline: none;
+}
+.filter-bar input:focus, .filter-bar select:focus { border-color: var(--accent); }
+.filter-bar input { flex: 1; min-width: 200px; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+  z-index: 1000; display: none; align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; width: 480px; max-width: 90vw; max-height: 90vh; overflow-y: auto; }
+.modal-header { padding: 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.modal-title { font-size: 17px; font-weight: 600; }
+.modal-close { background: none; border: none; color: var(--text2); cursor: pointer; font-size: 20px; line-height: 1; }
+.modal-body { padding: 24px; }
+.modal-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { margin-bottom: 16px; }
+.form-field label { display: block; font-size: 12px; color: var(--text2); font-weight: 500; margin-bottom: 6px; }
+.form-field input, .form-field select {
+  width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 10px 14px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 13px; outline: none;
+}
+.form-field input:focus, .form-field select:focus { border-color: var(--accent); }
+
+/* Toast */
+#toast {
+  position: fixed; bottom: 24px; right: 24px; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px 20px; font-size: 13px; z-index: 9999;
+  transform: translateY(100px); opacity: 0; transition: all 0.3s; max-width: 320px;
+}
+#toast.show { transform: translateY(0); opacity: 1; }
+#toast.ok { border-color: var(--approved); color: var(--approved); }
+#toast.err { border-color: var(--rejected); color: var(--rejected); }
+
+/* Loading */
+.loading { display: flex; align-items: center; justify-content: center; padding: 60px; color: var(--text3); gap: 10px; }
+.spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Empty */
+.empty { text-align: center; padding: 60px; color: var(--text3); }
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-text { font-size: 14px; }
+
+/* Analytics */
+.chart-bar-wrap { display: flex; flex-direction: column; gap: 10px; }
+.chart-bar-row { display: flex; align-items: center; gap: 12px; }
+.chart-bar-label { font-size: 12px; color: var(--text2); width: 80px; flex-shrink: 0; }
+.chart-bar-track { flex: 1; height: 6px; background: var(--surface3); border-radius: 3px; overflow: hidden; }
+.chart-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.6s ease; }
+.chart-bar-val { font-size: 12px; color: var(--text2); font-family: 'DM Mono', monospace; width: 50px; text-align: right; }
+
+/* Plan badge */
+.plan-enterprise { color: #ffd700; }
+.plan-professional { color: var(--accent2); }
+.plan-basic { color: var(--text2); }
+
+/* Seat bar */
+.seat-bar { height: 4px; background: var(--surface3); border-radius: 2px; margin-top: 6px; }
+.seat-fill { height: 100%; border-radius: 2px; background: var(--accent); }
+
+/* Two column layout */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+.kw-chip { background: var(--surface3); border-radius: 4px; padding: 2px 8px; font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text2); }
+
+.hours-big { font-size: 28px; font-weight: 600; font-family: 'DM Mono', monospace; color: var(--accent); }
+
+/* Settings form */
+.settings-section { margin-bottom: 32px; }
+.settings-section-title { font-size: 13px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="logo-mark">R</div>
+      <div>
+        <div class="logo-text">Rappido</div>
+        <div class="login-footer" style="margin:0;text-align:left">Temporärbüro Platform</div>
+      </div>
+    </div>
+    <div class="login-title">Willkommen zurück</div>
+    <div class="login-sub">Melden Sie sich in Ihrem Büro-Dashboard an</div>
+    <div class="form-group">
+      <label>E-Mail-Adresse</label>
+      <input type="email" id="loginEmail" placeholder="info@buero.ch" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label>Passwort</label>
+      <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <button class="btn-primary" id="loginBtn" onclick="doLogin()">Anmelden →</button>
+    <div class="login-error" id="loginError">Ungültige Anmeldedaten. Bitte versuchen Sie es erneut.</div>
+    <div class="login-footer" style="margin-top:32px">Swiss Data Hosting · Exoscale Zürich · DSG-konform</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="appPage">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">R</div>
+      <div class="logo-text">Rappido</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">Übersicht</div>
+      <div class="nav-item active" onclick="showPage('overview')" id="nav-overview">
+        <span class="nav-icon">◈</span> Dashboard
+      </div>
+      <div class="nav-section">Verwaltung</div>
+      <div class="nav-item" onclick="showPage('timesheets')" id="nav-timesheets">
+        <span class="nav-icon">◷</span> Rapporte
+        <span class="nav-badge" id="pendingBadge">0</span>
+      </div>
+      <div class="nav-item" onclick="showPage('workers')" id="nav-workers">
+        <span class="nav-icon">◎</span> Mitarbeiter
+      </div>
+      <div class="nav-section">Analyse</div>
+      <div class="nav-item" onclick="showPage('analytics')" id="nav-analytics">
+        <span class="nav-icon">◉</span> Analytik
+      </div>
+      <div class="nav-item" onclick="showPage('settings')" id="nav-settings">
+        <span class="nav-icon">◌</span> Einstellungen
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <div>
+          <div class="user-name" id="userName">—</div>
+          <div class="user-plan" id="userPlan">—</div>
+        </div>
+      </div>
+      <button class="btn-logout" onclick="doLogout()">Abmelden</button>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- OVERVIEW -->
+    <div class="page active" id="page-overview">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-sub" id="overviewDate">—</div>
+        </div>
+        <button class="btn btn-ghost" onclick="loadAll()">↻ Aktualisieren</button>
+      </div>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card"><div class="stat-label">Ausstehend</div><div class="stat-value" id="statPending">—</div><div class="stat-change">Diese Woche</div></div>
+        <div class="stat-card"><div class="stat-label">Genehmigt</div><div class="stat-value" id="statApproved">—</div><div class="stat-change up">Alle Zeit</div></div>
+        <div class="stat-card"><div class="stat-label">Mitarbeiter</div><div class="stat-value" id="statWorkers">—</div><div class="stat-change">Aktiv</div></div>
+        <div class="stat-card"><div class="stat-label">Stunden KW</div><div class="stat-value" id="statHours">—</div><div class="stat-change">Diese Woche</div></div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Ausstehende Rapporte</div></div>
+          <div class="card-body" id="pendingList"><div class="loading"><div class="spinner"></div> Laden...</div></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Aktive Mitarbeiter</div></div>
+          <div class="card-body" id="workerList"><div class="loading"><div class="spinner"></div> Laden...</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIMESHEETS -->
+    <div class="page" id="page-timesheets">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Rapporte</div>
+          <div class="page-sub">Alle Arbeitszeiterfassungen</div>
+        </div>
+        <button class="btn btn-ghost" onclick="exportCSV()">↓ CSV Export</button>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="filter-bar" style="margin:0;flex:1">
+            <input type="text" id="tsSearch" placeholder="Suchen..." oninput="filterTS()">
+            <select id="tsStatus" onchange="filterTS()">
+              <option value="">Alle Status</option>
+              <option value="pending">Ausstehend</option>
+              <option value="approved">Genehmigt</option>
+              <option value="rejected">Abgelehnt</option>
+            </select>
+            <select id="tsWeek" onchange="filterTS()">
+              <option value="">Alle Wochen</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>Mitarbeiter</th><th>Datum</th><th>KW</th><th>Stunden</th><th>ÜS</th><th>Ort</th><th>Spesen</th><th>Status</th><th>Aktionen</th>
+            </tr></thead>
+            <tbody id="tsTable"><tr><td colspan="9"><div class="loading"><div class="spinner"></div> Laden...</div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKERS -->
+    <div class="page" id="page-workers">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Mitarbeiter</div>
+          <div class="page-sub">Mitarbeiterverwaltung</div>
+        </div>
+        <button class="btn btn-accent" onclick="openWorkerModal()">+ Mitarbeiter</button>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="filter-bar" style="margin:0;flex:1">
+            <input type="text" id="wSearch" placeholder="Suchen..." oninput="filterWorkers()">
+            <select id="wStatus" onchange="filterWorkers()">
+              <option value="">Alle</option>
+              <option value="active">Aktiv</option>
+              <option value="inactive">Inaktiv</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>Name</th><th>Telefon</th><th>Sprache</th><th>Einsatzbetrieb</th><th>Anstellung</th><th>Status</th><th>Aktionen</th>
+            </tr></thead>
+            <tbody id="wTable"><tr><td colspan="7"><div class="loading"><div class="spinner"></div> Laden...</div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS -->
+    <div class="page" id="page-analytics">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Analytik</div>
+          <div class="page-sub">Übersicht und Statistiken</div>
+        </div>
+      </div>
+      <div class="three-col" style="margin-bottom:20px">
+        <div class="card"><div class="card-body"><div class="stat-label">Gesamtstunden</div><div class="hours-big" id="anTotalH">—</div></div></div>
+        <div class="card"><div class="card-body"><div class="stat-label">Genehmigte Rapporte</div><div class="hours-big" id="anApproved">—</div></div></div>
+        <div class="card"><div class="card-body"><div class="stat-label">Ø Stunden/Tag</div><div class="hours-big" id="anAvg">—</div></div></div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Stunden nach Mitarbeiter</div></div>
+          <div class="card-body"><div id="chartByWorker"></div></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Stunden nach Woche</div></div>
+          <div class="card-body"><div id="chartByWeek"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="page" id="page-settings">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Einstellungen</div>
+          <div class="page-sub">Büro-Konfiguration</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-header"><div class="card-title">Büro-Informationen</div></div>
+          <div class="card-body">
+            <div class="form-field"><label>Büro-Name</label><input id="setAgency" type="text" placeholder="Mein Temporärbüro"></div>
+            <div class="form-field"><label>WhatsApp-Nummer (Bot)</label><input id="setWA" type="text" placeholder="+41 77 123 45 67"></div>
+            <div class="form-field"><label>Logo URL</label><input id="setLogo" type="text" placeholder="https://..."></div>
+            <button class="btn btn-accent" onclick="saveSettings()">Speichern</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">Plan & Kapazität</div></div>
+          <div class="card-body" id="planInfo">
+            <div class="stat-label">Aktueller Plan</div>
+            <div style="font-size:24px;font-weight:700;margin:8px 0 4px" id="planName">—</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:20px" id="planSeats">—</div>
+            <div class="stat-label">Mitarbeiter-Auslastung</div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-top:8px">
+              <span id="seatUsed">—</span><span id="seatLimit">—</span>
+            </div>
+            <div class="seat-bar"><div class="seat-fill" id="seatFill" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Worker Modal -->
+<div class="modal-overlay" id="workerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="workerModalTitle">Mitarbeiter hinzufügen</div>
+      <button class="modal-close" onclick="closeWorkerModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-field"><label>Vorname *</label><input id="wFirstName" type="text" placeholder="Max"></div>
+        <div class="form-field"><label>Nachname *</label><input id="wLastName" type="text" placeholder="Muster"></div>
+      </div>
+      <div class="form-field"><label>WhatsApp-Nummer *</label><input id="wPhone" type="text" placeholder="41771234567@s.whatsapp.net"></div>
+      <div class="form-row">
+        <div class="form-field"><label>Sprache</label>
+          <select id="wLang">
+            <option value="de">Deutsch</option>
+            <option value="fr">Französisch</option>
+            <option value="it">Italienisch</option>
+            <option value="sq">Albanisch</option>
+            <option value="pt">Portugiesisch</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Anstellungsart</label>
+          <select id="wEmpType">
+            <option value="Vollzeit">Vollzeit</option>
+            <option value="Teilzeit">Teilzeit</option>
+            <option value="Aushilfe">Aushilfe</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field"><label>Einsatzbetrieb</label><input id="wBetrieb" type="text" placeholder="Roche Basel AG"></div>
+      <div class="form-row">
+        <div class="form-field"><label>Vorgesetzter (WhatsApp)</label><input id="wSupervisor" type="text" placeholder="41772803225@s.whatsapp.net"></div>
+        <div class="form-field"><label>Personalnummer</label><input id="wPersonal" type="text" placeholder="P-001"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Startdatum</label><input id="wStart" type="date"></div>
+        <div class="form-field"><label>Sollstunden/Woche</label><input id="wSoll" type="number" value="42.5" step="0.5"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeWorkerModal()">Abbrechen</button>
+      <button class="btn btn-accent" onclick="saveWorker()">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const API = 'https://rappido.app.n8n.cloud/webhook/rappido-api';
+let CU = null, allTS = [], allW = [], editWId = null;
+
+async function api(action, data = {}) {
+  try {
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action, ...data })
+    });
+    const text = await res.text();
+    try { return JSON.parse(text); } catch(e) { return []; }
+  } catch(e) { console.error('API error:', e); return []; }
+}
+
+function toast(msg, type = 'ok') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'show ' + type;
+  setTimeout(() => t.className = '', 3000);
+}
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const btn = document.getElementById('loginBtn');
+  const err = document.getElementById('loginError');
+  if (!email || !pass) { err.style.display = 'block'; err.textContent = 'Bitte alle Felder ausfüllen.'; return; }
+  btn.textContent = 'Anmelden...'; btn.disabled = true; err.style.display = 'none';
+  const result = await api('get_clients', { email, password: pass });
+  btn.textContent = 'Anmelden →'; btn.disabled = false;
+  if (!Array.isArray(result) || result.length === 0) { err.style.display = 'block'; return; }
+  CU = result[0];
+  document.getElementById('loginPage').style.display = 'none';
+  document.getElementById('appPage').style.display = 'block';
+  document.getElementById('userName').textContent = CU.agency_name || email;
+  document.getElementById('userAvatar').textContent = (CU.agency_name || email)[0].toUpperCase();
+  const planMap = { enterprise: 'Enterprise', professional: 'Professional', basic: 'Basic' };
+  document.getElementById('userPlan').textContent = planMap[CU.plan] || CU.plan;
+  document.getElementById('overviewDate').textContent = new Date().toLocaleDateString('de-CH', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  loadSettings();
+  loadAll();
+}
+
+document.getElementById('loginPass').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+document.getElementById('loginEmail').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+
+function doLogout() {
+  CU = null; allTS = []; allW = [];
+  document.getElementById('appPage').style.display = 'none';
+  document.getElementById('loginPage').style.display = 'flex';
+}
+
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('nav-' + page).classList.add('active');
+  if (page === 'analytics') renderAnalytics();
+}
+
+async function loadAll() {
+  const [ts, ws] = await Promise.all([api('get_timesheets'), api('get_workers')]);
+  allTS = Array.isArray(ts) ? ts.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)) : [];
+  allW = Array.isArray(ws) ? ws.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)) : [];
+  renderStats(); renderPendingList(); renderWorkerList(); renderTSTable(); renderWTable();
+  populateWeekFilter();
+}
+
+function renderStats() {
+  const pending = allTS.filter(t => t.status === 'pending').length;
+  const approved = allTS.filter(t => t.status === 'approved').length;
+  const workers = allW.filter(w => w.status === 'active').length;
+  const now = new Date();
+  const kw = Math.ceil((now - new Date(now.getFullYear(), 0, 1)) / 604800000);
+  const hours = allTS.filter(t => t.kalenderwoche == kw).reduce((s,t) => s + (parseFloat(t.stunden_total)||0), 0);
+  document.getElementById('statPending').textContent = pending;
+  document.getElementById('statApproved').textContent = approved;
+  document.getElementById('statWorkers').textContent = workers;
+  document.getElementById('statHours').textContent = hours.toFixed(1) + 'h';
+  document.getElementById('pendingBadge').textContent = pending;
+}
+
+function renderPendingList() {
+  const pending = allTS.filter(t => t.status === 'pending').slice(0, 8);
+  const el = document.getElementById('pendingList');
+  if (!pending.length) { el.innerHTML = '<div class="empty"><div class="empty-icon">✓</div><div class="empty-text">Keine ausstehenden Rapporte</div></div>'; return; }
+  el.innerHTML = pending.map(t => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)">
+      <div>
+        <div style="font-size:13px;font-weight:500">${t.employee_name||t.phone}</div>
+        <div style="font-size:11px;color:var(--text2)">${fDate(t.datum)} · ${t.stunden_total||0}h · ${t.einsatzort||'—'}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-sm btn-approve" onclick="approve('${t.id}')">✓</button>
+        <button class="btn btn-sm btn-danger" onclick="reject('${t.id}')">✗</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderWorkerList() {
+  const active = allW.filter(w => w.status === 'active').slice(0, 8);
+  const el = document.getElementById('workerList');
+  if (!active.length) { el.innerHTML = '<div class="empty"><div class="empty-icon">◎</div><div class="empty-text">Keine Mitarbeiter</div></div>'; return; }
+  el.innerHTML = active.map(w => `
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:32px;height:32px;background:var(--surface3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px">${(w.first_name||'?')[0]}</div>
+        <div>
+          <div style="font-size:13px;font-weight:500">${w.first_name} ${w.last_name}</div>
+          <div style="font-size:11px;color:var(--text2)">${w.einsatzbetrieb||'—'} · ${w.language||'de'}</div>
+        </div>
+      </div>
+      <div class="badge badge-approved"><div class="badge-dot"></div>Aktiv</div>
+    </div>
+  `).join('');
+}
+
+function filterTS() {
+  const q = document.getElementById('tsSearch').value.toLowerCase();
+  const st = document.getElementById('tsStatus').value;
+  const kw = document.getElementById('tsWeek').value;
+  const filtered = allTS.filter(t => {
+    const matchQ = !q || (t.employee_name||'').toLowerCase().includes(q) || (t.einsatzort||'').toLowerCase().includes(q) || (t.phone||'').includes(q);
+    const matchSt = !st || t.status === st;
+    const matchKW = !kw || String(t.kalenderwoche) === kw;
+    return matchQ && matchSt && matchKW;
+  });
+  renderTSTable(filtered);
+}
+
+function renderTSTable(data) {
+  const rows = data || allTS;
+  const tbody = document.getElementById('tsTable');
+  if (!rows.length) { tbody.innerHTML = '<tr><td colspan="9"><div class="empty"><div class="empty-icon">◷</div><div class="empty-text">Keine Rapporte gefunden</div></div></td></tr>'; return; }
+  tbody.innerHTML = rows.map(t => `
+    <tr>
+      <td style="font-weight:500">${t.employee_name||t.phone||'—'}</td>
+      <td>${fDate(t.datum)}</td>
+      <td><span class="kw-chip">KW${t.kalenderwoche||'—'}</span></td>
+      <td style="font-family:'DM Mono',monospace">${parseFloat(t.stunden_total||0).toFixed(1)}h</td>
+      <td style="font-family:'DM Mono',monospace;color:var(--text2)">${parseFloat(t.overtime||0).toFixed(1)}h</td>
+      <td style="color:var(--text2)">${t.einsatzort||'—'}</td>
+      <td style="font-family:'DM Mono',monospace">${parseFloat(t.spesen_betrag||0) > 0 ? 'CHF ' + parseFloat(t.spesen_betrag).toFixed(0) : '—'}</td>
+      <td>${statusBadge(t.status)}</td>
+      <td>
+        ${t.status === 'pending' ? `
+          <button class="btn btn-sm btn-approve" onclick="approve('${t.id}')">✓ Genehmigen</button>
+          <button class="btn btn-sm btn-danger" style="margin-left:4px" onclick="reject('${t.id}')">✗</button>
+        ` : `<span style="font-size:12px;color:var(--text3)">${t.status === 'approved' ? 'Genehmigt' : 'Abgelehnt'}</span>`}
+      </td>
+    </tr>
+  `).join('');
+}
+
+function populateWeekFilter() {
+  const weeks = [...new Set(allTS.map(t => t.kalenderwoche).filter(Boolean))].sort((a,b) => b-a);
+  const sel = document.getElementById('tsWeek');
+  sel.innerHTML = '<option value="">Alle Wochen</option>' + weeks.map(w => `<option value="${w}">KW ${w}</option>`).join('');
+}
+
+function filterWorkers() {
+  const q = document.getElementById('wSearch').value.toLowerCase();
+  const st = document.getElementById('wStatus').value;
+  const filtered = allW.filter(w => {
+    const matchQ = !q || `${w.first_name} ${w.last_name}`.toLowerCase().includes(q) || (w.einsatzbetrieb||'').toLowerCase().includes(q);
+    const matchSt = !st || w.status === st;
+    return matchQ && matchSt;
+  });
+  renderWTable(filtered);
+}
+
+function renderWTable(data) {
+  const rows = data || allW;
+  const tbody = document.getElementById('wTable');
+  if (!rows.length) { tbody.innerHTML = '<tr><td colspan="7"><div class="empty"><div class="empty-icon">◎</div><div class="empty-text">Keine Mitarbeiter gefunden</div></div></td></tr>'; return; }
+  tbody.innerHTML = rows.map(w => `
+    <tr>
+      <td>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:30px;height:30px;background:var(--surface3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px">${(w.first_name||'?')[0]}</div>
+          <span style="font-weight:500">${w.first_name} ${w.last_name}</span>
+        </div>
+      </td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;color:var(--text2)">${(w.phone||'').replace('@s.whatsapp.net','')}</td>
+      <td>${(w.language||'de').toUpperCase()}</td>
+      <td style="color:var(--text2)">${w.einsatzbetrieb||'—'}</td>
+      <td style="color:var(--text2)">${w.employment_type||'—'}</td>
+      <td>${w.status === 'active' ? '<span class="badge badge-approved"><div class="badge-dot"></div>Aktiv</span>' : '<span class="badge badge-rejected"><div class="badge-dot"></div>Inaktiv</span>'}</td>
+      <td style="display:flex;gap:6px">
+        <button class="btn btn-sm btn-ghost" onclick="editWorker('${w.id}')">✎ Bearbeiten</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteWorker('${w.id}')">✗</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+async function approve(id) {
+  await api('update_timesheet', { id, status: 'approved' });
+  allTS = allTS.map(t => t.id === id ? {...t, status: 'approved'} : t);
+  renderStats(); renderPendingList(); filterTS(); toast('✓ Rapport genehmigt');
+}
+
+async function reject(id) {
+  await api('update_timesheet', { id, status: 'rejected' });
+  allTS = allTS.map(t => t.id === id ? {...t, status: 'rejected'} : t);
+  renderStats(); renderPendingList(); filterTS(); toast('✗ Rapport abgelehnt', 'err');
+}
+
+function openWorkerModal(id) {
+  editWId = null;
+  document.getElementById('workerModalTitle').textContent = 'Mitarbeiter hinzufügen';
+  ['wFirstName','wLastName','wPhone','wBetrieb','wSupervisor','wPersonal'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('wLang').value = 'de';
+  document.getElementById('wEmpType').value = 'Vollzeit';
+  document.getElementById('wSoll').value = '42.5';
+  document.getElementById('wStart').value = '';
+  document.getElementById('workerModal').classList.add('open');
+}
+
+function editWorker(id) {
+  const w = allW.find(x => x.id === id);
+  if (!w) return;
+  editWId = id;
+  document.getElementById('workerModalTitle').textContent = 'Mitarbeiter bearbeiten';
+  document.getElementById('wFirstName').value = w.first_name || '';
+  document.getElementById('wLastName').value = w.last_name || '';
+  document.getElementById('wPhone').value = w.phone || '';
+  document.getElementById('wLang').value = w.language || 'de';
+  document.getElementById('wEmpType').value = w.employment_type || 'Vollzeit';
+  document.getElementById('wBetrieb').value = w.einsatzbetrieb || '';
+  document.getElementById('wSupervisor').value = w.supervisor_phone || '';
+  document.getElementById('wPersonal').value = w.personalnummer || '';
+  document.getElementById('wSoll').value = w.sollstunden || 42.5;
+  document.getElementById('wStart').value = w.start_date ? w.start_date.split('T')[0] : '';
+  document.getElementById('workerModal').classList.add('open');
+}
+
+function closeWorkerModal() { document.getElementById('workerModal').classList.remove('open'); }
+
+async function saveWorker() {
+  const data = {
+    first_name: document.getElementById('wFirstName').value.trim(),
+    last_name: document.getElementById('wLastName').value.trim(),
+    phone: document.getElementById('wPhone').value.trim(),
+    language: document.getElementById('wLang').value,
+    employment_type: document.getElementById('wEmpType').value,
+    einsatzbetrieb: document.getElementById('wBetrieb').value.trim(),
+    supervisor_phone: document.getElementById('wSupervisor').value.trim(),
+    personalnummer: document.getElementById('wPersonal').value.trim(),
+    sollstunden: parseFloat(document.getElementById('wSoll').value) || 42.5,
+    start_date: document.getElementById('wStart').value || null,
+    status: 'active'
+  };
+  if (!data.first_name || !data.last_name || !data.phone) { toast('Bitte alle Pflichtfelder ausfüllen', 'err'); return; }
+  if (editWId) {
+    await api('update_worker', { ...data, id: editWId });
+    allW = allW.map(w => w.id === editWId ? {...w, ...data} : w);
+    toast('✓ Mitarbeiter aktualisiert');
+  } else {
+    await api('save_worker', data);
+    toast('✓ Mitarbeiter hinzugefügt');
+    await loadAll();
+  }
+  closeWorkerModal(); renderWTable();
+}
+
+async function deleteWorker(id) {
+  if (!confirm('Mitarbeiter wirklich löschen?')) return;
+  await api('delete_worker', { id });
+  allW = allW.filter(w => w.id !== id);
+  renderStats(); renderWorkerList(); renderWTable();
+  toast('✓ Mitarbeiter gelöscht');
+}
+
+function renderAnalytics() {
+  const totalH = allTS.reduce((s,t) => s + (parseFloat(t.stunden_total)||0), 0);
+  const approved = allTS.filter(t => t.status === 'approved').length;
+  const days = allTS.length;
+  document.getElementById('anTotalH').textContent = totalH.toFixed(1) + 'h';
+  document.getElementById('anApproved').textContent = approved;
+  document.getElementById('anAvg').textContent = days ? (totalH/days).toFixed(1) + 'h' : '—';
+
+  // By worker
+  const byWorker = {};
+  allTS.forEach(t => { const k = t.employee_name||t.phone||'?'; byWorker[k] = (byWorker[k]||0) + (parseFloat(t.stunden_total)||0); });
+  const workersSorted = Object.entries(byWorker).sort((a,b) => b[1]-a[1]).slice(0,8);
+  const maxW = workersSorted[0]?.[1] || 1;
+  document.getElementById('chartByWorker').innerHTML = '<div class="chart-bar-wrap">' +
+    workersSorted.map(([name, h]) => `
+      <div class="chart-bar-row">
+        <div class="chart-bar-label">${name.split(' ')[0]}</div>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:${(h/maxW*100).toFixed(0)}%"></div></div>
+        <div class="chart-bar-val">${h.toFixed(1)}h</div>
+      </div>`).join('') + '</div>';
+
+  // By week
+  const byWeek = {};
+  allTS.forEach(t => { if(t.kalenderwoche){ const k = 'KW'+t.kalenderwoche; byWeek[k] = (byWeek[k]||0) + (parseFloat(t.stunden_total)||0); } });
+  const weeksSorted = Object.entries(byWeek).sort((a,b) => a[0].localeCompare(b[0])).slice(-8);
+  const maxKW = weeksSorted[0] ? Math.max(...weeksSorted.map(x=>x[1])) : 1;
+  document.getElementById('chartByWeek').innerHTML = '<div class="chart-bar-wrap">' +
+    weeksSorted.map(([kw, h]) => `
+      <div class="chart-bar-row">
+        <div class="chart-bar-label">${kw}</div>
+        <div class="chart-bar-track"><div class="chart-bar-fill" style="width:${(h/maxKW*100).toFixed(0)}%;background:var(--accent2)"></div></div>
+        <div class="chart-bar-val">${h.toFixed(1)}h</div>
+      </div>`).join('') + '</div>';
+}
+
+function loadSettings() {
+  if (!CU) return;
+  document.getElementById('setAgency').value = CU.agency_name || '';
+  document.getElementById('setWA').value = CU.whatsapp_number || '';
+  document.getElementById('setLogo').value = CU.logo_url || '';
+  const planNames = { enterprise: 'Enterprise ⭐', professional: 'Professional', basic: 'Basic' };
+  document.getElementById('planName').textContent = planNames[CU.plan] || CU.plan;
+  document.getElementById('planSeats').textContent = CU.seat_limit + ' Mitarbeiter-Lizenzen';
+  const used = allW.filter(w => w.status === 'active').length;
+  document.getElementById('seatUsed').textContent = used + ' verwendet';
+  document.getElementById('seatLimit').textContent = CU.seat_limit + ' Lizenzen';
+  document.getElementById('seatFill').style.width = Math.min(100, used/CU.seat_limit*100) + '%';
+}
+
+async function saveSettings() {
+  const data = {
+    agency_name: document.getElementById('setAgency').value,
+    whatsapp_number: document.getElementById('setWA').value,
+    logo_url: document.getElementById('setLogo').value,
+    id: CU.id
+  };
+  await api('update_client', data);
+  CU = { ...CU, ...data };
+  document.getElementById('userName').textContent = CU.agency_name;
+  toast('✓ Einstellungen gespeichert');
+}
+
+function exportCSV() {
+  const rows = [['Name','Datum','KW','Stunden','Überstunden','Ort','Spesen','Kategorie','Status','Erstellt']];
+  allTS.forEach(t => rows.push([
+    t.employee_name||t.phone||'', fDate(t.datum), t.kalenderwoche||'',
+    t.stunden_total||0, t.overtime||0, t.einsatzort||'',
+    t.spesen_betrag||0, t.spesen_kategorie||'', t.status||'',
+    t.created_at ? new Date(t.created_at).toLocaleDateString('de-CH') : ''
+  ]));
+  const csv = rows.map(r => r.map(x => '"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURIComponent(csv);
+  a.download = 'rappido_rapporte_' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click();
+  toast('✓ CSV exportiert');
+}
+
+function fDate(d) {
+  if (!d) return '—';
+  return new Date(d).toLocaleDateString('de-CH', { day:'2-digit', month:'2-digit', year:'numeric' });
+}
+
+function statusBadge(s) {
+  if (s === 'approved') return '<span class="badge badge-approved"><div class="badge-dot"></div>Genehmigt</span>';
+  if (s === 'rejected') return '<span class="badge badge-rejected"><div class="badge-dot"></div>Abgelehnt</span>';
+  return '<span class="badge badge-pending"><div class="badge-dot"></div>Ausstehend</span>';
+}
+</script>
+</body>
+</html>
