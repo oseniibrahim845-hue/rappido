@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+author-leads/backups/*.xlsx
+author-leads/logs/*.jsonl
