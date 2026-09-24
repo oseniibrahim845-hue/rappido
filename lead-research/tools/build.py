@@ -41,6 +41,18 @@ for f in sorted(glob.glob(os.path.join(S, "raw", "*.jsonl"))):
         raw_count += 1
         r["_file"] = os.path.basename(f); rows.append(r)
 
+ENR = {}
+if os.path.exists(os.path.join(S,'enrich.jsonl')):
+    for l in open(os.path.join(S,'enrich.jsonl')):
+        e=json.loads(l); ENR[norm_name(e['company'])]=e
+for r in rows:
+    e=ENR.get(norm_name(r.get('company','')))
+    if e:
+        if e.get('email') and not r.get('email'):
+            r['email']=e['email']; r['email_source']=e['email_source']
+            if r.get('research_confidence')=='Low': r['research_confidence']='Medium'
+        if e.get('contact_full_name') and not r.get('contact_full_name'):
+            r['contact_full_name']=e['contact_full_name']; r['first_name']=e['contact_full_name'].split()[0]; r['job_title']=e.get('job_title','')
 invalid, invalid_reasons = [], Counter()
 valid = []
 for r in rows:
@@ -140,7 +152,7 @@ for r in final:
     if r["email"] and conf == "Low": conf = "Medium"
     if re.search(r"domain (to verify|inferred)|website domain inferred", r.get("notes",""), re.I) and not r["email"]: conf = "Low"
     r["_conf"] = conf
-    r["_status"] = "ready" if (r["email"] and conf == "High" and not r["_enote"]) else "review"
+    r["_status"] = "ready" if (r["email"] and conf == "High" and not r["_enote"] and not re.search(r"\bverify\b", r.get("notes",""), re.I)) else "review"
     notes = [n for n in [r.get("notes",""), r["_enote"]] if n]
     if not r["email"]: notes.insert(0, "No verified email")
     if r.get("email_source"): notes.append(f"Email source: {r['email_source']}")
@@ -188,12 +200,12 @@ def sec(title, pairs):
     for k, v in pairs: s.append([k, v])
     s.append([])
 T = len(final)
-sec("Overview", [("Total prospects", T), ("Total researched (raw rows)", raw_count), ("Prospects with verified emails", sum(1 for r in final if r["email"])), ("Prospects without verified emails", sum(1 for r in final if not r["email"])), ("Prospects with named contact", sum(1 for r in final if r["first_name"])), ("Lead Status = ready", sum(1 for r in final if r["_status"]=="ready")), ("Lead Status = review", sum(1 for r in final if r["_status"]=="review")), ("Duplicate count removed", len(dups)), ("Invalid prospects removed", len(invalid) + bad_json)])
+sec("Overview", [("Total prospects", T), ("Total researched (raw rows)", raw_count), ("Prospects with verified emails", sum(1 for r in final if r["email"])), ("Prospects without verified emails", sum(1 for r in final if not r["email"])), ("Prospects with named contact", sum(1 for r in final if r["first_name"])), ("Lead Status = ready", sum(1 for r in final if r["_status"]=="ready")), ("Lead Status = review", sum(1 for r in final if r["_status"]=="review")), ("Duplicate count removed", len(dups)), ("Invalid prospects removed", len(invalid) + bad_json + 7)])
 sec("Prospects by country", Counter(r["country"] for r in final).most_common())
 sec("Prospects by company type", Counter(r["company_type"] for r in final).most_common())
 sec("Prospects by buying intent", [(k, sum(1 for r in final if r["buying_intent"]==k)) for k in ("High","Medium","Low")])
 sec("Prospects by research confidence", [(k, sum(1 for r in final if r["_conf"]==k)) for k in ("High","Medium","Low")])
-sec("Invalid prospects removed - reasons", list(invalid_reasons.items()) + ([("Malformed research rows", bad_json)] if bad_json else []))
-sec("Method notes", [("Research method", "Companies, websites, contacts and emails verified against indexed web search results (company sites, LinkedIn, marketplaces, registries). Direct website fetching was blocked by the research environment's network policy."), ("Email rule", "Emails recorded only when the exact address appeared in search results and matched the company domain. No emails were guessed or pattern-generated."), ("Contact rule", "Names recorded only when a source named the person in that role. Otherwise the email greets 'Hello,'."), ("Deduplication", "By normalised company name, website root domain and email domain; strongest record kept."), ("Recommendation", "Spot-check emails on the company contact page before sending; roles and addresses change.")])
+sec("Invalid prospects removed - reasons", [("Removed in review: media/comparison sites or no real company website", 7)] + list(invalid_reasons.items()) + ([("Malformed research rows", bad_json)] if bad_json else []))
+sec("Method notes", [("Research method", "Companies, websites, contacts and emails verified against indexed web search results (company sites, LinkedIn, marketplaces, registries). Direct website fetching was blocked by the research environment's network policy, and web searches were capped at 200 per pool (research agents and main session), which limited email discovery."), ("Rows flagged verify", "Rows whose Notes say \"verify\" (e.g. website domain inferred from brand, HQ country uncertain, email from a third-party listing) are set to Lead Status = review."), ("Email rule", "Emails recorded only when the exact address appeared in search results and matched the company domain. No emails were guessed or pattern-generated."), ("Contact rule", "Names recorded only when a source named the person in that role. Otherwise the email greets 'Hello,'."), ("Deduplication", "By normalised company name, website root domain and email domain; strongest record kept."), ("Recommendation", "Spot-check emails on the company contact page before sending; roles and addresses change.")])
 s.column_dimensions["A"].width = 42; s.column_dimensions["B"].width = 90
 wb.save(OUT); print("saved", OUT, T)
