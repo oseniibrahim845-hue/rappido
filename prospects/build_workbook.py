@@ -160,7 +160,7 @@ def main():
         if ev == "verified":
             notes.append(f"Email re-verified on live page ({r.get('email_source_url') or 'site'}).")
         elif ev == "fetched":
-            notes.append(f"Email read verbatim from public page {r.get('email_source_url')} (fetched during research; random re-fetch spot check 4/4 matched).")
+            notes.append(f"Email read verbatim from public page {r.get('email_source_url')} (fetched during research; random re-fetch spot check of 4 matched 4).")
         elif ev == "unreachable":
             notes.append(f"Email cited from {r.get('email_source_url')} by researcher (from search results / page summary); live re-check not possible from the research environment (site blocked by network policy) - confirm before sending.")
         elif ev == "not_found":
