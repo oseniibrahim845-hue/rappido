@@ -1,0 +1,19 @@
+{
+  "report": {
+    "Total prospects": 515,
+    "Prospects with verified/public emails": 14,
+    "  - emails from original research": 13,
+    "  - emails from enrichment pass": 1,
+    "Prospects without emails": 501,
+    "Duplicate emails removed": 0,
+    "Invalid emails removed": 1
+  },
+  "invalid": [
+    [
+      "Passion Digital",
+      "enquiries@passiondigital.co.uk",
+      "domain does not match company website"
+    ]
+  ],
+  "duplicates": []
+}
