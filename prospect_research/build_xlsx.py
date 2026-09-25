@@ -49,44 +49,92 @@ def clean(s):
     return re.sub(r"\s+", " ", str(s or "")).strip()
 
 
-def sentence(s):
-    s = clean(s).rstrip(".")
-    return s[0].lower() + s[1:] if s else s
+GROUPS = [
+    # (keywords, subject topic, common need, default offer)
+    (("crypto exchange", "crypto p2p", "crypto broker", "crypto app", "otc"),
+     "crypto trading dashboards & automation",
+     "crypto exchanges usually need real-time visibility into order flow, liquidity, user activity and risk across many markets",
+     "build real-time admin dashboards for order flow, liquidity and risk, plus trading bots and exchange API integrations"),
+    (("crypto",  "defi", "on-chain"),
+     "crypto dashboards, bots & API integrations",
+     "crypto products depend on reliable exchange/on-chain integrations and clear dashboards for users and internal teams",
+     "build exchange and on-chain API integrations, trading bots and portfolio/analytics dashboards"),
+    (("prop",),
+     "trader monitoring dashboards & automation",
+     "prop firms need to track trader accounts, drawdown rules and payouts in real time without manual checks",
+     "build real-time trader and risk monitoring dashboards, rule-breach alerts and payout/reporting automation"),
+    (("crm", "broker technology", "bridge", "liquidity", "mt4", "ib/affiliate", "payments", "psp",
+      "trading platform vendor", "trading vps"),
+     "broker dashboards & MT4/MT5 integrations",
+     "broker technology stacks need tight integrations between trading servers, CRM, back office and payments",
+     "build MT4/MT5/cTrader integrations, CRM and back-office dashboards, and reporting automation"),
+    (("broker", "investing app"),
+     "broker dashboards & trading integrations",
+     "brokers need clear real-time views of client exposure, trading activity, IB performance and operations",
+     "build risk and exposure dashboards, CRM/back-office reporting and trading platform API integrations"),
+    (("portfolio", "wealth", "robo", "family office", "investment reporting"),
+     "portfolio & reporting dashboards",
+     "portfolio and wealth platforms live on accurate data aggregation, performance analytics and client reporting",
+     "build portfolio analytics dashboards, custodian/broker API integrations and automated client reporting"),
+    (("oms", "ems", "risk", "surveillance", "regtech", "post-trade", "reconciliation", "fix", "trading infrastructure",
+      "trading technology", "low-latency"),
+     "risk monitoring & reporting dashboards",
+     "trading-technology teams often need extra hands for client-specific dashboards, connectors and reporting",
+     "build risk monitoring and reporting dashboards, FIX/REST connectors and client-specific integrations"),
+    (("data", "api", "open banking", "infrastructure", "brokerage-as-a-service", "financial reporting", "fintech"),
+     "API integrations & dashboards",
+     "API-first fintech products grow faster when customers get working reference apps, dashboards and integrations",
+     "build example dashboards, trading bots and client integrations on top of your APIs, plus reporting automation"),
+    (("",),
+     "trading dashboards & automation",
+     "trading tools benefit from strong analytics, automation and integrations with brokers and exchanges",
+     "build trading dashboards, strategy automation/bots and broker or exchange API integrations"),
+]
+VERBS = ("build", "develop", "create", "deliver", "provide", "design", "automate", "integrate")
+
+
+def group(r):
+    ind = r["industry"].lower()
+    for g in GROUPS:
+        if any(k in ind for k in g[0]):
+            return g
 
 
 def make_subject(r):
-    ind = r["industry"].lower()
-    if "crypto" in ind:
-        topic = "crypto trading dashboards & automation"
-    elif "broker" in ind or "crm" in ind:
-        topic = "broker dashboards & trading integrations"
-    elif "portfolio" in ind or "wealth" in ind:
-        topic = "portfolio & reporting dashboards"
-    elif "risk" in ind or "oms" in ind or "ems" in ind or "regtech" in ind:
-        topic = "risk monitoring & reporting dashboards"
-    elif "prop" in ind:
-        topic = "trader monitoring dashboards & automation"
-    elif "data" in ind or "api" in ind or "infrastructure" in ind:
-        topic = "API integrations & dashboards"
-    else:
-        topic = "trading dashboards & automation"
-    return f"{r['company']}: {topic}"
+    return f"{r['company']}: {group(r)[1]}"
 
 
 def make_body(r):
+    g = group(r)
     greet = f"Hi {r['name'].split()[0]}," if r["name"] else f"Hi {r['company']} team,"
+    opp = clean(r["opportunity"]).rstrip(".")
+    first = opp.split()[0].lower() if opp else ""
+    if first in VERBS and not re.search(r"subcontract|lower priority|low priority|pitch|target ", opp, re.I):
+        offer = opp[0].lower() + opp[1:]
+    else:
+        offer = g[3]
     return (
         f"{greet}\n\n"
-        f"I came across {r['company']} while researching {r['industry'].lower()} companies "
-        f"and noticed that {sentence(r['evidence'])}.\n\n"
-        f"Teams in this space often tell me that {sentence(r['problem'])}. "
-        f"I build custom trading bots, real-time trading dashboards, risk and portfolio monitoring, "
-        f"reporting automation and broker/exchange API integrations, and I think I could help: "
-        f"{sentence(r['opportunity'])}.\n\n"
-        f"If useful, I can put together a short scoped proposal or a quick prototype so you can see "
-        f"the approach before committing to anything. Would you be open to a 15-minute call next week?\n\n"
+        f"I came across {r['company']} while researching {r['industry']} companies, and I'm reaching out "
+        f"because I build software for exactly this space. In my experience, {g[2]}.\n\n"
+        f"I'm a trading bot developer specialising in real-time trading dashboards, risk and portfolio "
+        f"monitoring, order management and CRM dashboards, reporting automation and broker/exchange API "
+        f"integrations. For {r['company']}, I could {offer}.\n\n"
+        f"If it's useful, I can put together a short scoped proposal or a quick prototype so you can see the "
+        f"approach before committing to anything. Would you be open to a 15-minute call next week?\n\n"
         f"Best regards,\n{SENDER}"
     )
+
+
+COUNTRY_FIX = {"usa": "United States", "us": "United States", "uk": "United Kingdom", "uae": "United Arab Emirates"}
+
+
+def norm_country(c):
+    c = clean(c)
+    if not c:
+        return "Unknown"
+    c = re.sub(r"\s*\(.*\)$", "", c)
+    return COUNTRY_FIX.get(c.lower(), c)
 
 
 def main():
@@ -118,7 +166,7 @@ def main():
         if not d["website"].startswith("http"):
             d["website"] = "https://" + d["website"]
         d["domain"] = site_domain(d["website"])
-        d["country"] = d["country"] or "Unknown"
+        d["country"] = norm_country(d["country"])
         d["industry"] = d["industry"] or "Fintech"
         kept.append(d)
 
