@@ -124,7 +124,9 @@ def main():
         e = enrich.get(r["Lead ID"])
         if not email and e:
             email, source = e["email"].strip().lower().rstrip("."), e.get("source_url", "").strip()
-            how = "Found in public search index during enrichment"
+            on_site = root(domain(source)) in (root(domain(r["Website"])), root(email.split("@")[-1]))
+            how = ("Found in public search index during enrichment (company page)" if on_site else
+                   "Found in public search index during enrichment (third-party source, verify before sending)")
             if not name and e.get("contact_name"):
                 name = e["contact_name"].strip()
                 r["Job Title"] = e.get("job_title", "")
@@ -153,6 +155,8 @@ def main():
             seen.add(email)
             stats["from_enrichment" if e and how.startswith("Found") else "from_original"] += 1
             notes.append(f"Email status: {how}")
+            if e and how.startswith("Found") and e.get("note"):
+                notes.append(f"Email note: {e['note']}")
         else:
             source = ""
         subject, body = build_email(r, name)

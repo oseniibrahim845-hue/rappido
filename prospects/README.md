@@ -111,3 +111,19 @@ With both in place, the next pass would:
 
 - **Top up the weak categories:** B2B SaaS, Ecommerce Brands, Sales Teams, SEO/PPC, Trading/Fintech, Technology/Ops, Marketing and Sales Outsourcing, plus more US leads.
 - **Enrich the existing 515 leads:** named decision-makers and published emails, especially the 295 Medium leads, which mostly lack only a contact route.
+
+---
+
+## Apps Script sender file (`Dashboard_Outreach_Sender.xlsx`)
+
+This is built by `python3 raw/export_outreach.py` from the prospect CSV plus the email-enrichment results in `raw/enrichment/`. Both sheets have exactly these headers in row 1:
+`Name, Company, Website, Email, Subject, Body, Status, Country, Industry, Source, Notes`.
+
+- **Send Ready** (first sheet): 110 prospects that have a public business email, ready for the Apps Script.
+- **Needs Email**: 405 prospects with no verified email yet. The Email cell is blank, and each row already has its Subject and Body. They sit on a separate sheet so the sender does not try to email blank addresses.
+- **Status** is blank on every row.
+- **Subject and Body** are complete, personalised emails with no placeholders, signed by Oseni Ibrahim, Trading Bot Developer, ibrahimoseni063@gmail.com.
+- **Source** is the URL where the email was seen. For rows without an email, it is the evidence URL.
+- **Notes** has the lead ID, category, quality, evidence URL and email status. 17 emails come only from a third-party profile and are marked "verify before sending".
+- **Email enrichment** used one targeted web search per lead for 184 High/Medium leads, and found 97 new emails. Only literal addresses from search results were accepted: no pattern guessing, no masked addresses, and no consumer, no-reply, privacy, legal or careers inboxes. An email's domain must match the company website, unless the company's own page shows it as an alias.
+- **QC result:** 515 prospects, 110 with an email, 405 without, 0 duplicate emails removed, 1 invalid email removed (Passion Digital: the domain did not match the site and the source page was unconfirmed).

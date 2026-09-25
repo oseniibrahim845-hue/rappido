@@ -1,10 +1,10 @@
 {
   "report": {
     "Total prospects": 515,
-    "Prospects with verified/public emails": 14,
+    "Prospects with verified/public emails": 110,
     "  - emails from original research": 13,
-    "  - emails from enrichment pass": 1,
-    "Prospects without emails": 501,
+    "  - emails from enrichment pass": 97,
+    "Prospects without emails": 405,
     "Duplicate emails removed": 0,
     "Invalid emails removed": 1
   },
