@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trading Rebalance Demo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Trading Rebalance Demo</h1>
+      <p class="sub">Allocation → rebalance → order review → mock execution → status</p>
+    </div>
+    <div class="header-right">
+      <span id="health" class="pill">checking…</span>
+      <button id="reset-btn" class="secondary">Reset demo</button>
+    </div>
+  </header>
+
+  <div class="notice">
+    <strong>Simulated execution only.</strong> This is a technical proof of concept using a mock
+    exchange. It is not connected to live trading accounts, uses no API keys and moves no real funds.
+  </div>
+
+  <main>
+    <section class="grid-2">
+      <div class="card">
+        <h2>Current Portfolio <span id="pv" class="muted"></span></h2>
+        <table>
+          <thead><tr><th>Asset</th><th class="num">Quantity</th><th class="num">Price</th><th class="num">Value</th><th class="num">Weight</th></tr></thead>
+          <tbody id="current-body"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Target Portfolio</h2>
+        <table>
+          <thead><tr><th>Asset</th><th class="num">Target</th><th></th></tr></thead>
+          <tbody id="target-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Proposed Orders <span id="plan-id" class="muted"></span></h2>
+        <button id="calc-btn">Calculate Rebalance</button>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Asset</th><th class="num">Current %</th><th class="num">Target %</th><th class="num">Difference</th>
+              <th>Action</th><th class="num">Quantity</th><th class="num">Estimated Value</th></tr>
+        </thead>
+        <tbody id="plan-body"><tr><td colspan="7" class="muted">Click “Calculate Rebalance” to generate orders.</td></tr></tbody>
+      </table>
+      <div id="plan-warnings"></div>
+      <div class="actions">
+        <label>Simulated rejection:
+          <select id="reject-select"><option value="">None</option></select>
+        </label>
+        <button id="approve-btn" disabled>Approve Demo Orders</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Execution Status</h2>
+      <div id="exec-summary" class="summary muted">No orders submitted yet.</div>
+      <table>
+        <thead>
+          <tr><th>Order ID</th><th>Exchange ID</th><th>Symbol</th><th>Side</th><th class="num">Quantity</th>
+              <th class="num">Fill Price</th><th class="num">Fee</th><th>Status</th><th>Detail</th></tr>
+        </thead>
+        <tbody id="exec-body"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Order History</h2>
+      <table>
+        <thead>
+          <tr><th>Time (UTC)</th><th>Plan</th><th>Order ID</th><th>Symbol</th><th>Side</th>
+              <th class="num">Quantity</th><th class="num">Est. Value</th><th>Status</th></tr>
+        </thead>
+        <tbody id="history-body"><tr><td colspan="8" class="muted">No orders yet.</td></tr></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>Technical proof of concept · MockExchange adapter · FastAPI + vanilla JS</footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
