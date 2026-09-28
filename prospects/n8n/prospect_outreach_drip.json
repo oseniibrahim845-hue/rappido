@@ -1,0 +1,356 @@
+{
+  "name": "Prospect Outreach - 20 emails every 4 hours",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Prospect outreach drip\nSends **1 email every 12 minutes, around the clock = 20 emails every 4 hours** (120/day).\n\nTo change the pace, edit the trigger's cron: `0 */12 * * * *`. Limit hours with e.g. `0 */12 8-19 * * *`.\n\n1. Upload `Trading_Bot_and_Business_Dashboard_Prospects.xlsx` to Google Drive and open it as a Google Sheet (tab name: `Prospects`).\n2. Paste the sheet URL into **Read Prospects**, **Mark as Sent** and **Mark as Failed**.\n3. Connect your Google Sheets + Gmail credentials.\n4. Set the workflow timezone (Settings) to yours.\n5. Replace YOUR NAME / yourwebsite.com in **Send Email (Gmail)**.\n6. Test with **Execute workflow**, then Publish / Activate.\n\nOnly rows with an **Email** and an empty **Status** are sent. Each sent row gets `Status = Sent <date>` so nobody is emailed twice. Failed sends get `Failed <date>`.",
+        "height": 340,
+        "width": 420,
+        "color": 6
+      },
+      "id": "f82ef80b-4a46-48ea-b588-92306557f991",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        -120
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 */12 * * * *"
+            }
+          ]
+        }
+      },
+      "id": "8fa37ecf-411d-4d2f-880a-4d4097a021ed",
+      "name": "Every 12 min (20 per 4 hours)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "PASTE_YOUR_GOOGLE_SHEET_URL_HERE",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Prospects",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "id": "97e3ffc8-64d4-4e01-b877-5c7c697e4dcd",
+      "name": "Read Prospects",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        220,
+        300
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "e26bd5df-9f01-44a5-8d2c-942bbac2dc40",
+              "leftValue": "={{ String($json.Email ?? '').trim() }}",
+              "rightValue": "@",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "400ab42e-ea08-4d2b-a728-ab2d5dd92b6b",
+              "leftValue": "={{ String($json.Status ?? '').trim() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "id": "46739018-9f5d-4ab1-b0e4-e4587747dc98",
+      "name": "Has Email & Not Yet Sent",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "maxItems": 1
+      },
+      "id": "b97eea74-915e-4a20-acec-01ada5a66d69",
+      "name": "Pick Next Prospect",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ String($json.Email).trim() }}",
+        "subject": "=Quick idea for {{ ($json['Company'] || $json['Company Name'] || $json['company'] || 'your team') }}",
+        "emailType": "text",
+        "message": "=Hi {{ (String($json['Contact Name'] || $json['Name'] || $json['First Name'] || $json['contact_name'] || '').trim().split(' ')[0] || 'there') }},\n\nI came across {{ ($json['Company'] || $json['Company Name'] || $json['company'] || 'your team') }} and I think a custom dashboard could save your team real time on reporting.\n{{ ($json['Dashboard Opportunity'] || $json['Opportunity'] || $json['dashboard_opportunity'] || $json['Pain Point'] || $json['pain_point'] || '') ? '\\nWhat I have in mind: ' + ($json['Dashboard Opportunity'] || $json['Opportunity'] || $json['dashboard_opportunity'] || $json['Pain Point'] || $json['pain_point'] || '') + '\\n' : '' }}\nI build custom business dashboards and internal tools (sales, operations, trading and finance reporting) that pull your data together in one place, updated automatically. I can put together a short mock-up for {{ ($json['Company'] || $json['Company Name'] || $json['company'] || 'your team') }} before we talk. Would a 15-minute call next week be useful?\n\nBest,\nYOUR NAME\nCustom dashboards & internal tools\nyourwebsite.com\n\nP.S. If this isn't relevant, just reply \"no thanks\" and I won't email you again.",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "YOUR NAME"
+        }
+      },
+      "id": "890412ed-2e42-4104-99e9-a18e51d3e54c",
+      "name": "Send Email (Gmail)",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        880,
+        300
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      },
+      "webhookId": "6d473702-0701-45b2-8a22-c8a87bcfd114",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "PASTE_YOUR_GOOGLE_SHEET_URL_HERE",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Prospects",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Pick Next Prospect').item.json.Email }}",
+            "Status": "=Sent {{ $now.format('yyyy-MM-dd HH:mm') }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8d0fa23c-97cb-4568-9be6-750f70fbb63a",
+      "name": "Mark as Sent",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1100,
+        200
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "PASTE_YOUR_GOOGLE_SHEET_URL_HERE",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Prospects",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Pick Next Prospect').item.json.Email }}",
+            "Status": "=Failed {{ $now.format('yyyy-MM-dd HH:mm') }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a39050f9-41c5-4180-bad7-31217a5c5a25",
+      "name": "Mark as Failed",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1100,
+        420
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    }
+  ],
+  "connections": {
+    "Every 12 min (20 per 4 hours)": {
+      "main": [
+        [
+          {
+            "node": "Read Prospects",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Prospects": {
+      "main": [
+        [
+          {
+            "node": "Has Email & Not Yet Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Email & Not Yet Sent": {
+      "main": [
+        [
+          {
+            "node": "Pick Next Prospect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick Next Prospect": {
+      "main": [
+        [
+          {
+            "node": "Send Email (Gmail)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email (Gmail)": {
+      "main": [
+        [
+          {
+            "node": "Mark as Sent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mark as Failed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
