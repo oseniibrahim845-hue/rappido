@@ -7,13 +7,13 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "0 */12 * * * *"
+              "expression": "0 0 */4 * * *"
             }
           ]
         }
       },
-      "id": "4af76d03-cdfc-47bf-bfd1-2abe14cce2f3",
-      "name": "Every 12 min, 24/7 (20 per 4h)",
+      "id": "0225dbcf-c2ef-4640-b5e6-1102f20e195a",
+      "name": "Every 4 hours",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
@@ -36,7 +36,7 @@
         },
         "options": {}
       },
-      "id": "59f1b4be-800e-48b7-91b7-9c2c2e8a61dc",
+      "id": "ee0f4252-cbde-48be-9acc-b126dc52eb3b",
       "name": "Read prospects sheet",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
@@ -50,19 +50,45 @@
           "name": "Google Sheets account"
         }
       },
-      "alwaysOutputData": false
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
-        "jsCode": "// n8n Code node: \"Pick next prospect + write email\"\n// Mode: Run Once for All Items. Input: every row from the \"Read prospects sheet\" node.\n// Output: exactly one item (the next prospect + their email), or nothing if no one is left.\n\n// ---- Settings ----\nconst SENDER_NAME = 'YOUR NAME';\nconst SENDER_SIGNATURE = 'YOUR NAME\\nCustom dashboards & internal tools\\nyourwebsite.com';\nconst MAX_PER_DAY = 120;            // safety cap; 120 = no extra limit at 20 emails every 4 hours\nconst SENDABLE_STATUSES = ['', 'pending', 'todo', 'new', 'queued']; // anything else is skipped\n\n// ---- Helpers ----\n// Makes column names forgiving: \"Email\", \" email \", \"E-mail\" and \"Contact Name\" all work.\nconst normKey = k => String(k).trim().toLowerCase().replace(/[\\s\\-]+/g, '_').replace('e_mail', 'email');\nconst normRow = r => Object.fromEntries(Object.entries(r).map(([k, v]) => [normKey(k), typeof v === 'string' ? v.trim() : v]));\nconst isEmail = e => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(e);\n\nconst rows = $input.all().map(i => normRow(i.json));\n\n// ---- Daily cap ----\nconst today = $now.toISODate();\nconst sentToday = rows.filter(r => String(r.sent_at || '').startsWith(today)).length;\nif (sentToday >= MAX_PER_DAY) {\n  console.log(`Daily cap reached (${sentToday}/${MAX_PER_DAY}). Nothing sent.`);\n  return [];\n}\n\n// ---- Emails already contacted (so duplicates in the sheet are never emailed twice) ----\nconst contacted = new Set(\n  rows.filter(r => !SENDABLE_STATUSES.includes(String(r.status || '').toLowerCase()))\n      .map(r => String(r.email || '').toLowerCase())\n);\n\n// ---- Find the next prospect: highest intent score first, then top of the sheet ----\nconst candidates = rows\n  .filter(r => isEmail(String(r.email || '')))\n  .filter(r => SENDABLE_STATUSES.includes(String(r.status || '').toLowerCase()))\n  .filter(r => !contacted.has(String(r.email).toLowerCase()))\n  .sort((a, b) =>\n    (parseFloat(b.intent_score) || 0) - (parseFloat(a.intent_score) || 0) ||\n    (Number(a.row_number) || 0) - (Number(b.row_number) || 0));\n\nif (!candidates.length) {\n  const withEmail = rows.filter(r => isEmail(String(r.email || ''))).length;\n  console.log(`No prospect to send. Rows: ${rows.length}, with a valid email: ${withEmail}, already contacted: ${contacted.size}.`);\n  return [];\n}\n\nconst next = candidates[0];\n\n// ---- Write the email ----\nconst first = String(next.contact_name || '').split(/\\s+/)[0] || 'there';\nconst hook = next.evidence_type === 'public_request'\n  ? `I saw ${next.company}'s post looking for automation and developer help.`\n  : `I noticed ${next.company} is hiring for data, reporting and internal-tools work.`;\nconst angle = next.outreach_angle ? ` ${next.outreach_angle}` : '';\nconst opportunity = String(next.dashboard_opportunity || '').replace(/\\.$/, '');\nconst stack = next.recommended_stack ? ` (${next.recommended_stack})` : '';\n\nconst body = `Hi ${first},\n\n${hook}${angle}\n${opportunity ? `\\nWhat I have in mind for you: ${opportunity}.\\n` : ''}\nI build custom dashboards and internal tools${stack} and can put together a short mock-up for ${next.company} before we talk. Would a 15-minute call next week be useful?\n\nBest,\n${SENDER_SIGNATURE}\n\nP.S. If this isn't relevant, just reply \"no thanks\" and I won't email you again.`;\n\nconsole.log(`Next prospect: ${next.company} <${next.email}> (score ${next.intent_score}). ${candidates.length - 1} left after this.`);\n\nreturn [{ json: {\n  row_email: next.email,          // used by \"Mark as sent\" / \"Mark as error\" to find the row\n  row_number: next.row_number,\n  company: next.company,\n  to: next.email,\n  subject: `Idea for ${next.company}'s reporting`,\n  body,\n  sender_name: SENDER_NAME,\n  remaining_after_this: candidates.length - 1,\n} }];\n"
+        "jsCode": "// n8n Code node: \"Pick next prospects + write emails\"\n// Mode: Run Once for All Items. Input: every row from the \"Read prospects sheet\" node.\n// Output: up to BATCH_SIZE items (the next prospects + their emails), best first.\n//         The \"Loop Over Items\" node then sends them one by one.\n\n// ---- Settings ----\nconst SENDER_NAME = 'YOUR NAME';\nconst SENDER_SIGNATURE = 'YOUR NAME\\nCustom dashboards & internal tools\\nyourwebsite.com';\nconst BATCH_SIZE = 20;              // emails per run (the workflow runs every 4 hours)\nconst MAX_PER_DAY = 120;            // safety cap; 120 = no extra limit at 20 emails every 4 hours\nconst SENDABLE_STATUSES = ['', 'pending', 'todo', 'new', 'queued']; // anything else is skipped\n\n// ---- Helpers ----\n// Makes column names forgiving: \"Email\", \" email \", \"E-mail\" and \"Contact Name\" all work.\nconst normKey = k => String(k).trim().toLowerCase().replace(/[\\s\\-]+/g, '_').replace('e_mail', 'email');\nconst normRow = r => Object.fromEntries(Object.entries(r).map(([k, v]) => [normKey(k), typeof v === 'string' ? v.trim() : v]));\nconst isEmail = e => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(e);\nconst statusOf = r => String(r.status || '').toLowerCase();\n\nconst rows = $input.all().map(i => normRow(i.json));\n\n// ---- Daily cap ----\nconst today = $now.toISODate();\nconst sentToday = rows.filter(r => String(r.sent_at || '').startsWith(today)).length;\nconst allowed = Math.min(BATCH_SIZE, MAX_PER_DAY - sentToday);\nif (allowed <= 0) {\n  console.log(`Daily cap reached (${sentToday}/${MAX_PER_DAY}). Nothing sent.`);\n  return [];\n}\n\n// ---- Emails already contacted (so duplicates in the sheet are never emailed twice) ----\nconst contacted = new Set(\n  rows.filter(r => !SENDABLE_STATUSES.includes(statusOf(r)))\n      .map(r => String(r.email || '').toLowerCase())\n);\n\n// ---- Next prospects: highest intent score first, then top of the sheet ----\nconst candidates = rows\n  .filter(r => isEmail(String(r.email || '')))\n  .filter(r => SENDABLE_STATUSES.includes(statusOf(r)))\n  .filter(r => !contacted.has(String(r.email).toLowerCase()))\n  .sort((a, b) =>\n    (parseFloat(b.intent_score) || 0) - (parseFloat(a.intent_score) || 0) ||\n    (Number(a.row_number) || 0) - (Number(b.row_number) || 0));\n\nconst seen = new Set();\nconst batch = [];\nfor (const r of candidates) {\n  const key = String(r.email).toLowerCase();\n  if (seen.has(key)) continue;       // same address twice in this batch\n  seen.add(key);\n  batch.push(r);\n  if (batch.length >= allowed) break;\n}\n\nif (!batch.length) {\n  const withEmail = rows.filter(r => isEmail(String(r.email || ''))).length;\n  console.log(`No prospect to send. Rows: ${rows.length}, with a valid email: ${withEmail}, already contacted: ${contacted.size}.`);\n  return [];\n}\n\n// ---- Write one email per prospect ----\nfunction buildEmail(p) {\n  const first = String(p.contact_name || '').split(/\\s+/)[0] || 'there';\n  const hook = p.evidence_type === 'public_request'\n    ? `I saw ${p.company}'s post looking for automation and developer help.`\n    : `I noticed ${p.company} is hiring for data, reporting and internal-tools work.`;\n  const angle = p.outreach_angle ? ` ${p.outreach_angle}` : '';\n  const opportunity = String(p.dashboard_opportunity || '').replace(/\\.$/, '');\n  const stack = p.recommended_stack ? ` (${p.recommended_stack})` : '';\n\n  const body = `Hi ${first},\n\n${hook}${angle}\n${opportunity ? `\\nWhat I have in mind for you: ${opportunity}.\\n` : ''}\nI build custom dashboards and internal tools${stack} and can put together a short mock-up for ${p.company} before we talk. Would a 15-minute call next week be useful?\n\nBest,\n${SENDER_SIGNATURE}\n\nP.S. If this isn't relevant, just reply \"no thanks\" and I won't email you again.`;\n\n  return {\n    row_email: p.email,             // used by \"Mark as sent\" / \"Mark as error\" to find the row\n    row_number: p.row_number,\n    company: p.company,\n    to: p.email,\n    subject: `Idea for ${p.company}'s reporting`,\n    body,\n    sender_name: SENDER_NAME,\n  };\n}\n\nconsole.log(`Sending ${batch.length} emails this run: ${batch.map(r => r.company).join(', ')}. ${candidates.length - batch.length} prospects left after this run.`);\n\nreturn batch.map(r => ({ json: buildEmail(r) }));\n"
       },
-      "id": "7118dfeb-e60e-4cb5-b305-0dbe9772aecb",
-      "name": "Pick next prospect + write email",
+      "id": "3443da1a-019e-4f63-a63f-1ee086000bca",
+      "name": "Pick next prospects + write emails",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
         440,
         300
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4b50b3f7-914c-42ef-857f-d35c0bde8a60",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4ba5f764-0751-4ad4-81a8-d3110cd5da29",
+      "name": "Batch finished",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        880,
+        120
       ]
     },
     {
@@ -76,13 +102,13 @@
           "senderName": "={{ $json.sender_name }}"
         }
       },
-      "id": "1ca8709d-7794-450f-9dfc-e3a5c8bf7d08",
+      "id": "634b66e7-c9f6-4a22-ad0a-09852e7d9c01",
       "name": "Send email (Gmail)",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        660,
-        300
+        880,
+        320
       ],
       "credentials": {
         "gmailOAuth2": {
@@ -90,7 +116,10 @@
           "name": "Gmail account"
         }
       },
-      "webhookId": "7fd7804b-d8cc-4fa9-b004-0baa7e4cd0f7",
+      "webhookId": "672523ab-3997-4354-abf6-e054c6f240bf",
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
       "onError": "continueErrorOutput"
     },
     {
@@ -109,7 +138,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "email": "={{ $('Pick next prospect + write email').item.json.row_email }}",
+            "email": "={{ $('Loop Over Items').item.json.row_email }}",
             "status": "sent",
             "sent_at": "={{ $now.toISO() }}"
           },
@@ -148,20 +177,24 @@
         },
         "options": {}
       },
-      "id": "ee87a6b5-4cd5-4f73-be11-8b4c1500664c",
+      "id": "989b4a29-e86a-4af9-817d-1af4352019a0",
       "name": "Mark as sent",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        880,
-        200
+        1100,
+        240
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "",
           "name": "Google Sheets account"
         }
-      }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -179,7 +212,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "email": "={{ $('Pick next prospect + write email').item.json.row_email }}",
+            "email": "={{ $('Loop Over Items').item.json.row_email }}",
             "status": "error",
             "sent_at": "={{ $now.toISO() }}"
           },
@@ -218,36 +251,84 @@
         },
         "options": {}
       },
-      "id": "c48c9637-bd5d-4467-bf8b-b544231d54ed",
+      "id": "db56b2d7-13dd-4923-9ecd-8c79359e33cd",
       "name": "Mark as error",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        880,
-        400
+        1100,
+        420
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "",
           "name": "Google Sheets account"
         }
-      }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "id": "821b4a55-f4e4-48f4-a609-d3a0f6844ae4",
+      "name": "Gap between emails (30s)",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1320,
+        320
+      ],
+      "webhookId": "49b9c11a-bec3-4944-82ce-4648cc2ebf86"
     }
   ],
   "connections": {
-    "Read prospects sheet": {
+    "Every 4 hours": {
       "main": [
         [
           {
-            "node": "Pick next prospect + write email",
+            "node": "Read prospects sheet",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Pick next prospect + write email": {
+    "Read prospects sheet": {
       "main": [
+        [
+          {
+            "node": "Pick next prospects + write emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick next prospects + write emails": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Batch finished",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "Send email (Gmail)",
@@ -275,11 +356,33 @@
         ]
       ]
     },
-    "Every 12 min, 24/7 (20 per 4h)": {
+    "Mark as sent": {
       "main": [
         [
           {
-            "node": "Read prospects sheet",
+            "node": "Gap between emails (30s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark as error": {
+      "main": [
+        [
+          {
+            "node": "Gap between emails (30s)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gap between emails (30s)": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -289,7 +392,8 @@
   },
   "active": false,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "executionTimeout": 3600
   },
   "pinData": {}
 }
