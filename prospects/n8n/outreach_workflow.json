@@ -1,5 +1,5 @@
 {
-  "name": "Dashboard prospect outreach - 20 emails / 4 hours",
+  "name": "Dashboard prospect outreach - 20 emails every 4 hours",
   "nodes": [
     {
       "parameters": {
@@ -7,13 +7,13 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "0 */12 9-12 * * 1-5"
+              "expression": "0 */12 * * * *"
             }
           ]
         }
       },
       "id": "4af76d03-cdfc-47bf-bfd1-2abe14cce2f3",
-      "name": "Every 12 min, 9:00-12:48 weekdays",
+      "name": "Every 12 min, 24/7 (20 per 4h)",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
@@ -54,7 +54,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Picks the next prospect that has an email and hasn't been contacted,\n// then builds a personalised email. One email per run.\nconst SENDER_NAME = 'YOUR NAME';\nconst SENDER_SIGNATURE = 'YOUR NAME\\nCustom dashboards & internal tools\\nyourwebsite.com';\n\nconst rows = $input.all().map(i => i.json);\nconst next = rows\n  .filter(r => String(r.email || '').includes('@') && !String(r.status || '').trim())\n  .sort((a, b) => Number(b.intent_score || 0) - Number(a.intent_score || 0))[0];\n\nif (!next) return []; // nothing left to send: the workflow stops quietly\n\nconst first = String(next.contact_name || '').trim().split(' ')[0] || 'there';\nconst hook = next.evidence_type === 'public_request'\n  ? `I saw ${next.company}'s post looking for automation and developer help.`\n  : `I noticed ${next.company} is hiring for data, reporting and internal-tools work.`;\nconst opportunity = String(next.dashboard_opportunity || '').replace(/\\.$/, '');\n\nconst body = `Hi ${first},\n\n${hook} ${next.outreach_angle}\n\nWhat I have in mind for you: ${opportunity}.\n\nI build custom dashboards and internal tools (${next.recommended_stack}) and can put together a short mock-up for ${next.company} before we talk. Would a 15-minute call next week be useful?\n\nBest,\n${SENDER_SIGNATURE}\n\nP.S. If this isn't relevant, just reply \"no thanks\" and I won't email you again.`;\n\nreturn [{ json: {\n  row_email: next.email,\n  to: next.email,\n  subject: `Idea for ${next.company}'s reporting`,\n  body,\n  sender_name: SENDER_NAME,\n} }];"
+        "jsCode": "// Picks the next prospect that has an email and hasn't been contacted,\n// then builds a personalised email. One email per run.\nconst SENDER_NAME = 'YOUR NAME';\nconst SENDER_SIGNATURE = 'YOUR NAME\\nCustom dashboards & internal tools\\nyourwebsite.com';\n\n// Optional safety cap on sends per calendar day (120 = no extra limit at 20 per 4h).\nconst MAX_PER_DAY = 120;\n\nconst rows = $input.all().map(i => i.json);\nconst today = $now.toISODate();\nconst sentToday = rows.filter(r => String(r.sent_at || '').startsWith(today)).length;\nif (sentToday >= MAX_PER_DAY) return [];\nconst next = rows\n  .filter(r => String(r.email || '').includes('@') && !String(r.status || '').trim())\n  .sort((a, b) => Number(b.intent_score || 0) - Number(a.intent_score || 0))[0];\n\nif (!next) return []; // nothing left to send: the workflow stops quietly\n\nconst first = String(next.contact_name || '').trim().split(' ')[0] || 'there';\nconst hook = next.evidence_type === 'public_request'\n  ? `I saw ${next.company}'s post looking for automation and developer help.`\n  : `I noticed ${next.company} is hiring for data, reporting and internal-tools work.`;\nconst opportunity = String(next.dashboard_opportunity || '').replace(/\\.$/, '');\n\nconst body = `Hi ${first},\n\n${hook} ${next.outreach_angle}\n\nWhat I have in mind for you: ${opportunity}.\n\nI build custom dashboards and internal tools (${next.recommended_stack}) and can put together a short mock-up for ${next.company} before we talk. Would a 15-minute call next week be useful?\n\nBest,\n${SENDER_SIGNATURE}\n\nP.S. If this isn't relevant, just reply \"no thanks\" and I won't email you again.`;\n\nreturn [{ json: {\n  row_email: next.email,\n  to: next.email,\n  subject: `Idea for ${next.company}'s reporting`,\n  body,\n  sender_name: SENDER_NAME,\n} }];"
       },
       "id": "7118dfeb-e60e-4cb5-b305-0dbe9772aecb",
       "name": "Pick next prospect + write email",
@@ -250,17 +250,6 @@
     }
   ],
   "connections": {
-    "Every 12 min, 9:00-12:48 weekdays": {
-      "main": [
-        [
-          {
-            "node": "Read prospects sheet",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Read prospects sheet": {
       "main": [
         [
@@ -306,6 +295,17 @@
         [
           {
             "node": "Mark as error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 12 min, 24/7 (20 per 4h)": {
+      "main": [
+        [
+          {
+            "node": "Read prospects sheet",
             "type": "main",
             "index": 0
           }
