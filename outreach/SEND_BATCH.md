@@ -8,5 +8,6 @@
    Otherwise send with subject/body exactly as stored (plain text), set status "sent", sent_at = UTC ISO time.
    On a send error set status "error" with the message in "error".
 5. Check `in:inbox from:mailer-daemon newer_than:1d` for bounces of this batch; set status "bounced".
+5b. Mark results with `python3 outreach/mark.py sent <emails...>` (or skipped_already_contacted / bounced / error).
 6. Save queue.json, commit ("Outreach batch: N sent"), push to claude/kind-fermat-wa8eun.
 7. If no pending entries remain, delete the trigger named "EA outreach 25 every 4h" (list_triggers -> delete_trigger) and report totals.
