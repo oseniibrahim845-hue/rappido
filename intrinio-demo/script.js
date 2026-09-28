@@ -18,10 +18,8 @@
      CONFIG
      ------------------------------------------------------------------------ */
   const CONFIG = {
-    // Address used by the "Discuss Step 1" button. Leave empty to open a
-    // blank email with the subject pre-filled.
+    // Shown (with a copy button) in the "Discuss Step 1" panel. Leave empty to hide.
     contactEmail: "",
-    contactSubject: "Intrinio Market Intelligence Demo - Step 1 prototype",
     tickIntervalMs: 2500,        // how often simulated quotes move
     sectorThreshold: 45.0,       // % limit used by the Risk Monitor rule
   };
@@ -977,11 +975,24 @@
     sections.forEach((s) => io.observe(s));
   }
 
+  // "Discuss Step 1" reveals the proposed scope (and a contact address if one is configured).
   function bindCTA() {
     const btn = $("#ctaBtn");
-    const href = `mailto:${encodeURIComponent(CONFIG.contactEmail)}?subject=${encodeURIComponent(CONFIG.contactSubject)}`;
-    btn.setAttribute("href", href);
-    btn.addEventListener("click", () => showToast("Opening your email client…"));
+    const panel = $("#stepPanel");
+    btn.addEventListener("click", () => {
+      const open = panel.hidden;
+      panel.hidden = !open;
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Hide Step 1 scope" : "Discuss Step 1";
+      if (open) panel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+    });
+    if (CONFIG.contactEmail) {
+      $("#stepContact").hidden = false;
+      $("#stepEmail").textContent = CONFIG.contactEmail;
+      $("#copyEmail").addEventListener("click", async () => {
+        showToast((await copyText(CONFIG.contactEmail)) ? "Email address copied" : "Copy failed. Select the address to copy it.");
+      });
+    }
   }
 
   /* ------------------------------------------------------------------------

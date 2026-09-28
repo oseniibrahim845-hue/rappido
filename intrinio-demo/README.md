@@ -21,7 +21,7 @@ A single-page, responsive front-end prototype showing how market data could be t
 | **Order Management** | Recent orders. Select one to see its lifecycle (created → risk check → routed → filled). Nothing is ever submitted |
 | **API Workflow** | A conceptual data → processing → analytics → dashboard → reporting pipeline |
 | **API Code Preview** | Editor-style card with a JS workflow and a sample response shape. The "Copy Example" button copies the code |
-| **Data to Product / CTA / Footer** | Use cases, a "Discuss Step 1" email link, and the disclaimers |
+| **Data to Product / CTA / Footer** | Use cases, a "Discuss Step 1" button that shows the proposed Step 1 scope, and the disclaimers |
 
 ## All data is simulated
 
@@ -49,7 +49,7 @@ intrinio-demo/
 
 To customise:
 
-- **Contact button:** set `CONFIG.contactEmail` at the top of `script.js`.
+- **Contact address:** set `CONFIG.contactEmail` at the top of `script.js` to show it, with a copy button, in the Step 1 panel.
 - **Colours:** edit the CSS custom properties in `:root` in `style.css`.
 - **Instruments / holdings:** edit the arrays in the `SIMULATED DATA` section.
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intrinio Market Intelligence Demo · Concept Prototype</title>
+  <title>Market Intelligence Demo</title>
   <meta name="description" content="Concept prototype showing how market data could be presented as an interactive financial dashboard. All data is simulated.">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +18,10 @@
   <!-- ============ 1. NAVIGATION ============ -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a class="nav__brand" href="#top" aria-label="Intrinio demo, back to top">
+      <a class="nav__brand" href="#top" aria-label="Market Intelligence Demo, back to top">
         <span class="nav__mark" aria-hidden="true"></span>
-        INTRINIO
-        <span class="nav__tag">Concept</span>
+        <span class="nav__name">MARKET<span class="nav__name-long"> INTELLIGENCE</span></span>
+        <span class="nav__tag">Concept for Intrinio</span>
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Primary">
@@ -457,7 +457,29 @@
             <h2>Bring Market Data To Life</h2>
             <p>This prototype demonstrates one possible way market data can become an interactive product experience.</p>
           </div>
-          <a class="btn btn--primary" id="ctaBtn" href="#">Discuss Step 1</a>
+          <button type="button" class="btn btn--primary" id="ctaBtn" aria-expanded="false" aria-controls="stepPanel">Discuss Step 1</button>
+        </div>
+        <div class="step-panel card" id="stepPanel" hidden>
+          <div class="step-panel__grid">
+            <div>
+              <h3>Proposed Step 1 scope</h3>
+              <ul class="step-list">
+                <li>Marketing-ready version of this demo, styled to your brand guidelines</li>
+                <li>Two or three sections chosen from the ones above</li>
+                <li>Simulated data, or delayed sample data served through a secure proxy</li>
+                <li>Responsive, embeddable build with clean, documented source</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Not included in Step 1</h3>
+              <ul class="step-list step-list--muted">
+                <li>Live trading or brokerage connections</li>
+                <li>User accounts and authentication</li>
+                <li>Production data licensing decisions</li>
+              </ul>
+              <p class="step-panel__contact" id="stepContact" hidden>Contact: <span class="mono" id="stepEmail"></span> <button type="button" class="btn btn--ghost btn--sm" id="copyEmail">Copy email</button></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -468,8 +490,8 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div>
-        <div class="footer__brand">INTRINIO</div>
-        <p>Interactive Market Intelligence Demo</p>
+        <div class="footer__brand">MARKET INTELLIGENCE DEMO</div>
+        <p>Interactive concept prepared for Intrinio</p>
       </div>
       <div class="footer__notes">
         <p>Demo only. Data shown is simulated.</p>
