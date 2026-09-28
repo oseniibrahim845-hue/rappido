@@ -139,7 +139,7 @@
   "email": "info@askmeforcode.com",
   "subject": "Backup MQL5 capacity for your Pine to MT5 orders",
   "body": "Hi AskMeForCode team,\n\nI came across your GitHub page listing Pine to MQL5 conversions with a 1-2 day turnaround, alongside Python, cTrader and NinjaScript work.\n\nHolding a short turnaround gets harder when several MT5 orders land in the same week, especially when a strategy needs extra logic like partial closes or multi-timeframe filters. I am a trading bot developer who works on MQL4/MQL5 every day, and I could act as a white-label backup for your MT4/MT5 conversions so your delivery times stay put.\n\nI am happy to start with one small job so you can judge the code quality and communication. Would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -193,7 +193,7 @@
   "email": "contact@topimaso.com",
   "subject": "QuantumTius scalping EAs on MT5",
   "body": "Hi TopiMaso Studio team,\n\nI came across the QuantumTius repository with your MQL5 scalping Expert Advisors, signals and indicators for BTC/USD and XAU/USD on MetaTrader 5.\n\nScalping bots on gold and bitcoin tend to need regular adjustments, such as spread and slippage filters, session limits, and broker-specific stop levels, as conditions shift. I am a trading bot developer working in MQL4/MQL5, and I help teams with EA modifications, risk management modules, and pushing signals to Telegram channels.\n\nIf you have a backlog of improvements for QuantumTius, or a new bot in mind, I could take on part of it. Would it be useful if I sent over a short example?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -220,7 +220,7 @@
   "email": "contact@ntien.com",
   "subject": "MQL4/MQL5 overflow for your EA-System clients",
   "body": "Hi Tien,\n\nI read on your GitHub profile that you take on MetaTrader freelance work, from individual EA systems and auto-chartists to outsourced trading tools, next to your engineering role at Casavi.\n\nCombining a full-time job with EA clients usually means some requests have to wait or be turned down. I am a trading bot developer working in MQL4/MQL5 every day, and I would be glad to act as a quiet subcontract partner: EA builds from your specs, MT4-to-MT5 conversions, fixes to existing robots, or Telegram and broker API integrations.\n\nYou would keep the client, and I would deliver clean, commented source code. If this is something you could use, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "Ngoc Tien Nguyen",
@@ -409,7 +409,7 @@
   "email": "support@metatraderapi.cloud",
   "subject": "Integration examples for metatraderapi.cloud users",
   "body": "Hi Nicolas,\n\nI came across the metatraderapi.cloud repo on GitHub, the REST API for MetaTrader 5 with Python examples for trading and account automation.\n\nAPI providers in this space usually get asked for ready-made integrations: TradingView webhook routing, Telegram signal execution, trade copiers, or risk rules sitting on top of the API. I am a trading bot developer who builds MT4/MT5 EAs and broker or API integrations, and I could help build examples or custom integrations for your users.\n\nThat could be a few reference projects for the repo, or client work you pass along. If this is something you are working on, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "Nicolas Xenmas",
@@ -571,7 +571,7 @@
   "email": "connect@novatekgroup.com",
   "subject": "EA support for NovaTek's MT4/MT5 clients",
   "body": "Hi NovaTek Group team,\n\nI saw on your GitHub organization profile that NovaTek's capital markets side offers MetaTrader 4 and 5 with full Expert Advisor and custom indicator support.\n\nWhen a broker supports EAs, clients soon ask for help: getting a robot running, fixing an indicator after a platform update, or setting up alerts and VPS hosting. I am a trading bot developer working on MT4/MT5 EAs, MQL4/MQL5 fixes, Telegram integration and VPS deployment, and I could act as an outside developer your support team refers those requests to, or help with internal tools such as trade copiers.\n\nIf that sounds relevant, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -598,7 +598,7 @@
   "email": "support@peeppips.com",
   "subject": "MT5 execution side of the PeepPips Workbench",
   "body": "Hi PeepPips team,\n\nI came across the self-hosted PeepPips AI Workbench repo and saw that it runs MetaTrader 5 execution environments alongside the backtesting and AI analysis tools.\n\nIn self-hosted MT5 setups, the part users struggle with is usually the EA layer: getting a strategy from research into an MQL5 EA, handling broker differences, and knowing when the terminal or EA has stopped. I am a trading bot developer working on MT4/MT5 EAs, EA monitoring and VPS deployment, and I could build execution EAs or health checks for your stack, or take on custom strategy work for your licensees.\n\nIf that is useful, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -733,7 +733,7 @@
   "email": "hello@docai.id",
   "subject": "Extra MQL5 hands for the Vilona Gold EA line",
   "body": "Hi DIRJEN-BOT team,\n\nI came across the Vilona Gold Trading EA repo and saw you ship a free EMA-crossover version for XAUUSD alongside a Pro EA with a published Strategy Tester report and a HUD bundle.\n\nRunning a free and a paid tier side by side usually means every change has to be ported, recompiled and re-tested twice. I am an MQL5 developer who works on exactly that kind of upkeep: adding inputs and filters, fixing edge cases around broker symbol names and spreads on gold, and scripting repeatable backtest runs so new builds can be compared against the published report.\n\nIf you ever want to hand off part of the EA maintenance while you focus on DocAI, I would be glad to help. Would it be useful if I sent over a short example of how I structure shared code between a free and Pro EA?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "pending",
+  "status": "skipped_no_mail_server",
   "sent_at": "",
   "lead": {
    "name": "",
@@ -841,7 +841,7 @@
   "email": "admin@quantbacktest.pro",
   "subject": "MQL5 export templates for Quant Backtest Pro",
   "body": "Hi Quant Backtest Pro team,\n\nI came across Quant Backtest Pro and saw that strategies built in the platform can be exported as a ready .mq5 Expert Advisor using CTrade and automatic lot sizing.\n\nGenerated EAs are where users meet the most surprises: filling modes that differ by broker, minimum stop distances, volume steps on indices and gold, and results that drift from the web backtest. I am an MQL4/MQL5 developer and could review and harden the export templates, add an MQL4 export for MT4 users, or build a small test harness that checks each generated EA in the Strategy Tester.\n\nIf that would help the platform, I would be glad to contribute. Would it be useful if I sent over a short example?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "pending",
+  "status": "skipped_no_mail_server",
   "sent_at": "",
   "lead": {
    "name": "",
@@ -976,7 +976,7 @@
   "email": "mql-systems@diamondsystems.org",
   "subject": "MQL4/MQL5 subcontract capacity",
   "body": "Hi MQL systems team,\n\nI came across your GitHub organization and the shared libraries you publish, like the Includes collection, the ZigZagMax indicator and the 4ChannelSR support/resistance tools.\n\nSince you develop experts, indicators, scripts and services in MQL4 and MQL5 for others, there are probably weeks when requests pile up. I'm an MQL4/MQL5 developer who works on the same kind of projects: custom EAs, indicator builds, fixes to existing code and MT4-to-MT5 conversions. I'd be glad to take overflow work as a subcontractor and follow your code conventions and libraries.\n\nWould it be useful if I sent over a short example of my code so you can judge the style?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "pending",
+  "status": "skipped_no_mail_server",
   "sent_at": "",
   "lead": {
    "name": "",
@@ -1003,7 +1003,7 @@
   "email": "contact@gfxdevsolutions.com",
   "subject": "MQL4/MQL5 help for GFXDev client projects",
   "body": "Hi GFXDev Solutions team,\n\nI came across your GitHub organization and saw that you cover Pine Script, MQL4 and MQL5 alongside MERN web development, with forex software as part of your offer.\n\nAgencies that mix web and trading work often find the MetaTrader jobs the hardest to schedule, since they need someone who knows the platform quirks well. I'm an MQL4/MQL5 developer focused on Expert Advisors, indicators, MT4-to-MT5 conversions and TradingView-to-MT5 ports. I'd be glad to support your team as a subcontractor on those projects so your developers can stay on the web side.\n\nIf this is something you're working on, I can send over a few examples of past MQL work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "pending",
+  "status": "skipped_no_mail_server",
   "sent_at": "",
   "lead": {
    "name": "",
