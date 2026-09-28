@@ -67,21 +67,6 @@
     },
     {
       "parameters": {
-        "amount": "={{ Math.floor(Math.random() * 180) }}",
-        "unit": "seconds"
-      },
-      "id": "6dea0f67-5216-4974-a710-4636289caf80",
-      "name": "Random delay (0-3 min)",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        660,
-        300
-      ],
-      "webhookId": "8e892949-408c-49ae-8acc-09d86650f86f"
-    },
-    {
-      "parameters": {
         "sendTo": "={{ $json.to }}",
         "subject": "={{ $json.subject }}",
         "emailType": "text",
@@ -96,7 +81,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        880,
+        660,
         300
       ],
       "credentials": {
@@ -168,7 +153,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1100,
+        880,
         200
       ],
       "credentials": {
@@ -238,7 +223,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1100,
+        880,
         400
       ],
       "credentials": {
@@ -262,17 +247,6 @@
       ]
     },
     "Pick next prospect + write email": {
-      "main": [
-        [
-          {
-            "node": "Random delay (0-3 min)",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Random delay (0-3 min)": {
       "main": [
         [
           {

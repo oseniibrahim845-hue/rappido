@@ -1,14 +1,13 @@
 # n8n outreach workflow: 20 emails every 4 hours
 
-`outreach_workflow.json` sends **one personalised email every 12 minutes, around the clock, every day**. That's 20 emails every 4 hours, or up to 120 a day. Each send waits a random 0–3 minutes first, so the send times look less robotic.
+`outreach_workflow.json` sends **one personalised email every 12 minutes, around the clock, every day**. That's 20 emails every 4 hours, or up to 120 a day.
 
 ## How it works
 1. **Schedule trigger** (cron `0 */12 * * * *`) fires every 12 minutes, 20 times per 4 hours.
 2. **Read prospects sheet** loads the `Outreach` tab of your Google Sheet.
 3. **Pick next prospect** takes the highest-scoring row that has an `email` and an empty `status`, and writes the email from that row's columns. When no rows are left, or the optional `MAX_PER_DAY` cap is reached, it stops without sending anything.
-4. **Random delay** waits 0–3 minutes.
-5. **Send email (Gmail)** sends a plain-text email.
-6. **Mark as sent / Mark as error** writes `status` and `sent_at` back to the row, so no one is emailed twice.
+4. **Send email (Gmail)** sends a plain-text email.
+5. **Mark as sent / Mark as error** writes `status` and `sent_at` back to the row, so no one is emailed twice.
 
 ## Setup (about 10 minutes)
 1. **Create the sheet.** In Google Sheets, go to File → Import → upload `outreach_sheet.csv`. Rename the tab to `Outreach`. Copy the sheet ID from its URL (the part between `/d/` and `/edit`).
