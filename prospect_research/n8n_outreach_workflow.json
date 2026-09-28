@@ -1,9 +1,9 @@
 {
-  "name": "Prospect Outreach - 20 emails per 4 hours",
+  "name": "Prospect Outreach - 20 emails every 4 hours",
   "nodes": [
     {
       "parameters": {
-        "content": "## Prospect outreach drip\nSends **1 email every 12 minutes, 09:00-12:48, Mon-Fri** = **20 emails per 4-hour window**.\n\n1. Upload `Trading_Bot_and_Business_Dashboard_Prospects.xlsx` to Google Drive and open it as a Google Sheet (tab name: `Prospects`).\n2. Paste the sheet URL into **Read Prospects** and **Mark as Sent / Mark as Failed**.\n3. Connect your Google Sheets + Gmail credentials.\n4. Set the workflow timezone (Settings) to yours.\n5. Test with **Test workflow**, then toggle **Active**.\n\nOnly rows with an **Email** and an empty **Status** are sent. Each sent row gets `Status = Sent <date>` so nobody is emailed twice.",
+        "content": "## Prospect outreach drip\nSends **1 email every 12 minutes, around the clock** = **20 emails every 4 hours** (120/day).\n\nTo change the pace, edit the trigger's cron: `*/12 * * * *`. Limit hours with e.g. `*/12 8-19 * * *`.\n\n1. Upload `Trading_Bot_and_Business_Dashboard_Prospects.xlsx` to Google Drive and open it as a Google Sheet (tab name: `Prospects`).\n2. Paste the sheet URL into **Read Prospects** and **Mark as Sent / Mark as Failed**.\n3. Connect your Google Sheets + Gmail credentials.\n4. Set the workflow timezone (Settings) to yours.\n5. Test with **Test workflow**, then toggle **Active**.\n\nOnly rows with an **Email** and an empty **Status** are sent. Each sent row gets `Status = Sent <date>` so nobody is emailed twice.",
         "height": 380,
         "width": 420
       },
@@ -11,7 +11,10 @@
       "name": "Setup Notes",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [-60, -440]
+      "position": [
+        -60,
+        -440
+      ]
     },
     {
       "parameters": {
@@ -19,16 +22,19 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "*/12 9-12 * * 1-5"
+              "expression": "*/12 * * * *"
             }
           ]
         }
       },
       "id": "a1f0c0de-0002-4000-8000-000000000002",
-      "name": "Every 12 min (9:00-12:48 Mon-Fri)",
+      "name": "Every 12 min (20 per 4 hours)",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [0, 0]
+      "position": [
+        0,
+        0
+      ]
     },
     {
       "parameters": {
@@ -49,7 +55,10 @@
       "name": "Read Prospects",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [220, 0]
+      "position": [
+        220,
+        0
+      ]
     },
     {
       "parameters": {
@@ -98,7 +107,10 @@
       "name": "Has Email & Not Yet Sent",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2,
-      "position": [440, 0]
+      "position": [
+        440,
+        0
+      ]
     },
     {
       "parameters": {
@@ -108,7 +120,10 @@
       "name": "Pick Next Prospect",
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
-      "position": [660, 0]
+      "position": [
+        660,
+        0
+      ]
     },
     {
       "parameters": {
@@ -124,7 +139,10 @@
       "name": "Send Email (Gmail)",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
-      "position": [880, 0],
+      "position": [
+        880,
+        0
+      ],
       "webhookId": "a1f0c0de-0006-4000-8000-0000000000aa",
       "onError": "continueErrorOutput"
     },
@@ -147,7 +165,9 @@
             "Company": "={{ $('Pick Next Prospect').item.json.Company }}",
             "Status": "=Sent {{ $now.toFormat('yyyy-LL-dd HH:mm') }}"
           },
-          "matchingColumns": ["Company"],
+          "matchingColumns": [
+            "Company"
+          ],
           "schema": [
             {
               "id": "Company",
@@ -175,7 +195,10 @@
       "name": "Mark as Sent",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [1120, -100]
+      "position": [
+        1120,
+        -100
+      ]
     },
     {
       "parameters": {
@@ -196,7 +219,9 @@
             "Company": "={{ $('Pick Next Prospect').item.json.Company }}",
             "Status": "=Failed {{ $now.toFormat('yyyy-LL-dd HH:mm') }}: {{ ($json.error && ($json.error.message || $json.error)) || 'send error' }}"
           },
-          "matchingColumns": ["Company"],
+          "matchingColumns": [
+            "Company"
+          ],
           "schema": [
             {
               "id": "Company",
@@ -224,26 +249,73 @@
       "name": "Mark as Failed",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
-      "position": [1120, 100]
+      "position": [
+        1120,
+        100
+      ]
     }
   ],
   "connections": {
-    "Every 12 min (9:00-12:48 Mon-Fri)": {
-      "main": [[{ "node": "Read Prospects", "type": "main", "index": 0 }]]
-    },
     "Read Prospects": {
-      "main": [[{ "node": "Has Email & Not Yet Sent", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Has Email & Not Yet Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Has Email & Not Yet Sent": {
-      "main": [[{ "node": "Pick Next Prospect", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Pick Next Prospect",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Pick Next Prospect": {
-      "main": [[{ "node": "Send Email (Gmail)", "type": "main", "index": 0 }]]
+      "main": [
+        [
+          {
+            "node": "Send Email (Gmail)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Send Email (Gmail)": {
       "main": [
-        [{ "node": "Mark as Sent", "type": "main", "index": 0 }],
-        [{ "node": "Mark as Failed", "type": "main", "index": 0 }]
+        [
+          {
+            "node": "Mark as Sent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Mark as Failed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 12 min (20 per 4 hours)": {
+      "main": [
+        [
+          {
+            "node": "Read Prospects",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
