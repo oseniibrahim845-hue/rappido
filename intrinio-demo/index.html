@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intrinio Market Intelligence Demo · Concept Prototype</title>
+  <meta name="description" content="Concept prototype showing how market data could be presented as an interactive financial dashboard. All data is simulated.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ 1. NAVIGATION ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Intrinio demo, back to top">
+        <span class="nav__mark" aria-hidden="true"></span>
+        INTRINIO
+        <span class="nav__tag">Concept</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#markets">Market Data</a>
+        <a href="#performance">Analytics</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#risk">Risk</a>
+        <a href="#api-workflow">API</a>
+        <a href="#use-cases">Demo</a>
+        <a href="#api-code" class="btn btn--primary btn--sm nav__cta-mobile">API Demo</a>
+      </nav>
+
+      <div class="nav__right">
+        <span class="env-status" title="No live connections. All values are generated in the browser.">
+          <span class="env-status__dot" aria-hidden="true"></span>
+          Demo<span class="env-status__long"> Environment</span>
+        </span>
+        <a href="#api-code" class="btn btn--primary btn--sm nav__cta">API Demo</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 2. HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <div class="badge-row">
+            <span class="badge badge--outline">Concept Prototype</span>
+            <span class="badge badge--warn">Interactive Demo • Simulated Data</span>
+          </div>
+          <h1>Turn Market Data Into Actionable Intelligence</h1>
+          <p class="lead">Explore how market data, portfolio analytics and risk intelligence can come together in one interactive experience.</p>
+          <div class="hero__actions">
+            <a href="#markets" class="btn btn--primary">Explore Dashboard</a>
+            <a href="#api-workflow" class="btn btn--ghost">View API Workflow</a>
+          </div>
+          <dl class="hero__facts">
+            <div><dt>Asset classes</dt><dd>Equities · ETFs · FX · Crypto</dd></div>
+            <div><dt>Views</dt><dd>Markets · Portfolio · Risk</dd></div>
+            <div><dt>Build</dt><dd>HTML · CSS · JS</dd></div>
+          </dl>
+        </div>
+
+        <aside class="card preview" aria-label="Market preview (simulated)">
+          <div class="card__head">
+            <div>
+              <h2 class="card__title">Market Snapshot</h2>
+              <p class="card__sub">Simulated intraday values</p>
+            </div>
+            <span class="pulse-label"><span class="pulse-dot" aria-hidden="true"></span>Updating</span>
+          </div>
+          <ul class="preview__list" id="previewList"></ul>
+          <div class="preview__foot">
+            <span>Refreshes every few seconds</span>
+            <span class="mono" id="previewClock">--:--:--</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ 3. MARKET OVERVIEW ============ -->
+    <section class="section" id="markets">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Market Data</p>
+            <h2>Market Overview</h2>
+          </div>
+          <span class="chip">Demo market data</span>
+        </div>
+        <div class="ticker-grid" id="tickerGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4. INTERACTIVE MARKET CHART ============ -->
+    <section class="section" id="performance">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Analytics</p>
+            <h2>Market Performance</h2>
+          </div>
+          <span class="chip">Demo market data</span>
+        </div>
+
+        <div class="card chart-card">
+          <div class="chart-toolbar">
+            <div class="chart-summary">
+              <label class="select">
+                <span class="visually-hidden">Symbol</span>
+                <select id="symbolSelect" aria-label="Symbol">
+                  <option value="AAPL">AAPL</option>
+                  <option value="NVDA">NVDA</option>
+                  <option value="SPY">SPY</option>
+                  <option value="QQQ">QQQ</option>
+                  <option value="BTC/USD">BTC/USD</option>
+                </select>
+              </label>
+              <div>
+                <div class="chart-summary__price mono" id="chartPrice">—</div>
+                <div class="chart-summary__change" id="chartChange">—</div>
+              </div>
+            </div>
+            <div class="segmented" role="group" aria-label="Timeframe" id="timeframeGroup">
+              <button type="button" data-tf="1D">1D</button>
+              <button type="button" data-tf="1W">1W</button>
+              <button type="button" data-tf="1M" class="is-active" aria-pressed="true">1M</button>
+              <button type="button" data-tf="3M">3M</button>
+              <button type="button" data-tf="1Y">1Y</button>
+            </div>
+          </div>
+
+          <dl class="chart-stats" id="chartStats"></dl>
+
+          <div class="chart-wrap chart-wrap--price">
+            <canvas id="priceChart" aria-label="Price chart" role="img"></canvas>
+          </div>
+          <div class="chart-label-row">
+            <span class="chart-caption">Volume</span>
+          </div>
+          <div class="chart-wrap chart-wrap--volume">
+            <canvas id="volumeChart" aria-label="Volume chart" role="img"></canvas>
+          </div>
+          <p class="chart-fallback" id="chartFallback" hidden>Charts need an internet connection to load Chart.js from the CDN. Everything else on the page still works offline.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. PORTFOLIO ============ -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Portfolio</p>
+            <h2>Portfolio Intelligence</h2>
+          </div>
+          <span class="chip">Sample portfolio</span>
+        </div>
+
+        <div class="kpi-grid" id="kpiGrid"></div>
+
+        <div class="card">
+          <div class="card__head card__head--tabs">
+            <div class="tabs" role="tablist" aria-label="Portfolio views">
+              <button role="tab" id="tab-holdings" aria-controls="panel-holdings" aria-selected="true" class="is-active">Holdings</button>
+              <button role="tab" id="tab-allocation" aria-controls="panel-allocation" aria-selected="false" tabindex="-1">Allocation</button>
+            </div>
+            <span class="card__sub">Click a column header to sort</span>
+          </div>
+
+          <div role="tabpanel" id="panel-holdings" aria-labelledby="tab-holdings">
+            <div class="table-scroll">
+              <table class="data-table" id="holdingsTable">
+                <thead>
+                  <tr>
+                    <th scope="col" data-sort="symbol" class="t-left">Symbol</th>
+                    <th scope="col" data-sort="qty">Position</th>
+                    <th scope="col" data-sort="price">Price</th>
+                    <th scope="col" data-sort="value" aria-sort="descending" class="is-sorted">Market Value</th>
+                    <th scope="col" data-sort="dayPnl">Day P&amp;L</th>
+                    <th scope="col" data-sort="weight">Weight</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+              </table>
+            </div>
+          </div>
+
+          <div role="tabpanel" id="panel-allocation" aria-labelledby="tab-allocation" hidden>
+            <ul class="alloc-list" id="allocList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. RISK ============ -->
+    <section class="section" id="risk">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Risk</p>
+            <h2>Risk &amp; Exposure</h2>
+          </div>
+          <span class="chip">Simulated risk metrics</span>
+        </div>
+
+        <div class="risk-grid">
+          <article class="card risk-card">
+            <h3 class="card__title">Portfolio Exposure</h3>
+            <div class="risk-card__value mono" id="exposureValue">—</div>
+            <div class="meter" aria-hidden="true">
+              <div class="meter__fill" id="exposureFill"></div>
+              <div class="meter__limit" style="left: 85%"></div>
+            </div>
+            <div class="meter__legend"><span>Invested</span><span>Limit 85%</span></div>
+          </article>
+
+          <article class="card risk-card risk-card--sector">
+            <h3 class="card__title">Sector Exposure</h3>
+            <div class="sector-layout">
+              <div class="doughnut-wrap">
+                <canvas id="sectorChart" aria-label="Sector exposure doughnut chart" role="img"></canvas>
+                <div class="doughnut-center"><span class="mono" id="sectorCenter">58%</span><small>Technology</small></div>
+              </div>
+              <ul class="legend" id="sectorLegend"></ul>
+            </div>
+          </article>
+
+          <article class="card risk-card">
+            <h3 class="card__title">Volatility</h3>
+            <div class="risk-card__value mono">18.6%</div>
+            <p class="card__sub">30-day annualized · vs. 16.2% benchmark</p>
+            <svg class="risk-spark" id="volSpark" viewBox="0 0 200 48" preserveAspectRatio="none" aria-hidden="true"></svg>
+          </article>
+
+          <article class="card risk-card">
+            <h3 class="card__title">Drawdown</h3>
+            <div class="risk-card__value mono is-down">−6.8%</div>
+            <p class="card__sub">Max drawdown · trailing 90 days</p>
+            <svg class="risk-spark" id="ddSpark" viewBox="0 0 200 48" preserveAspectRatio="none" aria-hidden="true"></svg>
+          </article>
+
+          <article class="card alert-card" role="status">
+            <div class="alert-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            </div>
+            <div>
+              <h3 class="card__title">Risk Monitor <span class="pill pill--warn">Warning</span></h3>
+              <p>Technology exposure is currently above the configured portfolio threshold.</p>
+              <div class="alert-card__meta mono">
+                <span>Current <strong id="techCurrent">58.3%</strong></span>
+                <span>Threshold <strong>45.0%</strong></span>
+                <span>Rule <strong>SECTOR_MAX</strong></span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. ORDERS ============ -->
+    <section class="section" id="orders">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Trading Workflow</p>
+            <h2>Order Management</h2>
+          </div>
+          <span class="chip">Execution workflow concept</span>
+        </div>
+
+        <div class="orders-grid">
+          <div class="card">
+            <div class="card__head">
+              <div>
+                <h3 class="card__title">Recent Orders</h3>
+                <p class="card__sub">Select an order to view its lifecycle. No orders are submitted.</p>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table data-table--orders">
+                <thead>
+                  <tr>
+                    <th scope="col" class="t-left">Symbol</th>
+                    <th scope="col" class="t-left">Side</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card lifecycle">
+            <div class="card__head">
+              <div>
+                <h3 class="card__title" id="lifecycleTitle">Order Lifecycle</h3>
+                <p class="card__sub" id="lifecycleSub">—</p>
+              </div>
+            </div>
+            <ol class="timeline" id="lifecycleSteps"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. API WORKFLOW ============ -->
+    <section class="section" id="api-workflow">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">API</p>
+            <h2>From API to Application</h2>
+          </div>
+          <span class="chip">Conceptual Integration</span>
+        </div>
+        <p class="section__intro">Market data can be transformed into customer facing applications, internal analytics tools and automated workflows.</p>
+
+        <ol class="flow">
+          <li class="flow__step">
+            <span class="flow__num mono">01</span>
+            <h3>Intrinio Market Data</h3>
+            <p>Prices, fundamentals and reference data delivered via API.</p>
+            <code class="flow__tag">REST · WebSocket</code>
+          </li>
+          <li class="flow__step">
+            <span class="flow__num mono">02</span>
+            <h3>Data Processing</h3>
+            <p>Normalize symbols, align timestamps, cache and validate.</p>
+            <code class="flow__tag">normalize()</code>
+          </li>
+          <li class="flow__step">
+            <span class="flow__num mono">03</span>
+            <h3>Analytics Engine</h3>
+            <p>Returns, exposure, volatility and rule-based alerts.</p>
+            <code class="flow__tag">compute()</code>
+          </li>
+          <li class="flow__step">
+            <span class="flow__num mono">04</span>
+            <h3>Dashboard</h3>
+            <p>Interactive charts, tables and watchlists in the browser.</p>
+            <code class="flow__tag">render()</code>
+          </li>
+          <li class="flow__step flow__step--out">
+            <span class="flow__num mono">05</span>
+            <h3>Portfolio / Risk / Reporting</h3>
+            <p>Monitoring views, alerts and exportable reports for end users.</p>
+            <code class="flow__tag">deliver()</code>
+          </li>
+        </ol>
+        <p class="footnote">Illustrative only. Not a description of Intrinio's actual architecture.</p>
+      </div>
+    </section>
+
+    <!-- ============ 9. API CODE PREVIEW ============ -->
+    <section class="section section--tight" id="api-code">
+      <div class="container">
+        <div class="code-card">
+          <div class="code-card__bar">
+            <div class="code-card__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="code-tabs" role="tablist" aria-label="Code example">
+              <button role="tab" class="is-active" aria-selected="true" data-code="js">workflow.js</button>
+              <button role="tab" aria-selected="false" data-code="json" tabindex="-1">response.json</button>
+            </div>
+            <button class="btn btn--sm btn--ghost code-card__copy" id="copyBtn" type="button">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Copy Example</span>
+            </button>
+          </div>
+          <div class="code-card__head">
+            <h2>Example API Workflow</h2>
+            <span class="chip chip--warn">Illustrative code only</span>
+          </div>
+<pre class="code" id="code-js"><code><span class="c">// Illustrative only: placeholder function names</span>
+<span class="k">const</span> marketData = <span class="k">await</span> <span class="f">getMarketData</span>({
+  symbol: <span class="s">"AAPL"</span>,
+  interval: <span class="s">"1d"</span>,
+  range: <span class="s">"1M"</span>
+});
+
+<span class="k">const</span> analytics = <span class="f">processMarketData</span>(marketData);
+
+<span class="f">renderDashboard</span>(analytics);</code></pre>
+<pre class="code" id="code-json" hidden><code><span class="c">// Sample shape used by this demo (simulated values)</span>
+{
+  <span class="p">"symbol"</span>: <span class="s">"AAPL"</span>,
+  <span class="p">"interval"</span>: <span class="s">"1d"</span>,
+  <span class="p">"bars"</span>: [
+    { <span class="p">"t"</span>: <span class="s">"2026-09-25"</span>, <span class="p">"close"</span>: <span class="n">229.84</span>, <span class="p">"volume"</span>: <span class="n">48210300</span> },
+    { <span class="p">"t"</span>: <span class="s">"2026-09-28"</span>, <span class="p">"close"</span>: <span class="n">232.10</span>, <span class="p">"volume"</span>: <span class="n">51764900</span> }
+  ],
+  <span class="p">"source"</span>: <span class="s">"simulated"</span>
+}</code></pre>
+          <div class="code-card__foot">
+            <span>Function names and fields are placeholders, not an actual Intrinio endpoint.</span>
+            <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. DATA TO PRODUCT ============ -->
+    <section class="section" id="use-cases">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Data to Product</p>
+            <h2>What This Data Can Become</h2>
+          </div>
+        </div>
+        <div class="usecase-grid">
+          <article class="card usecase">
+            <div class="usecase__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>
+            </div>
+            <h3>Trading Applications</h3>
+            <p>Turn market data into monitoring and execution interfaces.</p>
+            <a href="#orders" class="link-arrow">See order workflow</a>
+          </article>
+          <article class="card usecase">
+            <div class="usecase__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 15.9A10 10 0 1 1 8 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+            </div>
+            <h3>Risk &amp; Portfolio Analytics</h3>
+            <p>Give users a clearer view of exposure, performance and risk.</p>
+            <a href="#risk" class="link-arrow">See risk view</a>
+          </article>
+          <article class="card usecase">
+            <div class="usecase__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h3>Customer Facing Dashboards</h3>
+            <p>Create interactive experiences that make complex financial data easier to understand.</p>
+            <a href="#markets" class="link-arrow">See market overview</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. CTA ============ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Bring Market Data To Life</h2>
+            <p>This prototype demonstrates one possible way market data can become an interactive product experience.</p>
+          </div>
+          <a class="btn btn--primary" id="ctaBtn" href="#">Discuss Step 1</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 12. FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <div class="footer__brand">INTRINIO</div>
+        <p>Interactive Market Intelligence Demo</p>
+      </div>
+      <div class="footer__notes">
+        <p>Demo only. Data shown is simulated.</p>
+        <p>Built as a technical proof of concept. Independent concept for discussion; not an official Intrinio product and not commissioned or endorsed by Intrinio.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
