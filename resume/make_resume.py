@@ -25,7 +25,7 @@ s.append(Paragraph('Nigeria (remote) &nbsp;&nbsp;|&nbsp;&nbsp; Email: oseniibrah
 s.append(Spacer(1, 4))
 
 s += sec("Profile")
-s.append(Paragraph("Trading bot developer specialising in MetaTrader 4 and 5. I build, fix and extend Expert Advisors, indicators "
+s.append(Paragraph("Trading bot developer (MQL5, MQL4, Python, JavaScript/Node.js) specialising in MetaTrader 4 and 5. I build, fix and extend Expert Advisors, indicators "
     "and trade-management tools, with a focus on the details that decide whether an EA behaves correctly on a live account: "
     "broker stop and freeze levels, filling modes, symbol suffixes, restart safety and risk limits. I take on freelance projects and "
     "subcontract work for studios and fintech teams, delivering commented source code to the client's specification.", B))
@@ -44,19 +44,19 @@ t = Table([[Paragraph(f"<b>{a}</b>", B), Paragraph(b, B)] for a, b in rows], col
 t.setStyle(TableStyle([("VALIGN",(0,0),(-1,-1),"TOP"),("BOTTOMPADDING",(0,0),(-1,-1),2.5),("TOPPADDING",(0,0),(-1,-1),1),("LEFTPADDING",(0,0),(-1,-1),0)]))
 s.append(t)
 
-s += sec("Technical Skills")
-s += bullets([
- "<b>Languages:</b> MQL5, MQL4, Python, JavaScript/TypeScript (Node.js)",
- "<b>Platforms:</b> MetaTrader 4, MetaTrader 5 (terminal and Strategy Tester), TradingView",
- "<b>Integration:</b> WebRequest/REST, sockets and file-based bridges, Telegram Bot API, webhook receivers",
-])
-
 s += sec("Experience")
-s.append(Paragraph("<b>Freelance Developer — Adpeako</b> (remote) &nbsp;<font color='#555555'>Jun 2026 – Sep 2026</font>", B))
+s.append(Paragraph("<b>Freelance Software &amp; Automation Developer</b> — self-employed (Fiverr and direct clients) &nbsp;<font color='#555555'>Ongoing</font>", B))
 s += bullets([
- "Delivered a multi-phase automation and AI project for the Adpeako team, working inside their Slack, n8n and Google workspace.",
- "Built n8n workflow automations and AI content tooling, and supported product-feed setup in Google Merchant Center.",
- "Completed the agreed project phases; the client then opened discussion on a follow-on AI personal-assistant build.",
+ "Trading automation: MT4/MT5 Expert Advisors, TradingView/Pine Script integrations, broker API integrations, copy-trading "
+ "systems, crypto trading bots and custom trading dashboards.",
+ "General development: APIs, AI agents, n8n automation workflows, WhatsApp/chatbot backends and custom web applications.",
+])
+s.append(Spacer(1, 3))
+s.append(Paragraph("<b>AI Automation Developer — Adpeako</b> (remote, client contract) &nbsp;<font color='#555555'>Jun 2026 – Sep 2026</font>", B))
+s += bullets([
+ "Built an AI automation system on n8n for the Adpeako team, delivered in phases and working inside their Slack, n8n and Google workspace.",
+ "Work included AI content tooling and support for product-feed setup in Google Merchant Center; all contracted phases completed, "
+ "with a follow-on AI personal-assistant project under discussion.",
 ])
 s.append(Spacer(1, 3))
 s.append(Paragraph("<b>Developer — GetMarketing</b> (getmarketing.team) &nbsp;<font color='#555555'>2026</font>", B))
@@ -70,9 +70,8 @@ s.append(Paragraph("<b>Rappido — WhatsApp timesheet &amp; attendance platform<
 s += bullets([
  "Built a WhatsApp chatbot that lets field workers log daily hours, overtime, night/Sunday surcharges, work location and "
  "expenses through a guided menu, plus absence reports and corrections to earlier entries.",
- "Webhook backend in Node.js/Express with per-user conversation state stored in PostgreSQL, input validation at every step "
- "and weekly summaries sent back to each worker.",
- "Web dashboard for supervisors to filter, approve or reject entries, view weekly reports and charts, and export data to CSV.",
+ "Node.js/Express webhook backend with per-user conversation state in PostgreSQL, plus a supervisor dashboard to approve or "
+ "reject entries, view weekly reports and charts, and export to CSV.",
 ])
 s.append(Spacer(1, 4))
 s.append(Paragraph("<b>MT4/MT5 Trade Management Samples</b> (MQL5, MQL4) &nbsp;<font color='#555555'>2026</font> <br/>github.com/oseniibrahim845-hue/mt4-mt5-trade-management-samples", B))
@@ -86,7 +85,7 @@ s += bullets([
 s.append(Paragraph("Code walkthroughs or a small paid trial task available on request. Delivered as commented source, tested in the Strategy Tester and on demo.", SMALL))
 
 s += sec("Education")
-s.append(Paragraph("<b>Computer Science</b> — Federal University of Technology, Nigeria", B))
+s.append(Paragraph("<b>Computer Science</b> — Federal University of Technology, Akure (FUTA), Nigeria", B))
 
 doc.build(s)
 print("ok")
