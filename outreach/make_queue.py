@@ -1,4 +1,4 @@
-"""Merge round-2 lead files into outreach/queue.json (pending sends). Skips anything already queued/sent."""
+"""Merge lead-bank files into outreach/queue.json (pending sends). Skips anything already queued/sent."""
 import json, sys, os, re
 Q = os.path.join(os.path.dirname(os.path.abspath(__file__)), "queue.json")
 queue = json.load(open(Q)) if os.path.exists(Q) else []
@@ -9,7 +9,7 @@ added = 0
 for f in sys.argv[1:]:
     for r in json.load(open(f)):
         e = (r.get("email") or "").strip().lower()
-        if not e or e in seen or not r.get("email_source") or "github" not in r["email_source"] and "github.io" not in r["email_source"]:
+        if not e or e in seen or not r.get("email_source"):
             continue
         b, s = r.get("body", ""), r.get("subject", "")
         wc = len(b.split())

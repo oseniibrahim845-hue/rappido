@@ -4,6 +4,8 @@
 2. Confirm the Gmail connector is oseniibrahim845@gmail.com: `search_threads in:sent` (pageSize 1) and check `sender`.
    If it is any other account: send NOTHING, stop, and tell the user.
 2b. `pip install -q dnspython openpyxl` then `python3 outreach/mx_check.py` (drops domains with no mail server).
+2c. `python3 outreach/make_queue.py outreach/lead_bank_round3.json outreach/lead_bank_round4.json`
+   (idempotent: only adds lead-bank entries not already in the queue), then re-run `python3 outreach/mx_check.py`.
 3. Load `outreach/queue.json`; take the first 25 entries with status "pending".
 4. For each: search Gmail `in:sent to:<email>`. If any prior sent message exists, set status "skipped_already_contacted".
    Otherwise send with subject/body exactly as stored (plain text), set status "sent", sent_at = UTC ISO time.
