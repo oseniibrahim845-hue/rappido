@@ -214,12 +214,11 @@
           "conditions": [
             {
               "id": "s1",
-              "leftValue": "={{ $json.nothing_to_send === true }}",
-              "rightValue": "",
+              "leftValue": "={{ $json.nothing_to_send ? 'stop' : 'send' }}",
+              "rightValue": "send",
               "operator": {
-                "type": "boolean",
-                "operation": "false",
-                "singleValue": true
+                "type": "string",
+                "operation": "equals"
               }
             }
           ],
