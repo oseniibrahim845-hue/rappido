@@ -7,21 +7,21 @@ from reportlab.lib.units import mm
 NAVY = colors.HexColor("#1F3864"); GREY = colors.HexColor("#555555")
 H = ParagraphStyle("h", fontName="Helvetica-Bold", fontSize=20, textColor=NAVY, leading=24)
 SUB = ParagraphStyle("s", fontName="Helvetica", fontSize=11.5, textColor=GREY, leading=15)
-SEC = ParagraphStyle("sec", fontName="Helvetica-Bold", fontSize=11.5, textColor=NAVY, spaceBefore=9, spaceAfter=3, leading=14)
-B = ParagraphStyle("b", fontName="Helvetica", fontSize=9.6, leading=13.2)
+SEC = ParagraphStyle("sec", fontName="Helvetica-Bold", fontSize=11.5, textColor=NAVY, spaceBefore=6, spaceAfter=2, leading=14)
+B = ParagraphStyle("b", fontName="Helvetica", fontSize=9.2, leading=12.3)
 BUL = ParagraphStyle("bul", parent=B, leftIndent=10, bulletIndent=0)
 SMALL = ParagraphStyle("sm", parent=B, fontSize=9, textColor=GREY)
 
 def sec(t): return [Paragraph(t.upper(), SEC), HRFlowable(width="100%", thickness=0.6, color=NAVY, spaceAfter=4)]
 def bullets(items): return [Paragraph(i, BUL, bulletText="•") for i in items]
 
-doc = SimpleDocTemplate("Oseni_Ibrahim_Resume.pdf", pagesize=A4, leftMargin=17*mm, rightMargin=17*mm, topMargin=15*mm, bottomMargin=14*mm,
+doc = SimpleDocTemplate("Oseni_Ibrahim_Resume.pdf", pagesize=A4, leftMargin=17*mm, rightMargin=17*mm, topMargin=12*mm, bottomMargin=11*mm,
                         title="Oseni Ibrahim - Trading Bot Developer (MQL4/MQL5)", author="Oseni Ibrahim")
 s = []
 s.append(Paragraph("Oseni Ibrahim", H))
 s.append(Paragraph("Trading Bot Developer &nbsp;|&nbsp; MQL4 / MQL5 &nbsp;|&nbsp; MetaTrader 4 &amp; 5 Automation", SUB))
 s.append(Spacer(1, 3))
-s.append(Paragraph('Email: oseniibrahim845@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; GitHub: github.com/oseniibrahim845-hue', SMALL))
+s.append(Paragraph('Nigeria (remote) &nbsp;&nbsp;|&nbsp;&nbsp; Email: oseniibrahim845@gmail.com &nbsp;&nbsp;|&nbsp;&nbsp; GitHub: github.com/oseniibrahim845-hue', SMALL))
 s.append(Spacer(1, 4))
 
 s += sec("Profile")
@@ -53,8 +53,17 @@ s += bullets([
  "<b>Practices:</b> restart-safe state handling, broker-rule validation before every order change, commented and reviewable code",
 ])
 
-s += sec("Selected Work (public code samples)")
-s.append(Paragraph("<b>MT4/MT5 Trade Management Samples</b> — github.com/oseniibrahim845-hue/mt4-mt5-trade-management-samples", B))
+s += sec("Projects")
+s.append(Paragraph("<b>Rappido — WhatsApp timesheet &amp; attendance platform</b> (Node.js, Express, PostgreSQL, WhatsApp API) &nbsp;<font color='#555555'>2026</font>", B))
+s += bullets([
+ "Built a WhatsApp chatbot that lets field workers log daily hours, overtime, night/Sunday surcharges, work location and "
+ "expenses through a guided menu, plus absence reports and corrections to earlier entries.",
+ "Webhook backend in Node.js/Express with per-user conversation state stored in PostgreSQL, input validation at every step "
+ "and weekly summaries sent back to each worker.",
+ "Web dashboard for supervisors to filter, approve or reject entries, view weekly reports and charts, and export data to CSV.",
+])
+s.append(Spacer(1, 4))
+s.append(Paragraph("<b>MT4/MT5 Trade Management Samples</b> (MQL5, MQL4) &nbsp;<font color='#555555'>2026</font> <br/>github.com/oseniibrahim845-hue/mt4-mt5-trade-management-samples", B))
 s += bullets([
  "<b>Multi-TP Signal Manager (MQL5 + MQL4):</b> one position per take-profit level, breakeven after TP1, trailing after TP2, "
  "MOVE_SL / CLOSE channel updates, a ticket map persisted to disk so terminal restarts never duplicate or lose trades, "
@@ -63,6 +72,9 @@ s += bullets([
  "flattens positions, removes pending orders and keeps the account flat for the rest of the day.",
 ])
 s.append(Paragraph("Code walkthroughs or a small paid trial task are available on request.", SMALL))
+
+s += sec("Education")
+s.append(Paragraph("<b>Computer Science</b> — Federal University of Technology, Nigeria", B))
 
 s += sec("How I Work")
 s += bullets([
