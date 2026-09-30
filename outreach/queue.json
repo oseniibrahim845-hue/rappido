@@ -3387,7 +3387,7 @@
   "email": "daedalus.dev@gmail.com",
   "subject": "GriffinATM and Lynxguard",
   "body": "Hi Daedalus team,\n\nI came across your MetaTrader tools, advance-trade-management, GriffinATM and Lynxguard, the checker that compares tick data across brokers.\n\nTrade managers get a steady stream of requests once people use them: partial closes, basket breakeven, prop-firm daily limits, and fixes when a broker uses unusual stop levels. I'm a trading bot developer working in MQL4/MQL5, and I could help with those additions or with an MT4 version if your users ask for one. I'm used to working inside someone else's code without changing its style.\n\nIf this is something you're working on, I can send over a few examples of trade management code I've written.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-30 01:28 UTC",
   "lead": {
    "name": "",
