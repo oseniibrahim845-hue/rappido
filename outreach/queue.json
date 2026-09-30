@@ -3975,7 +3975,7 @@
   "email": "connect.kudzaiprichard@gmail.com",
   "subject": "MT5 port of ubot-mt4?",
   "body": "Hi Kudzai,\n\nI came across ubot-mt4, your MetaTrader 4 Expert Advisor. It stood out because of your backend and ML background, which shows in how the bot is laid out.\n\nMany traders now only get MT5 accounts from brokers and prop firms, so MT4-only EAs are harder to use. I'm a trading bot developer who does MT4 to MT5 conversions: rewriting order logic for MT5 positions and deals, checking indicator handles and validating both versions side by side in the Strategy Tester. I can also add Telegram trade notifications or a drawdown guard if that's useful.\n\nIf you'd like, I can port a small part of ubot-mt4 to MQL5 and send it over as an example.\n\nWould that be helpful?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-30 05:00 UTC",
   "lead": {
    "name": "Kudzai Prichard Matizirofa",
