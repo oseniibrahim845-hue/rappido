@@ -85,7 +85,7 @@
   "email": "info@shinpai.de",
   "subject": "A second pair of eyes on Sharrow's MQL5 layer",
   "body": "Hi Hannes,\n\nI came across Sharrow on GitHub, the MetaTrader 5 EA that combines Python rule generation, news sentiment gates and margin guards, and saw that the README credits GPT-5 as the coder.\n\nGenerated MQL5 often runs fine in the Strategy Tester and then trips on live details, such as order filling modes, requotes, or trade limits across brokers. I am a trading bot developer who works on MT5 EAs and their risk controls, and I could review the MQL5 side, tighten the risk checks, or help with backtesting and VPS deployment.\n\nNo pressure at all. If a written review of one module would be useful, I can send over a short example of how I would approach it.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "Hannes Kell",
@@ -274,7 +274,7 @@
   "email": "contact@styner.dev",
   "subject": "MQL5 support for StynerDev's MT5 projects",
   "body": "Hi StynerDev team,\n\nI saw in your StynerDev-main repo that MetaTrader 5 strategy development, signal logic and indicator parsing sit alongside your Coinbase and Web3 trading bot work.\n\nWhen a consultancy covers that much ground, MT5 jobs can end up waiting behind the web and crypto projects. I am a trading bot developer focused on MQL4/MQL5, and I could take the MetaTrader side of client work off your plate: EAs from strategy specs, indicator-driven signals, risk management, and connecting MT5 to Python services or Telegram.\n\nIf an MT5 client project comes up where extra hands would help, I would be glad to support it. If that sounds useful, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -706,7 +706,7 @@
   "email": "contact@cybox.uk",
   "subject": "Extending FvgGold EA's FVG scoring on MT5",
   "body": "Hi Cybox team,\n\nI came across FvgGold EA on GitHub and liked the 0-100 quality score for Fair Value Gaps, combined with order block confluence and the London/NY session filters.\n\nOpen-source EAs that gain stars usually attract feature requests: Telegram alerts, prop firm style daily loss limits, handling broker symbol suffixes for gold, or an MT4 build. Since your main focus is security work, I thought extra MQL5 help might be welcome. I am a trading bot developer working on MT4/MT5 EAs and risk management modules, and I could take on some of those additions as clean pull requests or as a paid extension.\n\nIf that sounds useful, I can send over a short example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 16:39 UTC",
   "lead": {
    "name": "",
@@ -1327,7 +1327,7 @@
   "email": "shuvobbhh@gmail.com",
   "subject": "MQL4/MQL5 support for Telegram Trade Linker",
   "body": "Hi Mahdi,\n\nI came across TTL - Telegram Trade Linker and liked the approach of AI-parsed Telegram signals routed to MT4 and MT5 accounts under a license model.\n\nSupporting both platforms usually means two sets of MQL code that behave slightly differently: order types, partial closes, modifying SL/TP on multiple take-profit legs, and broker symbol suffixes. I am an MQL4/MQL5 developer focused on this kind of bridge work and trade management, such as breakeven, trailing and TP-split logic that stays in sync across MT4 and MT5.\n\nIf you want an extra developer on the MetaTrader side while you work on the parser and UI, I would be happy to help. Would it be useful if I sent over a short example of how I handle multi-TP signals in MQL5?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 16:39 UTC",
   "lead": {
    "name": "Mahdi Hasan Shuvo",
@@ -1408,7 +1408,7 @@
   "email": "zaxmainframe@gmail.com",
   "subject": "Collaborating on MQL5 execution and risk projects",
   "body": "Hi ZAX-Mainframe team,\n\nI came across your MQL5 Execution and Risk Framework. The freeze-level and stops-level guard on position modifications and the global equity drawdown circuit breaker are the kind of details many EAs skip.\n\nI am also an MQL4/MQL5 developer, working mostly on custom EAs, risk management systems, trade copiers and MT4 to MT5 conversions. Since your framework covers the execution layer so thoroughly, I thought there could be room to collaborate: when you have more client work than time, I could build strategy modules on top of your framework or handle MT4 ports and testing.\n\nIf that is something you would consider, I can send over a few examples of my code so you can judge the style. Would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 16:39 UTC",
   "lead": {
    "name": "",
@@ -1462,7 +1462,7 @@
   "email": "bperucchi@gmail.com",
   "subject": "Co-maintaining MT5 Web Replicator",
   "body": "Hi Breno,\n\nI read the MT5 Web Replicator README, with the Rails dashboard receiving and replicating MT5/MQL order data across accounts alongside the python-signal client, and saw that you are open to co-maintainers or partners.\n\nI am an MQL4/MQL5 developer who works on trade copiers and MetaTrader integrations, so the terminal side is where I could help most: the EA that reports and receives orders, symbol mapping and lot scaling between accounts, reconnect handling, and MT4 support if you ever want it. I am comfortable working inside an existing codebase and keeping changes small and documented.\n\nIf you are still looking for someone to share the load, I would be glad to talk it through. Would it be useful if I sent over a few examples of my copier work first?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 20:38 UTC",
   "lead": {
    "name": "Breno Perucchi",
@@ -2029,7 +2029,7 @@
   "email": "vig.kvel@gmail.com",
   "subject": "Help with MT5-SMC-trading-bot client work",
   "body": "Hi Vignesh,\n\nI came across your MT5-SMC-trading-bot repository, with the Order Block, FVG and BOS modes, adaptive ATR filters and regime detection, and saw that you offer consulting to institutions.\n\nWhen an open-source EA gets attention, requests tend to follow: an MT4 version, broker-specific tweaks, extra risk rules or Telegram alerts for a particular desk. I'm an MQL4/MQL5 developer and could take on that kind of work as a subcontractor, so your consulting clients get what they need while you stay on the strategy and research side.\n\nAn MT4 port of the SMC logic would be a natural first piece.\n\nWould you be open to discussing it? I can send over a few examples of my MQL work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 20:38 UTC",
   "lead": {
    "name": "Vignesh",
@@ -2326,7 +2326,7 @@
   "email": "tradingforge.terminal@gmail.com",
   "subject": "MQL5 support for TradingForge Terminal",
   "body": "Hi Vadim,\n\nI came across the TradingForge Terminal releases repository. Transpiling MQL4 Expert Advisors to C# so they can run on Binance Futures and other venues is an interesting approach, and I saw that MQL5 support is on the roadmap.\n\nMQL5 brings a different order model, handles for indicators and many small behaviour differences, so a solid set of reference EAs and test cases makes that step much easier. I'm an MQL4/MQL5 developer and could write MQL5 test EAs that cover those edge cases, compare their results in MetaTrader against your transpiled output, and help users port MQL4 strategies that don't transpile cleanly.\n\nWould that be useful? I can send over a short example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-29 00:37 UTC",
   "lead": {
    "name": "Vadim Zaitsev",
@@ -3191,7 +3191,7 @@
   "email": "hi@sergego.com",
   "subject": "MT5 side of FinCore and XTradeServer",
   "body": "Hi Sergei,\n\nI came across FinCore and XTradeServer, and noticed the README invites people to write about improvements, installation and support for a secured version.\n\nBoth projects lean on MetaTrader 5 connectivity, and that part tends to need attention as MT5 builds and brokers change. I'm a trading bot developer working in MQL4/MQL5, and I could help on the MetaTrader side: the EA or script that reports deals and positions into FinCore, terminal management for XTradeServer, or updating older MQL code so it compiles cleanly on current builds.\n\nIf that would help, I can send over a short example of similar work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 01:28 UTC",
   "lead": {
    "name": "Sergei Zhuravlev",
@@ -4983,7 +4983,7 @@
   "email": "alshaheensupport@gmail.com",
   "subject": "MT5-side support for the ALSHAHEEN terminal",
   "body": "Hi ALSHAHEEN team,\n\nI came across the ALSHAHEEN documents on GitHub and saw that the app, distributed through the Microsoft Store, works on top of the user's own signed-in MetaTrader 5 terminal with Algo Trading enabled.\n\nProducts built this way usually spend a lot of support time on the MT5 side: broker symbol suffixes, different filling modes, disabled algo trading and terminal builds that behave slightly differently. I'm a MetaTrader developer and can help with helper EAs or scripts that run diagnostics inside the terminal, normalise symbols and filling types, and report problems back to your app.\n\nIf that would take some load off your support queue, I can send over a short example of a diagnostics EA.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 09:00 UTC",
   "lead": {
    "name": "",
