@@ -544,7 +544,7 @@
   "email": "support@fxtrueup.com",
   "subject": "Terminal-side EAs for FX True Up's copy routes",
   "body": "Hi FX True Up team,\n\nI came across the fxtrueup repo and saw that the platform tracks MT4/MT5 portfolios, prop firm compliance and copy trading routes through MetaApi.\n\nSome traders and prop firm users prefer a terminal-side component as well, for example a local EA that enforces daily loss rules, or a lightweight copier that keeps working if a cloud connection has a hiccup. I am a trading bot developer who builds MT4/MT5 EAs, trade copiers and risk management modules, and I could build companion EAs that feed your dashboard or back up the MetaApi connection.\n\nIf that is on your roadmap, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -10566,7 +10566,7 @@
   "email": "dedalik@gmail.com",
   "subject": "A MetaTrader adapter for Kiploks?",
   "body": "Hi Kiploks team,\n\nI noticed the Kiploks engine now lets people run Freqtrade bot tests straight from the web UI, and that the README says bots beyond Freqtrade and OctoBot don't have a first-party adapter yet.\n\nI'm a trading bot developer working mostly with MT4/MT5 Expert Advisors and MQL, along with backtesting tools and broker integrations. A large share of retail algo traders test in the MetaTrader strategy tester, so an exporter or adapter that sends those trade reports into your walk-forward engine could open Kiploks to that audience. I could build the MQL side and map it onto your Trade[] format.\n\nWould it be useful if I sent over a short sketch of how that adapter could work?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 17:04 UTC",
   "lead": {
    "name": "",
