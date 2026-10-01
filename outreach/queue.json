@@ -4,7 +4,7 @@
   "email": "info@algorithmic.one",
   "subject": "Extra MQL4/MQL5 hands for your FBGAO-optimized EAs",
   "body": "Hi Algorithmic team,\n\nI came across your Algorithmic repo on GitHub with the FBGAO genetic optimization set files for your MT4 and MT5 Expert Advisors, and the note about Real Tick Data modeling as an extra service.\n\nKeeping one EA line behaving the same on both MT4 and MT5, across brokers and new MetaTrader builds, tends to create a steady trickle of small code changes. That is the kind of work I handle: MQL4/MQL5 fixes and modifications, MT4-to-MT5 parity checks, and backtesting or optimization helpers around existing EAs.\n\nIf you ever need extra capacity for maintenance or a new variant for the MQL5 Store, I can pick up well-scoped tasks. Would it be useful if I sent over a short example of similar work?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -112,7 +112,7 @@
   "email": "info@imyousafzai.com",
   "subject": "Pine Script to MT5 overflow for your clients",
   "body": "Hi Immy,\n\nI saw on your GitHub profile that you have published 100+ Pine Script indicators on TradingView and built MQL4/MQL5 Expert Advisors such as Banana EA, alongside iTradeAIMS.\n\nWith a TradingView audience that size, I imagine requests to turn indicators into MT5 EAs come in regularly. I am a trading bot developer focused on MQL4/MQL5 and TradingView-to-MT5 conversion, so I could take on some of that work as a white-label partner while you keep the client relationship.\n\nTypical jobs I handle are indicator ports, EA builds from written rules, and fixes or changes to existing EAs. If this is something you get asked for, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "Immy Yousafzai",
