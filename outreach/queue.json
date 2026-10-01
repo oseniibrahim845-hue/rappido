@@ -7482,7 +7482,7 @@
   "email": "abdulrafayjiwani@proton.me",
   "subject": "Reading more indicators in mt5_mac",
   "body": "Hi Abdul,\n\nI came across mt5_mac on PyPI. Using the Wine runtime already bundled inside MetaTrader 5.app, with no Docker or Windows box, is a clever route for Mac traders.\n\nI noticed indicator reading currently covers Heiken Ashi computed from OHLC. I'm an MQL5 developer, and one extension would be a small MQL5 exporter indicator that writes any chart indicator's buffers, including custom or paid ones, to a file your library reads. Users would get the exact values MT5 shows rather than a recalculation. I could also write example EAs for the docs.\n\nWould it be useful if I sent over a short example of that exporter?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-01 01:00 UTC",
   "lead": {
    "name": "Abdul Rafay Jiwani",
