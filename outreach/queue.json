@@ -6187,7 +6187,7 @@
   "email": "s.javad_rz@yahoo.com",
   "subject": "RiskCockpit, ProSessionBox and an MT4 version",
   "body": "Hi Javad,\n\nI came across JR MQL5 Market and RiskCockpit in particular: a prop-firm risk manager covering FundedNext, FTMO, E8 and The5ers rules is useful, and I noticed the .ex5 files are bound to each user's account number and sent out by hand within 24-48 hours.\n\nI'm an MQL4/MQL5 developer. Two things I could help with if they are on your list: MT4 versions of RiskCockpit and ProSessionBox, since many prop traders are still on MT4, and a simple automated way to issue account-bound builds so requests don't depend on your inbox. I'm also happy to take on new tools under your brand while you keep the design decisions.\n\nIf that sounds useful, I can send over a short example of how I would handle the account binding.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 17:00 UTC",
   "lead": {
    "name": "Javad Razavi",
