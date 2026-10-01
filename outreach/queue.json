@@ -11210,7 +11210,7 @@
   "email": "yujinxi1104@hotmail.com",
   "subject": "MockTrade MCP and prop-style rule checks",
   "body": "Hi MockTrade team,\n\nI noticed mocktrade-mcp and liked that it scores AI trading agents against prop-firm style rules like daily loss, max drawdown, profit target and minimum trading days, with strict replay so the agent never sees future bars.\n\nI'm a trading bot developer who builds backtesting tools, risk management systems and MT4/MT5 Expert Advisors. Two areas where I could help are extra data or broker connectors for replay, and an MT5 bridge so an agent that passes your evaluation can move to a MetaTrader demo account under the same rule set.\n\nWould it be useful if I sent over a short example of how that bridge could look?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 21:02 UTC",
   "lead": {
    "name": "",
