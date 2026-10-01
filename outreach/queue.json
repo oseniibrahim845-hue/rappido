@@ -8490,7 +8490,7 @@
   "email": "info@alpacacode.dev",
   "subject": "More brokers for AlpacaCode's agent pipeline",
   "body": "Hi AlpacaCode team,\n\nI came across AlpacaCode and its agent pipeline that runs a backtest, validates it, paper trades on Alpaca and then reconciles the database against Alpaca positions. The reconcile step is something many trading tools leave out.\n\nIf you plan to support more venues or live execution, I can help. I'm a trading bot developer working on broker and exchange API integration, TradingView webhook execution and risk modules. I could add a second broker behind the same pipeline, such as Interactive Brokers or an MT5 bridge, or add hard risk limits and alerts before the paper-to-live step.\n\nIf that fits your roadmap, I can send over a few examples of similar work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-01 04:59 UTC",
   "lead": {
    "name": "",
