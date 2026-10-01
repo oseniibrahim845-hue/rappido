@@ -23,8 +23,10 @@ if cmd == "list":
         if len(out) >= n: break
         if not due(e): continue
         greeting = e["body"].split("\n", 1)[0].strip() or "Hi there,"
-        body = (f"{greeting}\n\nJust bumping my note below in case it got buried. If extra MQL4/MQL5 help "
-                "would be useful, I'm happy to start with a small, well-defined task so you can see how I work.\n\n"
+        body = (f"{greeting}\n\nJust bumping my note below in case it got buried. Besides MQL4/MQL5 Expert Advisors, "
+                "I also handle Pine Script to MT5 conversions, prop-firm risk guards, trade and Telegram signal copiers, "
+                "exchange API bots and trading dashboards, plus ongoing maintenance for existing bots.\n\n"
+                "If any of that would be useful, I'm happy to start with a small, well-defined task so you can see how I work. "
                 "If the timing isn't right, no problem at all.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer")
         out.append({"email": e["email"], "subject": "Re: " + e["subject"], "body": body})
     print(json.dumps(out, indent=1))

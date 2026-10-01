@@ -10,6 +10,11 @@
    (do NOT send). Show the draft in chat. Send only after the user approves.
    Pricing rule: do not mention pricing in cold emails. Once the prospect shows interest AND the project has been
    discussed in enough detail (scope, platform, features), the reply must state clearly that the work is paid,
-   per project, and offer a fixed quote (or give the quote if the user has provided one).
+   per project, and offer a fixed quote using outreach/PRICE_LIST.md (one number, never the range).
+   Author trailer replies (subject "A cinematic trailer idea for ..."): first reply with the developed trailer concept
+   from authors/*.json (opening visual, character, conflict, atmosphere, climax beat, title reveal); quote from the
+   price list only when they ask about cost or are clearly interested.
+   When drafting replies to traders, it's fine to mention other relevant services from the price list
+   (maintenance, risk guards, conversions, dashboards) if they fit what the prospect does.
 5. If there is nothing new, report nothing (one short line at most).
 6. Commit/push any file changes to claude/kind-fermat-wa8eun.
