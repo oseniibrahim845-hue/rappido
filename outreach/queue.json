@@ -247,7 +247,7 @@
   "email": "contact@stratcorealpha.com",
   "subject": "Extra capacity for StratCoreAlpha's EA repair queue",
   "body": "Hi Arnold,\n\nI came across the StratCoreAlpha portfolio repo and liked the approach: frozen written rules, reproducible defects, and parity checks when moving Pine Script strategies to MT5.\n\nThat kind of evidence-first work takes time, especially the parity testing. I am a trading bot developer working in MQL4/MQL5, and I would be glad to support you as a subcontractor on EA repairs, builds from written rules, or TradingView-to-MT5 migrations, following your process and reporting format.\n\nI do not make performance claims either, so I think our working styles would fit. Would you be open to discussing a small trial task?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "Arnold Holm",
@@ -9446,7 +9446,7 @@
   "email": "contact@atheist.ai",
   "subject": "MT5 execution for ATHEIST",
   "body": "Hi ATHEIST AI team,\n\nI came across the ATHEIST execution engine and its multi-broker design across NinjaTrader, Tradovate and Interactive Brokers.\n\nEach of those connectors needs steady upkeep, and one venue that isn't on the list yet is MetaTrader 5, which is how most FX and CFD brokers serve their clients. I'm a trading bot developer specialising in MQL4/MQL5 and broker API integration, and I could build an MT5 execution connector matching your engine's order and risk interface, or help maintain the existing ones.\n\nWould you be open to discussing it? I can send over a short outline first.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-01 09:00 UTC",
   "lead": {
    "name": "",
