@@ -8686,7 +8686,7 @@
   "email": "luis@4pass.com.tw",
   "subject": "Pine Script strategies into MT5 alongside PineForge",
   "body": "Hi PineForge team,\n\nI saw the @pineforge/backtest-mcp release: Pine v6 transpiled to C++ and backtested locally against Binance klines, with grid sweeps and a coverage checker for Pine features. That is a serious piece of engineering.\n\nI'm a trading bot developer who does a lot of TradingView-to-MetaTrader work, porting Pine strategies into MQL5 Expert Advisors and connecting alerts to MT5 and exchange APIs. If your users want to take a strategy from PineForge into live execution on MT5 or a broker API, I could help build that leg, or add data sources beyond Binance as a subcontractor.\n\nIf this is something you're considering, I can send over a short Pine-to-MQL5 example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 04:59 UTC",
   "lead": {
    "name": "",
