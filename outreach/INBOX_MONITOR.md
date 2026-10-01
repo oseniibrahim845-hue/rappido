@@ -11,6 +11,9 @@
    Pricing rule: do not mention pricing in cold emails. Once the prospect shows interest AND the project has been
    discussed in enough detail (scope, platform, features), the reply must state clearly that the work is paid,
    per project, and offer a fixed quote using outreach/PRICE_LIST.md (one number, never the range).
+   No free work (user decision 2026-10-01): if someone asks for samples, a demo, a review or a "quick fix",
+   point them to github.com/oseniibrahim845-hue/mt4-mt5-trade-management-samples and offer a paid quote for
+   anything beyond that. Never promise free code, reviews or examples.
    Author trailer replies (subject "A cinematic trailer idea for ..."): first reply with the developed trailer concept
    from authors/*.json (opening visual, character, conflict, atmosphere, climax beat, title reveal); quote from the
    price list only when they ask about cost or are clearly interested.

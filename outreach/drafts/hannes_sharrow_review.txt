@@ -36,7 +36,7 @@ What I saw: OrderCalcMargin at line 4906 only feeds a debug print, there is no S
 Why it matters live: close-only or disabled symbols and exchange-execution brokers that reject the default FOK filling just produce failed sends.
 What I'd change: trade.SetTypeFillingBySymbol(_Symbol) in OnInit, skip when SYMBOL_TRADE_MODE is not FULL (or not the right direction), and run OrderCheck() before Buy/Sell.
 
-Happy to implement these as a small isolated patch that leaves the strategy untouched, or to look at another module next.
+If you'd like, I can implement all six as a small isolated patch that leaves the strategy untouched, tested on a demo before you take it live. Just let me know and I'll send over a quote.
 
 Best regards,
 Oseni Ibrahim
