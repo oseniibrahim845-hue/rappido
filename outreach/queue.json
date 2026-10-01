@@ -7454,7 +7454,7 @@
   "email": "brianobot9@gmail.com",
   "subject": "MQL5 side for mt5-lite",
   "body": "Hi Brian,\n\nI saw mt5-lite on PyPI, your object-oriented wrapper around the official MetaTrader 5 package. Mapping MT5 error codes to Python exceptions is the kind of detail that saves people a lot of debugging.\n\nI'm an MQL4/MQL5 developer, and I work on the terminal side that the Python API can't reach: expert advisors, custom indicators, trade copiers and Telegram alerts sent from MT5. If users of mt5-lite ask for something that needs code inside MetaTrader, or you take on client projects that need an MQL component, I'd be glad to collaborate or take that part on.\n\nIf that sounds useful, I can send over a few examples of my work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 01:00 UTC",
   "lead": {
    "name": "Brian Obot",
