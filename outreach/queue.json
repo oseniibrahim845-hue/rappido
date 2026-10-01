@@ -8434,7 +8434,7 @@
   "email": "hello@pynesys.com",
   "subject": "A MetaTrader 5 route for PyneCore strategies",
   "body": "Hi PyneSys team,\n\nI saw the new PyneCore cTrader plugin, with both live data and order execution, including server-side stop-loss, take-profit and trailing stops across cTrader brokers. Running converted Pine strategies straight against a broker is a strong feature.\n\nMany of the same traders are on MetaTrader 5 brokers, so an MT5 route could be a natural next plugin. I'm a trading bot developer working in MQL5 and broker integrations. I could help build an MT5 bridge for PyneCore, either through an MQL5 EA that receives orders or through the MetaTrader5 Python package, or port specific Pine strategies to native MQL5 for users who need them in the terminal.\n\nIf an MT5 connector is on your roadmap, I can send over a short outline of how it could map to your BrokerPlugin interface.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 04:59 UTC",
   "lead": {
    "name": "",
