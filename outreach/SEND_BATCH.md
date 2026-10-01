@@ -4,7 +4,7 @@
 2. Confirm the Gmail connector is oseniibrahim845@gmail.com: `search_threads in:sent` (pageSize 1) and check `sender`.
    If it is any other account: send NOTHING, stop, and tell the user.
 2b. `pip install -q dnspython openpyxl` then `python3 outreach/mx_check.py` (drops domains with no mail server).
-2c. `python3 outreach/make_queue.py outreach/lead_bank_round3.json outreach/lead_bank_round4.json`
+2c. `python3 outreach/make_queue.py outreach/lead_bank_round*.json`
    (idempotent: only adds lead-bank entries not already in the queue), then re-run `python3 outreach/mx_check.py`.
 2d. FOLLOW-UPS FIRST (user approved 2026-09-30: one bump per cold lead, 4+ days after the first email).
    `python3 outreach/followup.py list 25` -> due follow-ups. For each: search Gmail `from:<email>`; if they ever replied,
