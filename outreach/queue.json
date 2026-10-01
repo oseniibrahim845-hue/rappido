@@ -949,7 +949,7 @@
   "email": "support@mapsimco.sbs",
   "subject": "MQL support for the Tarantula tools",
   "body": "Hi MAPSIM team,\n\nI came across the Mapsim_Assistance_Bot repository and saw how the Tarantula EA pairs a USB device with MetaTrader 5, with licenses issued through a Telegram bot, and that you also run a TradingView strategy with MT4/MT5 execution.\n\nWith hardware, licensing and several MetaTrader products in play, keeping everything working across new MT5 builds and different brokers takes steady MQL effort. I'm an MQL4/MQL5 developer and could help maintain the EAs, extend the partial close and risk features, or build a matching MT4 version of the assistance EA for users who haven't moved to MT5.\n\nIf this is something you're working on, I can send over a few examples of similar work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-09-28 16:39 UTC",
   "lead": {
    "name": "",
