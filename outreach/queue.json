@@ -51,7 +51,8 @@
    "subject": "Your GoldBlade and Silver Bullet EAs on Ultrand",
    "body": "Hi Godwin,\n\nI saw on your GitHub profile that you build MQL5 Expert Advisors for gold, including ICT Silver Bullet, GoldBlade and Pivot Bot, and sell EAs through the Ultrand marketplace.\n\nRunning an EA storefront next to a full-time analyst role usually means buyer requests for tweaks, new inputs or fixes pile up faster than there is time to code them. I am a trading bot developer focused on MQL4/MQL5, and I help with exactly that kind of work: EA modifications, bug fixes, risk management modules, and Telegram alerts for trade events.\n\nIf you want someone to take on overflow work on the XAUUSD range, I am happy to work under your brand. If that sounds useful, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "MyAlgoStack",
@@ -186,7 +187,8 @@
    "subject": "MQL5 partner for your quant trading builds",
    "body": "Hi Trend Master Akademi team,\n\nI saw in your upwork-solutions repo that you offer custom Expert Advisors, broker bridge connectors and MQL5 scripts as part of your quant trading systems work, alongside AI agents and SaaS builds.\n\nWhen one team covers that many areas, MetaTrader projects can be hard to staff at short notice. I am a trading bot developer focused on MT4/MT5: EA builds from client specs, fixes and modifications, and connecting MT5 to REST or ZeroMQ bridges, TradingView alerts or Telegram.\n\nIf a client project needs MQL5 capacity, I can work under your name on a clearly scoped piece. If this is something you run into, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "TopiMaso Studio",
@@ -321,7 +323,8 @@
    "subject": "The multi-symbol data prep gap in Portfolio Manager",
    "body": "Hi TrendSurfers team,\n\nI read the known-limitations section of your Portfolio Manager README, where you mention that multi-symbol strategies like the Ultimate Breakout System, and conversion pairs such as EUR/USD for Euro accounts, are not yet prepared ahead of backtests.\n\nThat area, MT5 history download, symbol dependencies and Strategy Tester orchestration across Subworkers, is close to what I work on as a trading bot developer. I build and maintain MT5 EAs and supporting tools, including backtesting helpers and tester automation.\n\nIf you want extra hands on that roadmap item or on the EA side of your strategies, I can take on a scoped piece. Would it be useful if I sent over a short outline of how I would approach it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "EA Budak Ubat",
@@ -348,7 +351,8 @@
    "subject": "Maintenance help for the EA Budak Ubat family",
    "body": "Hi Syarief,\n\nI saw your GitHub profile and the EA Budak Ubat ecosystem, with GoldMind AI, BracketBlitz, MathEdge Pro and the rest of the family serving more than 900 traders, all built next to your day job at NPRA.\n\nWith that many EAs live on MT4 and MT5, every new MetaTrader build or broker quirk can turn into a round of updates. I am a trading bot developer working in MQL4/MQL5, and I help EA vendors with maintenance, bug fixes, keeping MT4 and MT5 versions in step, and monitoring or Telegram alerts for users.\n\nIf you ever want to hand off part of that load, I would be glad to help. If this is something you are working on, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "TheTradeVisor",
@@ -375,7 +379,8 @@
    "subject": "The MT4/MT5 upload EAs behind TheTradeVisor",
    "body": "Hi Ruslan,\n\nI came across TheTradeVisor on GitHub and noticed the gap detection system and the EA backfill logic, where the MT4/MT5 EAs restart history uploads when gaps appear.\n\nThe EA side of an analytics platform tends to take most of the edge cases: broker-specific symbol names, terminal restarts, WebRequest limits and differences between MT4 and MT5 history. I am a trading bot developer who works on MQL4/MQL5 and on EAs that sync data with external APIs, so I could help maintain or harden TradeVisor.ex5 and its MT4 counterpart as more brokers join.\n\nWould you be open to discussing it? I can also send a short example of a similar data-sync EA.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Dev Art Solutions",
@@ -402,7 +407,8 @@
    "subject": "MQL5 support for RiskGuard and the MT5 Execution Bridge",
    "body": "Hi Dev Art Solutions team,\n\nI came across your MT5 RiskGuard EA on GitHub, with its SAFE, RESTRICTED, BLOCKED and EMERGENCY states, and saw that it sits next to TradeAudit and the MT5 Execution Bridge in your trading systems portfolio.\n\nRisk EAs and execution bridges usually collect edge cases over time, such as partial fills, hedging vs netting accounts, and prop firm rule variants. I am a trading bot developer focused on MQL5, risk management systems and MT5 API bridges, and I could take on MQL5 tasks for these products while your team focuses on the AI side.\n\nIf you are planning new policies or broker support, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "MetaTrader API (metatraderapi.cloud)",
@@ -456,7 +462,8 @@
    "subject": "Real-world MQL5 code for testing MQLens",
    "body": "Hi MQLens team,\n\nI came across the mqlens-vscode extension on GitHub, with MQL4/MQL5 syntax highlighting, IntelliSense, snippets and real-time validation outside MetaEditor.\n\nTools like this are only as good as the MQL code they are tested against, and MQL has plenty of quirks: preprocessor tricks, #import blocks, and differences between MQL4 and MQL5. I am a trading bot developer who writes MQL4/MQL5 EAs every day, and I could help with snippet libraries, test cases drawn from real EAs, or checking validation rules against how the compiler actually behaves.\n\nIf that kind of input would help your roadmap, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "TopXEA",
@@ -483,7 +490,8 @@
    "subject": "KingPanel and the TopXEA EA catalog",
    "body": "Hi TopXEA team,\n\nI came across KingPanel on GitHub, the Bloomberg-style MT5 dashboard EA built with CCanvas, with its eight tabs covering equity, drawdown, order management and the economic calendar.\n\nA CCanvas panel of that scope is a real piece of MQL5 work, and requests for new tabs, MT4 versions or extra risk safeguards tend to keep coming, especially while you are also running TopxAI. I am a trading bot developer focused on MQL4/MQL5, EA tools and risk management systems, and I could take on development tasks for KingPanel or other TopXEA products.\n\nIf extra MQL capacity would help your roadmap, would you be open to discussing it? I can also send over a short example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Stelona",
@@ -510,7 +518,8 @@
    "subject": "Signal EA v9.0 and extra MQL5 capacity",
    "body": "Hi Stelona team,\n\nI came across Signal EA v9.0 on GitHub, your MT5 signal-copying Expert Advisor with its specific handling for JPY pairs and API integration.\n\nSignal copiers tend to grow in small steps: another signal format, broker suffixes, lot scaling rules, or an MT4 build for customers who have not moved yet. I am a trading bot developer who works on MQL4/MQL5 trade copiers, Telegram signal parsing and risk checks, and I could help with that kind of ongoing work on Signal EA.\n\nIf there are items on your list that need more hands, I would be happy to take on a scoped piece. Would it be useful if I sent over a short example?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "xQuantify",
@@ -537,7 +546,8 @@
    "subject": "EA deployment help for mt5-docker-vnc users",
    "body": "Hi xQuantify team,\n\nI came across your mt5-docker-vnc repo, which runs MetaTrader 5 on an Ubuntu VPS with Docker, Wine and noVNC for browser access.\n\nPeople who run MT5 that way usually want more than the terminal: their EAs installed and configured, a watchdog that alerts them on Telegram if the terminal or EA stops, and sometimes a REST or ZeroMQ bridge to Python. I am a trading bot developer working on MT4/MT5 EAs, EA monitoring and VPS deployment, and I could handle that layer for your users or for your own stack.\n\nIf that fits what you are building, would you be open to discussing it? I can send over a short example as well.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "FX True Up",
@@ -645,7 +655,8 @@
    "subject": "44 spellings of gold and the EAs that break on them",
    "body": "Hi MetaTrader VPS team,\n\nI came across your metatrader-broker-symbols repo, with symbol names measured across 241 MT4/MT5 brokers, and the note that gold alone has 44 spellings.\n\nThat is exactly where many customer EAs break after a move to a new broker or VPS: hard-coded symbols, suffixes, different stop levels or contract sizes. I am a trading bot developer who works on MT4/MT5 EAs, fixes and VPS deployment, and I could be a partner your support team refers customers to when their EA needs adapting, or help build a small monitoring EA that alerts users on Telegram if trading stops.\n\nIf that sounds useful, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "MetaPro Trader",
@@ -672,7 +683,8 @@
    "subject": "Bringing MQL5 EAs and indicators into MetaPro Trader",
    "body": "Hi MetaPro Trader team,\n\nI came across the MetaPro Trader repo on GitHub, a desktop workstation with charting, order flow and AI-assisted analysis that connects to MT5 servers without the terminal.\n\nMany MT5 traders already depend on MQL5 indicators and Expert Advisors, and a common question with a new front end is how to keep using them. I am a trading bot developer working in MQL4/MQL5 and on MT5 API bridges, and I could help port key indicators, build a companion EA that shares signals or positions with your app, or support users who want their EAs to run alongside it.\n\nIf that is on your roadmap, I can send over a few examples.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "TraderMade",
@@ -699,7 +711,8 @@
    "subject": "MQL5 work around your new MT5-tradermade-plugin",
    "body": "Hi TraderMade team,\n\nI saw your MT5-tradermade-plugin on GitHub, the hybrid bridge that brings TraderMade REST and WebSocket prices into MetaTrader 5 through Python and MQL5.\n\nOnce data customers start using a feed inside MT5, they usually ask for the next step: custom symbols that behave well in the Strategy Tester, indicators and EAs that run on the feed, or help with gaps and reconnects. I am a trading bot developer working on MQL5 and MT5 bridges, and I could help extend the plugin or build example EAs and indicators for your documentation.\n\nIf more MQL5 capacity would help, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Cybox (FvgGold EA)",
@@ -780,7 +793,8 @@
    "subject": "Prop-firm rule logic for the HFT Forex Copier",
    "body": "Hi HFT Forex Copier team,\n\nI noticed your open Prop Firm Rules Database on GitHub, mapping daily drawdown, max drawdown, news and consistency rules across 50+ firms, many of them on MT4 and MT5.\n\nThat dataset looks like a natural input for the copier itself: per-account guards that read a firm's limits and pause or scale copying before a rule is breached. I build MT4/MT5 EAs and copier components, including equity and drawdown monitors, lot scaling per receiver and symbol mapping between brokers.\n\nIf you are planning to turn the rules data into enforcement inside the copier, or simply need extra MQL capacity for the MT4 and MT5 sides, I would be happy to help. Would you be open to discussing it? I can also send a short example of a drawdown guard module.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_c.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "VQuant",
@@ -807,7 +821,8 @@
    "subject": "Extra MQL5 capacity for VQuant client projects",
    "body": "Hi VQuant team,\n\nI came across your GitHub profile and the TG2MT5 Telegram Signal Copier, with dual take-profits and VIP channel mirroring into MetaTrader 5. I also saw that custom EAs with multi-TP execution are a core part of what you deliver to clients.\n\nI am an MQL4/MQL5 developer who works on this exact type of project: signal copiers, multi-TP trade management, risk modules and MT4 to MT5 ports. When a studio has several client EAs in flight at once, extra hands for the MQL side can help keep delivery dates.\n\nIf you ever need subcontract capacity, I would be glad to support your team on individual EAs or maintenance tasks. Would it be useful if I sent over a few examples of my work?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_c.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "TradeGuard Systems",
@@ -834,7 +849,8 @@
    "subject": "MT4 version of the TradeGuard Trailing Floor",
    "body": "Hi TradeGuard Systems team,\n\nI came across the TradeGuard Trailing Floor overlay, which plots a trailing drawdown floor for prop evaluations on NinjaTrader 8, MT5 and TradingView.\n\nI noticed MT4 is not in the platform list yet, and a lot of prop evaluation accounts still run on MT4. I am an MQL4/MQL5 developer and could port the indicator to MT4 with matching behaviour, or extend the MT5 version into an account-shield EA that closes positions and blocks new ones when the floor is reached.\n\nIf either of those fits your roadmap, I would be glad to help. Would it be useful if I sent over a short example of a drawdown-floor guard in MQL?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_c.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Quant Backtest Pro",
@@ -888,7 +904,8 @@
    "subject": "An MT5 build of SmartEdge EA",
    "body": "Hi SmartEdge Trading team,\n\nI came across the SmartEdge-EA repository and noticed the EA is built for MT4 only, with activation tied to an email, license key and MT4 account number.\n\nMany brokers and prop firms now issue MT5 accounts by default, so a lot of traders who like the multi-currency, drawdown-focused approach may not be able to run it. I'm an MQL4/MQL5 developer and could port the strategy logic (the RSI, EMA, MACD and volume-weighted MACD filters) to MQL5, keep the same license activation flow, and check that both versions give matching results in the Strategy Tester.\n\nI can also help with ongoing maintenance when MetaTrader builds change.\n\nWould it be useful if I sent over a short example of how I structure MT4-to-MT5 ports?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_b.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Viprasol Tech Private Limited",
@@ -915,7 +932,8 @@
    "subject": "Extra MQL4/MQL5 capacity for Viprasol projects",
    "body": "Hi Viprasol Tech team,\n\nI saw your mt4-expert-advisor and mt5-expert-advisor repositories, with the EMA crossover logic, risk-percent lot sizing, ATR stops and on-chart dashboard, plus the Python forex bot.\n\nSince you publish on both platforms, you probably get client requests for custom EAs, fixes to existing robots and MT4-to-MT5 conversions. I'm an MQL4/MQL5 developer who focuses on exactly that work: building and fixing Expert Advisors, porting MT4 code to MT5, and adding Telegram alerts or risk modules.\n\nIf your team ever needs extra hands on an MetaTrader project, I'd be glad to work as a subcontractor under your brand and hand over clean, commented source.\n\nWould you be open to discussing it? I can send over a few examples of past MQL work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_b.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "VeritasChain Standards Organization",
@@ -942,7 +960,8 @@
    "subject": "MQL4 side of the VCP sidecar",
    "body": "Hi VeritasChain team,\n\nI read through the vcp-sidecar-guide repository and noticed that the Silver Tier sidecar targets MT4/MT5 white-label setups, with the reference code written in MQL5 and Python.\n\nFirms still running MT4 servers or older EAs will need an MQL4 version, and many will want someone to wire the sidecar into their existing terminals without touching the trading logic. I'm an MQL4/MQL5 developer and could help build an MQL4 port of the sidecar (event capture, UUID v7 generation, hash chaining), test it against the MQL5 reference, or support adopters who need it integrated with their own Expert Advisors.\n\nIf this is something you're working on, I can send over a short example of how I'd structure the MQL4 side.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_b.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "MAPSIM Co (Tarantula)",
@@ -1050,7 +1069,8 @@
    "subject": "MQL side for go-metatrader4 projects",
    "body": "Hi DigiNeat team,\n\nI came across your go-metatrader4 library, the lightweight Go client for talking to an MT4 trading server over TCP.\n\nTeams that build server-side MetaTrader tooling usually end up needing work inside the terminal too: EAs that report or act on events, custom indicators for clients, and more and more often an MT5 version of whatever already runs on MT4. I'm an MQL4/MQL5 developer and could help with that side as a subcontractor, including MT4-to-MT5 ports and EA-side bridges that talk to your Go services.\n\nIt would let your team keep its focus on the backend.\n\nWould you be open to discussing it? I can send over a few examples of similar MQL work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_b.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Telegram to MT5 Signals Copier (Nsaifnijat)",
@@ -1077,7 +1097,8 @@
    "subject": "Your Telegram to MT5 signals copier",
    "body": "Hi Saif,\n\nI came across your telegram-to-mt5-signals-copier repo, with the PyQt5 interface, magic keys for fast execution and trailing stops, and saw it has picked up a few stars and open issues.\n\nCopiers like this usually need attention as signal channels change format and brokers use different symbol suffixes or stop-level rules. I am a trading bot developer who works on MT4/MT5 and Telegram integration, and I could help on the MetaTrader side, for example an MQL5 execution helper, an MT4 version, or tougher signal parsing, whether for this project or client work you take on.\n\nIf that is useful, I can send over a short example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "TradingView-MT5-Bridge",
@@ -1104,7 +1125,8 @@
    "subject": "Help with TradingView-MT5-Bridge support requests",
    "body": "Hi Nishant,\n\nI came across your TradingView-MT5-Bridge repo and liked that it works locally without TradingView Premium or paid webhooks. I also saw the commercial support section for installation help.\n\nAs a bridge like this gains users, requests tend to go beyond setup: MT4 support, several accounts from one alert, partial closes, or custom risk rules on the MT5 side. I am a trading bot developer working on TradingView-to-MT5 integration and MQL4/MQL5 EAs, and I would be glad to partner on the heavier custom jobs so you can say yes to more of them.\n\nWould you be open to discussing it? I can send a short example of similar work.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "MT5 Agent Toolkit (smizxe)",
@@ -1131,7 +1153,8 @@
    "subject": "Human MQL5 review for mt5-agent-toolkit clients",
    "body": "Hi Giang,\n\nI came across your mt5-agent-toolkit, which turns a written strategy into an MT5 Expert Advisor with AI coding agents, headless compilation and automated backtests. The notes on MetaTrader command-line quirks were a nice touch.\n\nAI-generated EAs usually compile and backtest fine but can still miss live-trading details like filling modes, stop levels or reconnect handling. I am a trading bot developer working in MQL4/MQL5, and I could support your consulting clients with a human review of generated EAs, fixes, or VPS deployment, as a subcontractor under your name.\n\nIf that sounds useful, I can send over a short example of a review.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "WIT Software (Soluna AI)",
@@ -1158,7 +1181,8 @@
    "subject": "MT4/MT5 client EAs for Soluna AI",
    "body": "Hi WIT Software team,\n\nI came across the Soluna AI Server repo, which gives MT4 and MT5 users structured market analysis from 34+ AI models, with fallback and caching.\n\nThe MetaTrader side of a setup like this usually decides how smooth it feels: WebRequest timeouts, parsing the response, and turning the analysis into alerts or guarded trade decisions without blocking the terminal. I am a trading bot developer who builds MQL4/MQL5 EAs and API integrations, and I could help with client EAs or indicators for Soluna, plus Telegram notifications if your users want them.\n\nIf that fits your plans, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "PlusOneFX",
@@ -1185,7 +1209,8 @@
    "subject": "Collaboration on PlusOneFX MetaTrader projects",
    "body": "Hi Mobin,\n\nI saw on your GitHub profile that you have been freelancing as an MQL4/MQL5 and algorithmic trading developer since 2017, with PlusOneFX as your portfolio, and that you are open to collaboration.\n\nI do similar work as a trading bot developer, focusing on MT4/MT5 EAs, MT4-to-MT5 conversions, trade copiers and Telegram or broker API integrations. When a client project is larger than one person can deliver on time, or needs a piece outside your AI and neural network focus, I could take on a clearly scoped part under your lead.\n\nIt could also work the other way if I get requests that suit your deep learning work. Would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
    "_f": "r2_a.json"
-  }
+  },
+  "followup_at": "2026-10-02 17:02 UTC"
  },
  {
   "company": "Kamran Ali (AuroraPremiumEA)",
