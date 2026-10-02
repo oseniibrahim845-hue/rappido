@@ -387,7 +387,7 @@
   "email": "hello@devart.solutions",
   "subject": "MQL5 support for RiskGuard and the MT5 Execution Bridge",
   "body": "Hi Dev Art Solutions team,\n\nI came across your MT5 RiskGuard EA on GitHub, with its SAFE, RESTRICTED, BLOCKED and EMERGENCY states, and saw that it sits next to TradeAudit and the MT5 Execution Bridge in your trading systems portfolio.\n\nRisk EAs and execution bridges usually collect edge cases over time, such as partial fills, hedging vs netting accounts, and prop firm rule variants. I am a trading bot developer focused on MQL5, risk management systems and MT5 API bridges, and I could take on MQL5 tasks for these products while your team focuses on the AI side.\n\nIf you are planning new policies or broker support, would you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 14:35 UTC",
   "lead": {
    "name": "",
@@ -4109,7 +4109,7 @@
   "email": "theholdercollective@gmail.com",
   "subject": "MQL-side pieces for MetatraderSharp",
   "body": "Hi R,\n\nI came across MetatraderSharp and the cookbook. A cleaner C# wrapper around MTsocketAPI for both MT4 and MT5 is useful for .NET developers who don't want to write MQL.\n\nSooner or later, library users hit the terminal side: behaviour that differs between MT4 and MT5 accounts, custom indicators they want to read, or small EAs to run alongside the socket connection. I'm a trading bot developer working in MQL4/MQL5 and MetaTrader integrations, and I'd be happy to contribute cookbook examples or help with MQL work around the library.\n\nIf this fits where you're taking the project, I can send over a short example of an MQL5 helper that exposes custom indicator values to a C# client.\n\nWould that be useful?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 05:00 UTC",
   "lead": {
    "name": "R Holder",
