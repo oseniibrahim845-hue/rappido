@@ -10006,7 +10006,7 @@
   "email": "osayandeeghosam@gmail.com",
   "subject": "Dukascopy data straight into MT5",
   "body": "Hi Eghosa,\n\nI came across dukascopy-python and its Go and Dart versions for downloading and streaming Dukascopy tick and bar data. It's a clean way to get quality forex history.\n\nMany forex traders want that data inside MetaTrader 5, as custom symbols, for backtests closer to real ticks than broker history. I'm a trading bot developer working in MQL5 and backtesting tools. I could build an MQL5 script or a small Python add-on that loads your downloader's output into MT5 custom symbols, ready for the Strategy Tester, which could also make a useful example for your users.\n\nIf that sounds useful, would you be open to me sending over a short example?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 13:03 UTC",
   "lead": {
    "name": "Eghosa Osayande",
