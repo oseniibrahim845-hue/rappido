@@ -21,3 +21,8 @@
    (maintenance, risk guards, conversions, dashboards) if they fit what the prospect does.
 5. If there is nothing new, report nothing (one short line at most).
 6. Commit/push any file changes to claude/kind-fermat-wa8eun.
+
+Author Spotlight replies (added 2026-10-02): authors are tracked in authors/queue.json (aq.py). When an author replies,
+run `python3 authors/aq.py mark replied <email>`, then draft the reply using authors/AUTHOR_PLAYBOOK.md (live-reply format:
+READY-TO-SEND REPLY / ENGLISH TRANSLATION / CONVERSATION STATUS / NEXT STEP), sign Oseni Ibrahim / The Author Ledger,
+and send only after the user approves. Author bounces: `aq.py mark bounced <email>`.
