@@ -11322,7 +11322,7 @@
   "email": "farhadarjmand@gmail.com",
   "subject": "Causal BOS/CHOCH logic on MT5",
   "body": "Hi Farhad,\n\nI came across causal-market-structure and liked the focus on recording when each swing, BOS or CHOCH event actually became knowable, so replays do not backdate pivot confirmation. Many market-structure indicators quietly repaint, so that is a useful angle.\n\nI'm a trading bot developer working on MT4/MT5 indicators and Expert Advisors, backtesting tools and TradingView integrations. Many smart-money traders work in MetaTrader, and an MQL5 port of your event logic, with the same no-repaint guarantees, could be a natural companion to the TypeScript version. I could build that, or an EA that consumes the events with risk rules.\n\nWould it be useful if I sent over a short example of a non-repainting MT5 swing detector?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 21:02 UTC",
   "lead": {
    "name": "Farhad Arjmand",
