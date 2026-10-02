@@ -43,10 +43,19 @@ cmd = sys.argv[1]
 if cmd == "build":
     added = rej = 0
     seen = set(l.strip().lower() for l in open(SEEN)) if os.path.exists(SEEN) else set()
+    # never re-contact anyone emailed in earlier campaigns (Sep 30 / Oct 1 author rounds, EA/crypto queue)
+    contacted = set()
+    for f in glob.glob(os.path.join(D, "round*_search.json")):
+        d = json.load(open(f)); d = d if isinstance(d, list) else list(d.values())[0]
+        contacted |= {x.get("email", "").lower() for x in d if x.get("email")}
+    oq = os.path.join(D, "..", "outreach", "queue.json")
+    if os.path.exists(oq):
+        contacted |= {e["email"].lower() for e in json.load(open(oq)) if e.get("status") != "pending"}
     for f in sorted(glob.glob(os.path.join(D, "spotlight", "bank_*.json"))):
         for r in json.load(open(f)):
             em = r["email"].strip().lower()
             if em in idx: continue
+            if em in contacted: rej += 1; continue
             if any(c in (r.get("country") or "").lower() for c in EXCLUDE_COUNTRIES): rej += 1; continue
             r["email_body"] = disclose(r["email_body"])
             if not ok(r): rej += 1; continue
