@@ -10,6 +10,7 @@ import json, sys, os, glob, re, datetime
 D = os.path.dirname(os.path.abspath(__file__)); Q = os.path.join(D, "queue.json")
 SEEN = os.path.join(D, "intl", "SEEN_EMAILS.txt")
 FU_DAYS = 5
+EXCLUDE_COUNTRIES = ("nigeria",)  # user decision 2026-10-02: no Nigerian leads
 BANNED = re.compile(r"\b(AI|artificial intelligence|inteligencia artificial|synthetic|sint[eé]tic|automated|automatizad|"
                     r"voice clon|clonaci[oó]n de voz|text-to-speech|texto a voz|guarantee|garantiz)", re.I)
 now = datetime.datetime.utcnow()
@@ -32,6 +33,7 @@ if cmd == "build":
         for r in json.load(open(f)):
             em = r["email"].strip().lower()
             if em in idx: continue
+            if any(c in (r.get("country") or "").lower() for c in EXCLUDE_COUNTRIES): rej += 1; continue
             if not ok(r): rej += 1; continue
             e = {"email": em, "author_name": r["author_name"], "country": r.get("country", ""), "subject": r["subject_line"],
                  "body": r["email_body"], "best_offer": r.get("best_offer", ""), "lang": "es" if "Hola" in r["email_body"][:20] else "en",

@@ -10,8 +10,8 @@ authors/spotlight/bank_<YYYYMMDDHHMM>_<group>.json (unique name) and aims for 10
 Many scouting sessions may run in parallel, so do NOT edit shared files (no SEEN_EMAILS.txt appends, no queue.json,
 no ROTATION.txt). Only add your own new bank files. Duplicates are removed later by aq.py build.
 
-Country-group rotation (skip sanctioned countries: Iran, Russia, Belarus, North Korea, Syria, Cuba):
- us_south, us_midwest, us_west, us_northeast, uk, ireland, canada, australia, new_zealand, south_africa, nigeria,
+Country-group rotation (skip sanctioned countries: Iran, Russia, Belarus, North Korea, Syria, Cuba; also skip Nigeria entirely, user decision 2026-10-02):
+ us_south, us_midwest, us_west, us_northeast, uk, ireland, canada, australia, new_zealand, south_africa,
  kenya_ghana, india, philippines, singapore_malaysia, mexico, colombia, argentina, spain, chile, peru_ecuador,
  caribbean_jamaica_trinidad, germany_netherlands_english_writers, nordics_english_writers
 
