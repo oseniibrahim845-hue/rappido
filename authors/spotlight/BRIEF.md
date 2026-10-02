@@ -19,7 +19,7 @@ Prior research for each author is in /home/user/rappido/authors/Author_Ledger_Ch
 ## Email (Author Spotlight is the main reason)
 - Language: English for English-language authors. For Spanish-language authors write natural Spanish (Chile: tú; Argentina: vos)
   with the same structure and rules, since they are being contacted in Spanish.
-- 170-230 words. No em dashes or en dashes. Never mention AI, synthetic/automated narration, voice cloning, text-to-speech,
+- 180-250 words. No em dashes or en dashes. Never mention AI, synthetic/automated narration, voice cloning, text-to-speech,
   generative tools or internal tools. Do not claim narration is human. No guarantees of sales/royalties/coverage/rankings/ROI.
   No criticism. No "Congratulations" in subject. Do not claim to have read the book.
 - Structure:
@@ -29,7 +29,10 @@ Prior research for each author is in /home/user/rappido/authors/Author_Ledger_Ch
   readers to your work, the story behind your book, and the experiences or ideas that have shaped your journey as an author.
   Alongside our editorial features, we also support authors with professionally produced audiobook editions, cinematic book
   trailers, short promotional reels, author websites, press kits, Amazon A+ graphics, and book relaunch materials.
-  [2-3 sentences on best_offer, explaining the verified gap gently, and that it is optional and separate from the Spotlight.]
+  [2-3 sentences on best_offer, explaining the verified gap gently, and that it is an optional add-on.]
+  The Author Spotlight is a paid feature, and I would be happy to share the details and pricing if it sounds like a good fit.
+  (Spanish: El Author Spotlight es una publicación paga, y con gusto te comparto los detalles y el precio si te interesa.)
+  (REQUIRED sentence, never omit; do not state the price in the first email. Never imply the Spotlight is free.)
   Would you be interested in hearing more about the feature and the option I believe would suit [book_title] best?
   Warm regards,
   Oseni Ibrahim

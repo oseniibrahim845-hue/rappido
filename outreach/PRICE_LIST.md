@@ -41,3 +41,6 @@ Pick a single fixed number inside the range based on scope; never quote the rang
 
 Add-ons: series bundle (3 books) 997; rush 72h delivery +100.
 Flow: author replies -> send the developed trailer concept first -> quote only when they ask or show interest.
+
+## Author Spotlight (The Author Ledger)
+- Author Spotlight feature: $200 (user, 2026-10-02). It is PAID: first emails say so; quote $200 when asked.

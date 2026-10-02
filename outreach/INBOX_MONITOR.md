@@ -26,3 +26,5 @@ Author Spotlight replies (added 2026-10-02): authors are tracked in authors/queu
 run `python3 authors/aq.py mark replied <email>`, then draft the reply using authors/AUTHOR_PLAYBOOK.md (live-reply format:
 READY-TO-SEND REPLY / ENGLISH TRANSLATION / CONVERSATION STATUS / NEXT STEP), sign Oseni Ibrahim / The Author Ledger,
 and send only after the user approves. Author bounces: `aq.py mark bounced <email>`.
+Author Spotlight price (user, 2026-10-02): $200, paid. Quote it when an author asks or shows interest. If an author only wants a
+free feature, say honestly that it is paid and close politely.

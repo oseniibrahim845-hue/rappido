@@ -20,9 +20,23 @@ idx = {e["email"].lower(): e for e in q}
 def save():
     json.dump(q, open(Q, "w"), indent=1, ensure_ascii=False)
 
+PAID_EN = "The Author Spotlight is a paid feature, and I would be happy to share the details and pricing if it sounds like a good fit."
+PAID_ES = "El Author Spotlight es una publicación paga, y con gusto te comparto los detalles y el precio si te interesa."
+PAID_ES_PL = "El Author Spotlight es una publicación paga, y con gusto les comparto los detalles y el precio si les interesa."
+
+def disclose(b):
+    """Make sure every first email says the Spotlight is paid (user decision 2026-10-02, price $200)."""
+    if re.search(r"paid feature|publicaci[oó]n paga|servicio pago", b, re.I): return b
+    ps = b.split("\n\n")
+    es = ps[0].lower().startswith("hola")
+    line = (PAID_ES_PL if "equipo" in ps[0].lower() else PAID_ES) if es else PAID_EN
+    q = next((i for i, p in enumerate(ps) if p.strip().startswith(("Would you", "¿"))), len(ps) - 2)
+    ps.insert(q, line)
+    return "\n\n".join(ps)
+
 def ok(r):
     b = r["email_body"]; wc = len(re.findall(r"\w+", b))
-    return (r.get("personalization_status") == "Ready" and 160 <= wc <= 250 and "—" not in b and "–" not in b
+    return (r.get("personalization_status") == "Ready" and 160 <= wc <= 275 and "—" not in b and "–" not in b
             and not BANNED.search(b) and "Oseni Ibrahim" in b and "@" in r["email"])
 
 cmd = sys.argv[1]
@@ -34,6 +48,7 @@ if cmd == "build":
             em = r["email"].strip().lower()
             if em in idx: continue
             if any(c in (r.get("country") or "").lower() for c in EXCLUDE_COUNTRIES): rej += 1; continue
+            r["email_body"] = disclose(r["email_body"])
             if not ok(r): rej += 1; continue
             e = {"email": em, "author_name": r["author_name"], "country": r.get("country", ""), "subject": r["subject_line"],
                  "body": r["email_body"], "best_offer": r.get("best_offer", ""), "lang": "es" if "Hola" in r["email_body"][:20] else "en",
@@ -65,13 +80,13 @@ elif cmd in ("fu", "fudone"):
             g = e["body"].split("\n", 1)[0].strip()
             if e["lang"] == "es":
                 body = (f"{g}\n\nSolo quería volver a dejar mi mensaje anterior por si se perdió entre otros correos. "
-                        "La invitación al Author Spotlight sigue en pie, y los demás servicios son totalmente opcionales.\n\n"
-                        "Si te interesa, con una respuesta breve basta y te cuento los siguientes pasos. Si no es buen momento, no hay problema.\n\n"
+                        "Para ser claro desde el principio: el Author Spotlight es una publicación paga, y los demás servicios son totalmente opcionales.\n\n"
+                        "Si te interesa, con una respuesta breve basta y te cuento los detalles y el precio. Si no es buen momento, no hay problema.\n\n"
                         "Un saludo,\nOseni Ibrahim\nThe Author Ledger")
             else:
                 body = (f"{g}\n\nI just wanted to bring my earlier note back to the top of your inbox in case it got buried. "
-                        "The Author Spotlight invitation is still open, and the other services are completely optional.\n\n"
-                        "If you are interested, a short reply is all it takes and I will share the next steps. If the timing is not right, no problem at all.\n\n"
+                        "To be upfront, the Author Spotlight is a paid feature, and the other services are completely optional.\n\n"
+                        "If you are interested, a short reply is all it takes and I will share the details and pricing. If the timing is not right, no problem at all.\n\n"
                         "Warm regards,\nOseni Ibrahim\nThe Author Ledger")
             out.append({"email": e["email"], "subject": "Re: " + e["subject"], "body": body})
         print(json.dumps(out, indent=1, ensure_ascii=False))
