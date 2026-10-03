@@ -15061,7 +15061,7 @@
   "email": "eabisaadw@gmail.com",
   "subject": "RiskRabbit sizing straight into MT5",
   "body": "Hi Ebisa,\n\nI came across RiskRabbit and liked how quickly it gives a size mid-chart with a single shortcut and no runtime dependencies.\n\nFor forex and metals prop traders, the next friction is moving that number into MetaTrader 5 and setting SL/TP by hand. I'm a trading bot developer working in MQL4/MQL5 and risk tooling, and I could build a small MT5 companion (script or panel EA) that applies the same sizing rules and places the order with stops, so RiskRabbit covers the whole flow for FX users.\n\nIf that sounds interesting, I can send over a short example of an MT5 risk panel.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-03 05:00 UTC",
   "lead": {
    "name": "Ebisa Dugo",
@@ -15369,7 +15369,7 @@
   "email": "kaiserkida@gmail.com",
   "subject": "D_Bots and Deriv MT5",
   "body": "Hi Kaiser,\n\nI came across D_Bots and the Django Channels architecture behind the live Deriv trading interface.\n\nDeriv traders are split between DBot/API users and those running MetaTrader 5, and the MT5 group usually wants strategies running as Expert Advisors. I'm a trading bot developer specialising in MQL4/MQL5 and broker API integration, and I could build an MT5 execution path for D_Bots strategies, so your web interface can monitor and control MT5 accounts too, with the same strategy settings applied on both sides.\n\nWould it be useful if I sent over a short example of that bridge?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-03 05:00 UTC",
   "lead": {
    "name": "Kaiser Emanuel Kinda",
@@ -15397,7 +15397,7 @@
   "email": "derivkingnato@gmail.com",
   "subject": "Deriv_Pro strategies on MT5",
   "body": "Hi Deriv_Pro team,\n\nI came across your Deriv bots collection and the premium combo of 40+ XML bots you offer.\n\nDBot covers one part of the Deriv audience; the other part trades synthetic indices through MetaTrader 5 and looks for Expert Advisors instead. I'm a trading bot developer specialising in MQL4/MQL5, and I could convert your trend-based strategies into MT5 EAs with hard stop-loss and daily loss limits, so you have something to offer MT5 users as well.\n\nIf that sounds useful, I can send over a short example of an MT5 EA for synthetic indices.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-03 05:00 UTC",
   "lead": {
    "name": "",
