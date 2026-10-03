@@ -14949,7 +14949,7 @@
   "email": "jrbriones@proton.me",
   "subject": "Cumulative Cluster para MT5",
   "body": "Hi Juan,\n\nI came across your NT8 Cumulative Cluster indicator and the way cluster size and opacity scale with unusual aggression instead of fixed boxes.\n\nMany Spanish-speaking retail traders are on MetaTrader 5 rather than NinjaTrader, so an MT5 version could reach a wider audience. I'm a trading bot developer working in MQL4/MQL5, and I could port the cluster logic to MT5 using real tick volume where the broker provides it, and optionally add an EA that trades or alerts on cluster events.\n\nIf you're interested, I can send over a short example of tick-based volume clustering in MQL5.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-03 05:00 UTC",
   "lead": {
    "name": "Juan Briones",
