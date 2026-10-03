@@ -10,6 +10,7 @@ import json, sys, os, glob, re, datetime
 D = os.path.dirname(os.path.abspath(__file__)); Q = os.path.join(D, "queue.json")
 SEEN = os.path.join(D, "intl", "SEEN_EMAILS.txt")
 FU_DAYS = 5
+FOLLOWUPS_ENABLED = False  # user 2026-10-03: "we don't need follow up"
 DAILY_CAP = 100  # user rule 2026-10-03: at most 100 outreach emails in any rolling 24 hours (first emails + follow-ups)
 
 def sent_last_24h():
@@ -87,6 +88,8 @@ elif cmd in ("fu", "fudone"):
     def due(e):
         if e["status"] != "sent" or e.get("followup_at") or not e.get("sent_at"): return False
         return now - datetime.datetime.strptime(e["sent_at"][:16], "%Y-%m-%d %H:%M") >= datetime.timedelta(days=FU_DAYS)
+    if cmd == "fu" and FOLLOWUPS_ENABLED is False:
+        print("[]"); sys.exit(0)
     if cmd == "fu":
         out = []
         sys.argv[2] = str(max(0, min(int(sys.argv[2]), DAILY_CAP - sent_last_24h())))
