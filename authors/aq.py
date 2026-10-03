@@ -10,6 +10,12 @@ import json, sys, os, glob, re, datetime
 D = os.path.dirname(os.path.abspath(__file__)); Q = os.path.join(D, "queue.json")
 SEEN = os.path.join(D, "intl", "SEEN_EMAILS.txt")
 FU_DAYS = 5
+DAILY_CAP = 100  # user rule 2026-10-03: at most 100 outreach emails in any rolling 24 hours (first emails + follow-ups)
+
+def sent_last_24h():
+    def recent(ts):
+        return ts and now - datetime.datetime.strptime(ts[:16], "%Y-%m-%d %H:%M") <= datetime.timedelta(hours=24)
+    return sum(1 for e in q if recent(e.get("sent_at"))) + sum(1 for e in q if recent(e.get("followup_at")))
 EXCLUDE_COUNTRIES = ("nigeria",)  # user decision 2026-10-02: no Nigerian leads
 BANNED = re.compile(r"\b(AI|artificial intelligence|inteligencia artificial|synthetic|sint[eé]tic|automated|automatizad|"
                     r"voice clon|clonaci[oó]n de voz|text-to-speech|texto a voz|guarantee|garantiz)", re.I)
@@ -67,7 +73,7 @@ if cmd == "build":
                 open(SEEN, "a").write(em + "\n"); seen.add(em)
     save(); print(f"added {added}, rejected {rej}, total {len(q)}")
 elif cmd == "next":
-    n = int(sys.argv[2]); out = [{"email": e["email"], "subject": e["subject"], "body": e["body"]} for e in q if e["status"] == "pending"][:n]
+    n = max(0, min(int(sys.argv[2]), DAILY_CAP - sent_last_24h())); out = [{"email": e["email"], "subject": e["subject"], "body": e["body"]} for e in q if e["status"] == "pending"][:n]
     print(json.dumps(out, indent=1, ensure_ascii=False))
 elif cmd == "mark":
     st = sys.argv[2]; stamp = now.strftime("%Y-%m-%d %H:%M UTC")
@@ -83,6 +89,7 @@ elif cmd in ("fu", "fudone"):
         return now - datetime.datetime.strptime(e["sent_at"][:16], "%Y-%m-%d %H:%M") >= datetime.timedelta(days=FU_DAYS)
     if cmd == "fu":
         out = []
+        sys.argv[2] = str(max(0, min(int(sys.argv[2]), DAILY_CAP - sent_last_24h())))
         for e in q:
             if len(out) >= int(sys.argv[2]): break
             if not due(e): continue
@@ -105,4 +112,5 @@ elif cmd in ("fu", "fudone"):
         save(); print("fudone", len(sys.argv) - 2)
 elif cmd == "stats":
     from collections import Counter
-    print(dict(Counter(e["status"] for e in q)), "followups sent:", sum(1 for e in q if e.get("followup_at")))
+    print(dict(Counter(e["status"] for e in q)), "followups sent:", sum(1 for e in q if e.get("followup_at")),
+          "| sent in last 24h:", sent_last_24h(), "of cap", DAILY_CAP)

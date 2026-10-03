@@ -1,4 +1,5 @@
 # Author Spotlight send runbook (scheduled every 4h, user approved 2026-10-02: "send all ... do the outreach the way we did crypto")
+HARD RULE (user, 2026-10-03): never more than 100 outreach emails in any rolling 24 hours. aq.py next/fu enforce this automatically; if they return 0 items, send nothing.
 
 1. cd /home/user/rappido && git pull origin claude/kind-fermat-wa8eun (scouting runs push new rows to this branch).
 2. Confirm Gmail is oseniibrahim845@gmail.com (search_threads in:sent pageSize 1, check sender). Otherwise send NOTHING and tell the user.
