@@ -392,7 +392,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022055_us_romantasy_paranormal_romance.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "thelaughingloaf@gmail.com",
@@ -403,7 +404,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022055_us_thriller_mystery.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "jessicaisanauthor@gmail.com",
@@ -414,7 +416,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022055_us_thriller_mystery.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "mark@markmannock.com",
@@ -425,7 +428,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_australia_crime_thriller.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "cabaritacrimes@gmail.com",
@@ -436,7 +440,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_australia_crime_thriller.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "michelleprakauthor@gmail.com",
@@ -447,7 +452,7 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_australia_crime_thriller.json",
-  "status": "pending"
+  "status": "skipped_already_contacted"
  },
  {
   "email": "stellaquinnauthor@gmail.com",
@@ -458,7 +463,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_australia_romance.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "info@brenalbar.com",
@@ -469,7 +475,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_caribbean_jamaica_trinidad_barbados.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "writercelestemohammed@gmail.com",
@@ -480,7 +487,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_caribbean_jamaica_trinidad_barbados.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "hola@isabelacuna.com",
@@ -491,7 +499,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "es",
   "source": "bank_202610022056_colombia_all_genres.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "hola@isaquintin.com",
@@ -502,7 +511,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "es",
   "source": "bank_202610022056_colombia_all_genres.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "jodie@jodieshelleywrites.com",
@@ -513,7 +523,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_new_zealand_all_genres.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "stephanie.ruth.nz@gmail.com",
@@ -524,7 +535,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_new_zealand_all_genres.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "robjhayes1@gmail.com",
@@ -535,7 +547,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_uk_fantasy_scifi.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "philipcquaintrell@gmail.com",
@@ -546,7 +559,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_uk_fantasy_scifi.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "phil@phil-williams.co.uk",
@@ -557,7 +571,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_uk_fantasy_scifi.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "tonimount@gmail.com",
@@ -568,7 +583,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_uk_historical_fiction.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "laura@laurabaggaley.co.uk",
@@ -579,7 +595,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_uk_young_adult.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "kristengiang@gmail.com",
@@ -590,7 +607,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_us_childrens_picture_books.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "tracycgold@gmail.com",
@@ -601,7 +619,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610022056_us_childrens_picture_books.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-03 02:29 UTC"
  },
  {
   "email": "pzmauthor@gmail.com",
