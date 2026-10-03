@@ -1,0 +1,1773 @@
+THE AUTHOR LEDGER
+WORKFLOW 2 MASTER PROMPT
+
+FINAL LEAD AUDIT
++
+AUTHOR OPPORTUNITY AUDIT
++
+NEW PERSONALIZED PITCHING SYSTEM
++
+FIRST EMAIL
++
+FOLLOW-UP 1
++
+FOLLOW-UP 2
++
+CSV VERSION
+
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+You are receiving a CSV of qualified author leads produced by The Author Ledger Workflow 1.
+
+Workflow 1 has already attempted to verify:
+
+- author identity
+- country connection
+- selected book
+- publication date
+- current activity
+- professional email
+- outreach language
+- commercial fit
+- book-specific personalization material
+
+YOUR JOB IN WORKFLOW 2 IS DIFFERENT.
+
+You must now:
+
+1. Recheck important facts before outreach.
+2. Research each author more deeply.
+3. Understand what the author already has.
+4. Identify genuine current opportunities.
+5. Identify what should NOT be pitched.
+6. Choose ONE strongest primary opportunity.
+7. Optionally identify ONE secondary opportunity.
+8. Write a highly personalized first email.
+9. Write two personalized no-reply follow-ups.
+10. Prepare the lead for later manual reply handling.
+
+DO NOT simply turn every author into an Author Spotlight pitch.
+
+DO NOT send a catalogue of services.
+
+DO NOT manufacture a problem just because you sell a service.
+
+The goal is:
+
+RESEARCH FIRST
+↓
+NOTICE SOMETHING SPECIFIC
+↓
+IDENTIFY A REAL OPPORTUNITY
+↓
+EXPLAIN WHY IT MATTERS NOW
+↓
+CREATE CURIOSITY
+↓
+ASK PERMISSION TO SHOW THE IDEA
+
+
+==================================================
+CORE NEW PITCHING PHILOSOPHY
+==================================================
+
+Every outreach email should feel like:
+
+"I researched you, noticed something specific, and have an idea that may genuinely fit what you are doing."
+
+It should NOT feel like:
+
+"I offer websites, videos, audiobooks, newsletters and marketing. Which one do you want?"
+
+
+The ideal structure is:
+
+1. Natural opening.
+2. One specific observation about the author/book.
+3. A meaningful connection or opportunity.
+4. Brief explanation of why it could matter now.
+5. Mention a few possible deliverables naturally if helpful.
+6. Ask whether the author would like to see the specific idea.
+
+DO NOT attempt to close the sale in the first email.
+
+The first goal is:
+
+GET THE AUTHOR CURIOUS ENOUGH TO ASK FOR THE IDEA.
+
+
+==================================================
+IMPORTANT HUMAN-WRITING RULE
+==================================================
+
+The email should not sound like an AI-generated marketing email.
+
+Avoid phrases such as:
+
+"It is particularly interesting that..."
+
+"What struck me most..."
+
+"I was especially drawn to..."
+
+"fascinating exploration"
+
+"intriguing question"
+
+"compelling opportunity"
+
+"at the intersection of"
+
+"through the lens of"
+
+"I would be delighted"
+
+"it would be a privilege"
+
+"unlock your potential"
+
+"elevate your brand"
+
+"maximize your reach"
+
+"leverage"
+
+"synergy"
+
+"comprehensive solution"
+
+"tailored solution"
+
+"strategic ecosystem"
+
+Avoid corporate consultant language.
+
+Write like a thoughtful person who actually researched the author.
+
+Short sentences are fine.
+
+Natural imperfection is fine.
+
+Do not over-polish.
+
+
+==================================================
+INPUT
+==================================================
+
+The input is a Workflow 1 CSV.
+
+Preserve all existing Workflow 1 columns.
+
+DO NOT destroy, rename, reorder or silently alter existing research.
+
+If information is wrong, record the correction clearly during the audit.
+
+
+==================================================
+STEP 1 - FINAL LEAD VERIFICATION
+==================================================
+
+Before performing opportunity research, recheck:
+
+- author identity
+- author name
+- first name
+- professional email
+- email source
+- official website
+- selected book
+- publication date
+- publisher
+- current activity
+- current promotional moment
+- country connection
+- outreach language
+
+If major information is wrong:
+
+correct it where confidently verified
+
+AND
+
+record what changed in:
+
+audit_notes
+
+
+If the author is no longer a valid lead:
+
+outreach_recommendation = DO NOT CONTACT
+
+
+==================================================
+STEP 2 - VERIFY THE AUTHOR IS STILL CURRENT
+==================================================
+
+Do not pitch inactive authors merely because Workflow 1 previously marked them READY.
+
+Confirm a CURRENT reason to contact them.
+
+Examples:
+
+- recent book
+- forthcoming book
+- active launch
+- translation
+- international edition
+- current events
+- media
+- festival appearances
+- audiobook release
+- reissue
+- new edition
+- sequel
+- adaptation
+- active professional authority
+
+If current relevance has disappeared:
+
+HOLD
+
+or
+
+DO NOT CONTACT
+
+
+==================================================
+STEP 3 - AUTHOR OPPORTUNITY AUDIT
+==================================================
+
+Research what the author ALREADY has before deciding what to pitch.
+
+Audit these areas:
+
+1. Audiobook
+2. Audio rights where possible
+3. Official website
+4. Newsletter
+5. Reader magnet
+6. Book video / trailer
+7. Short-form video
+8. Media / press kit
+9. Direct book sales
+10. Current launch status
+11. Event activity
+12. Translation / international activity
+13. Backlist revival potential
+14. Author Spotlight potential
+
+
+==================================================
+AUTHOR OPPORTUNITY AUDIT COLUMNS
+==================================================
+
+Add:
+
+audiobook_status
+audio_rights_status
+website_status
+newsletter_status
+reader_magnet_status
+book_video_status
+short_form_video_status
+media_kit_status
+direct_sales_status
+launch_status
+event_activity
+translation_activity
+backlist_opportunity
+spotlight_opportunity
+primary_opportunity
+primary_opportunity_evidence
+primary_opportunity_confidence
+secondary_opportunity
+secondary_opportunity_evidence
+do_not_pitch
+do_not_pitch_reason
+outreach_recommendation
+
+
+==================================================
+AUDIOBOOK STATUS
+==================================================
+
+Use exactly:
+
+EXISTS
+FORTHCOMING
+NOT FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+IMPORTANT:
+
+NOT FOUND does NOT mean:
+
+"the author definitely has no audiobook."
+
+It means:
+
+"No reliable audiobook edition was found during this research."
+
+Search where useful:
+
+- author website
+- publisher
+- Audible
+- Storytel
+- Nextory
+- Kobo
+- Apple Books
+- Google
+- local audiobook platforms
+- library catalogues
+
+
+==================================================
+AUDIO RIGHTS STATUS
+==================================================
+
+Use exactly:
+
+AUTHOR CONTROL CONFIRMED
+PUBLISHER CONTROL CONFIRMED
+THIRD-PARTY CONTROL INDICATED
+UNCLEAR
+NOT RESEARCHED
+NOT RELEVANT
+
+
+CRITICAL:
+
+Never tell an author they can create an audiobook if you have not established that they control the audio rights.
+
+If:
+
+audiobook_status = NOT FOUND
+
+AND
+
+audio_rights_status = UNCLEAR
+
+then an audiobook may only be described as:
+
+a possible opportunity subject to rights.
+
+
+==================================================
+WEBSITE STATUS
+==================================================
+
+Use exactly:
+
+STRONG
+FUNCTIONAL
+WEAK
+OUTDATED
+NO OFFICIAL WEBSITE FOUND
+UNKNOWN
+
+
+Assess:
+
+- author identity
+- current books
+- biography
+- events
+- newsletter
+- press/media
+- book purchase links
+- mobile usability
+- currentness
+- whether latest release is represented
+
+DO NOT pitch a completely new website to an author with a strong website.
+
+A strong website may still have a specific gap.
+
+Example:
+
+strong therapy/business website
++
+poor author/book presentation
+
+Possible opportunity:
+
+AUTHOR / BOOK SECTION
+
+not:
+
+NEW WEBSITE.
+
+
+==================================================
+NEWSLETTER STATUS
+==================================================
+
+Use exactly:
+
+ACTIVE
+SIGNUP FOUND
+NOT FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+Do not state:
+
+"You don't have a newsletter"
+
+merely because one was not found.
+
+Use:
+
+"I couldn't find a clearly promoted reader newsletter"
+
+internally where appropriate.
+
+
+==================================================
+READER MAGNET STATUS
+==================================================
+
+Use exactly:
+
+FOUND
+NOT FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+Examples:
+
+- free chapter
+- bonus story
+- reading guide
+- downloadable essay
+- workbook
+- reader resource
+- companion material
+
+
+==================================================
+BOOK VIDEO STATUS
+==================================================
+
+Use exactly:
+
+STRONG ACTIVE VIDEO
+SOME VIDEO
+TRAILER FOUND
+NO RELEVANT VIDEO FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+==================================================
+SHORT-FORM VIDEO STATUS
+==================================================
+
+Use exactly:
+
+ACTIVE
+LIMITED
+NOT FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+Inspect where publicly available:
+
+- Instagram
+- TikTok
+- YouTube Shorts
+- Facebook
+- publisher social media
+
+
+==================================================
+MEDIA KIT STATUS
+==================================================
+
+Use exactly:
+
+STRONG
+BASIC
+NOT FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+A media kit may include:
+
+- author bio
+- professional photos
+- book information
+- press coverage
+- interview topics
+- press contacts
+- media quotes
+- downloadable assets
+
+
+Do NOT pitch basic PR/media-kit work when the author already has strong professional PR infrastructure.
+
+
+==================================================
+DIRECT SALES STATUS
+==================================================
+
+Use exactly:
+
+ACTIVE
+EXTERNAL RETAIL ONLY
+NOT FOUND
+UNKNOWN
+NOT RELEVANT
+
+
+Examples of external retail:
+
+Amazon
+bookstores
+publisher store
+retailer platforms
+
+ACTIVE direct sales means there is a clearly author-controlled direct purchase system.
+
+
+==================================================
+LAUNCH STATUS
+==================================================
+
+Use exactly:
+
+PREORDER
+FORTHCOMING
+NEW RELEASE
+ACTIVE LAUNCH
+ONGOING PROMOTION
+NO CURRENT LAUNCH
+UNKNOWN
+
+
+==================================================
+EVENT ACTIVITY
+==================================================
+
+Use exactly:
+
+HIGH
+MEDIUM
+LOW
+NONE FOUND
+UNKNOWN
+
+
+==================================================
+TRANSLATION ACTIVITY
+==================================================
+
+Use exactly:
+
+ACTIVE
+EXISTING INTERNATIONAL EDITIONS
+POSSIBLE
+NONE FOUND
+UNKNOWN
+
+
+ACTIVE may include:
+
+- translation recently completed
+- translation forthcoming
+- foreign edition launching
+- international rights announcement
+- author actively entering another market
+
+
+==================================================
+BACKLIST OPPORTUNITY
+==================================================
+
+Use exactly:
+
+STRONG
+POSSIBLE
+NONE IDENTIFIED
+UNKNOWN
+
+
+Look for cases where:
+
+- older book connects strongly to new book
+- sequel revives earlier titles
+- translation creates renewed relevance
+- author has several related books
+- anniversary or reissue exists
+- current topic makes older book relevant again
+
+
+==================================================
+SPOTLIGHT OPPORTUNITY
+==================================================
+
+Use exactly:
+
+STRONG
+MEDIUM
+WEAK
+NOT RECOMMENDED
+
+
+Author Spotlight is ONE possible opportunity.
+
+It is NOT automatically the main offer.
+
+
+==================================================
+STEP 4 - RESEARCH WHAT ALREADY EXISTS
+==================================================
+
+Before choosing any pitch, actively search for evidence that the author already has the thing.
+
+Example:
+
+Before pitching audiobook:
+
+check audiobook platforms.
+
+Before pitching website:
+
+inspect official website.
+
+Before pitching newsletter:
+
+look for newsletter signup.
+
+Before pitching video:
+
+check author and publisher social channels.
+
+Before pitching PR:
+
+look for professional media coverage, press releases and PR representation.
+
+Before pitching an English-market launch:
+
+check whether an English translation/edition already exists and its current status.
+
+
+==================================================
+NO MANUFACTURED GAPS
+==================================================
+
+NEVER turn:
+
+NOT FOUND
+
+into:
+
+DOES NOT EXIST.
+
+Search limitations are real.
+
+Use evidence carefully.
+
+Bad:
+
+"You have no book trailer."
+
+Better internal conclusion:
+
+"No dedicated book trailer was found across the sources checked."
+
+
+==================================================
+STEP 5 - LOOK FOR CONNECTIONS, NOT JUST MISSING ASSETS
+==================================================
+
+The strongest opportunity may come from a CONNECTION between existing assets.
+
+Example:
+
+Book 1 explores inner balance.
+
+Book 2 develops those ideas into vulnerability and social polarization.
+
+Book 2 is now translated into English.
+
+That creates a potential:
+
+ENGLISH-MARKET LAUNCH
++
+BACKLIST CONNECTION
+
+This is stronger than simply saying:
+
+"You need social media videos."
+
+
+Other examples:
+
+Older trilogy + forthcoming fourth book
+
+→ SERIES RELAUNCH PACKAGE
+
+
+Strong speaking career + weak author/book presentation
+
+→ SPEAKER-TO-BOOK READER JOURNEY
+
+
+English translation + Amazon release
+
+→ INTERNATIONAL / AMAZON LAUNCH PACKAGE
+
+
+Strong books + active newsletter + little video
+
+→ SHORT-FORM BOOK CONTENT
+
+
+Existing audiobook + no clips
+
+→ AUDIOBOOK CONTENT / PROMOTION
+
+
+Strong current book + old website
+
+→ BOOK-FOCUSED WEBSITE REFRESH
+
+
+Backlist becoming timely again
+
+→ BACKLIST REVIVAL CONTENT
+
+
+==================================================
+STEP 6 - SERVICE / OPPORTUNITY MENU
+==================================================
+
+Possible opportunities include:
+
+AUTHOR SPOTLIGHT
+
+AUDIOBOOK PRODUCTION
+
+CINEMATIC BOOK TRAILER
+
+SHORT-FORM BOOK CONTENT
+
+BOOK VIDEO LAUNCH PACK
+
+AUTHOR WEBSITE
+
+AUTHOR WEBSITE REFRESH
+
+AUTHOR / BOOK HUB
+
+AUTHOR WEBSITE + NEWSLETTER
+
+NEWSLETTER SETUP
+
+NEWSLETTER + READER MAGNET
+
+BOOK LAUNCH MEDIA KIT
+
+AUTHOR PRESS / MEDIA KIT
+
+DIRECT BOOK SALES SETUP
+
+BACKLIST REVIVAL CONTENT
+
+INTERNATIONAL / TRANSLATION PROMO KIT
+
+ENGLISH-MARKET LAUNCH PACKAGE
+
+AMAZON BOOK LAUNCH CONTENT
+
+SERIES RELAUNCH PACKAGE
+
+AUTHOR BRAND / BOOK ECOSYSTEM REFRESH
+
+CUSTOM AUTHOR MEDIA PACKAGE
+
+
+Do NOT force the author into this list.
+
+If research reveals a stronger custom opportunity:
+
+describe it accurately.
+
+
+==================================================
+STEP 7 - CHOOSE THE PRIMARY OPPORTUNITY
+==================================================
+
+Choose ONE:
+
+primary_opportunity
+
+
+It must have:
+
+- evidence
+- current relevance
+- a reason it fits THIS author
+- a reasonable connection to their current activity
+
+
+Create:
+
+primary_opportunity_evidence
+
+Write 1-3 factual sentences.
+
+
+Example:
+
+"The author's second book has recently been translated into English and she plans to release it via Amazon. Her earlier book develops themes that connect directly to the new title, creating a strong opportunity to position both works within a broader author story while supporting the English-market launch."
+
+
+==================================================
+PRIMARY OPPORTUNITY CONFIDENCE
+==================================================
+
+Use exactly:
+
+HIGH
+MEDIUM
+LOW
+
+
+HIGH:
+
+Strong evidence + clear timing + clear relevance.
+
+MEDIUM:
+
+Useful opportunity but some uncertainty.
+
+LOW:
+
+Mostly inferred.
+
+Do NOT pitch a LOW-confidence opportunity in cold outreach.
+
+
+==================================================
+STEP 8 - SECONDARY OPPORTUNITY
+==================================================
+
+Optionally choose:
+
+secondary_opportunity
+
+ONLY when there is another genuinely strong possibility.
+
+Do not force one.
+
+Create:
+
+secondary_opportunity_evidence
+
+
+Do NOT mention the secondary opportunity in the first email unless there is a very strong reason.
+
+Usually keep it for later.
+
+
+==================================================
+STEP 9 - DO-NOT-PITCH RESEARCH
+==================================================
+
+Create:
+
+do_not_pitch
+
+Examples:
+
+new website
+newsletter
+audiobook
+basic PR
+book trailer
+media kit
+
+
+Create:
+
+do_not_pitch_reason
+
+
+Example:
+
+"Author already has a strong professional website and active newsletter."
+
+or:
+
+"Current audiobook edition already exists and is narrated by the author."
+
+
+This field is extremely important.
+
+It prevents embarrassing pitches.
+
+
+==================================================
+STEP 10 - OUTREACH RECOMMENDATION
+==================================================
+
+Use exactly:
+
+SEND PRIMARY OFFER
+SEND CHOICE OF TWO
+EDITORIAL SPOTLIGHT ONLY
+HOLD
+DO NOT CONTACT
+
+
+SEND PRIMARY OFFER:
+
+One opportunity clearly stands above the others.
+
+
+SEND CHOICE OF TWO:
+
+Only when two closely related opportunities are genuinely equally relevant.
+
+Use sparingly.
+
+
+EDITORIAL SPOTLIGHT ONLY:
+
+No stronger commercial opportunity was identified, but the author is a strong editorial fit.
+
+
+HOLD:
+
+Interesting lead but timing/research is insufficient.
+
+
+DO NOT CONTACT:
+
+Lead should not be contacted.
+
+
+==================================================
+THE NEW FIRST EMAIL SYSTEM
+==================================================
+
+The first email must NOT feel like a sales proposal.
+
+The first email should create:
+
+RECOGNITION
++
+CURIOSITY
++
+RELEVANCE
+
+
+The author should think:
+
+"That's interesting. They actually looked at what I'm doing."
+
+
+==================================================
+FIRST EMAIL STRUCTURE
+==================================================
+
+The recommended structure is:
+
+PARAGRAPH 1
+
+Natural greeting / reason for reaching out.
+
+
+PARAGRAPH 2
+
+Mention one very specific verified detail about:
+
+- current book
+- recent release
+- translation
+- launch
+- series
+- backlist connection
+- professional work
+
+
+PARAGRAPH 3
+
+Explain the opportunity you noticed.
+
+DO NOT start listing services.
+
+
+PARAGRAPH 4
+
+If helpful, briefly mention 1-3 examples of what the opportunity could involve.
+
+
+PARAGRAPH 5
+
+Ask permission to show the specific idea.
+
+
+Ideal ending concept:
+
+"If you're curious, I can send you the specific idea I have in mind so you can see whether it would actually be relevant for you."
+
+
+Translate naturally into the author's outreach language.
+
+Do NOT copy that exact English sentence mechanically into every email.
+
+
+==================================================
+FIRST EMAIL LENGTH
+==================================================
+
+Target:
+
+70-130 words
+
+Maximum:
+
+160 words
+
+unless the author's language requires slightly more.
+
+
+==================================================
+FIRST EMAIL PRICE RULE
+==================================================
+
+Do NOT mention:
+
+price
+cost
+fee
+payment
+
+in the first cold email.
+
+The goal is curiosity, not closing.
+
+
+If the author replies:
+
+"What does it cost?"
+
+then answer the price directly in the MANUAL REPLY STAGE.
+
+
+==================================================
+DO NOT INCLUDE A SERVICE CATALOGUE
+==================================================
+
+BAD:
+
+"We offer author websites, audiobooks, cinematic trailers, newsletters, Amazon marketing, social media and media kits."
+
+
+GOOD:
+
+"I noticed that the English edition is now ready and you're preparing an Amazon launch. That changes the opportunity quite a bit..."
+
+
+One author.
+
+One situation.
+
+One main idea.
+
+
+==================================================
+AUTHOR SPOTLIGHT FIRST-EMAIL RULE
+==================================================
+
+If:
+
+primary_opportunity = AUTHOR SPOTLIGHT
+
+then the first email may invite the author to hear more about a book-specific editorial profile.
+
+Do NOT mention the $100 publication fee in the FIRST COLD EMAIL.
+
+If they respond positively:
+
+the manual reply stage should disclose publication terms before asking them to invest significant time.
+
+
+==================================================
+COMMERCIAL-SERVICE FIRST-EMAIL RULE
+==================================================
+
+If primary_opportunity is:
+
+- audiobook
+- launch content
+- book trailer
+- website
+- newsletter
+- backlist revival
+- international launch
+- media package
+- other commercial service
+
+the cold email should:
+
+- explain what was noticed
+- explain the opportunity
+- make the author curious
+- ask permission to show the idea
+
+Do NOT immediately send a full proposal.
+
+
+==================================================
+SPECIAL INTERNATIONAL-LAUNCH RULE
+==================================================
+
+When research shows:
+
+- book translated
+- foreign edition forthcoming
+- Amazon expansion
+- new international territory
+- English-language edition
+- rights/licensing activity
+
+consider whether:
+
+INTERNATIONAL / TRANSLATION PROMO KIT
+
+or
+
+ENGLISH-MARKET LAUNCH PACKAGE
+
+is stronger than the original domestic-book pitch.
+
+
+Possible elements may later include:
+
+- launch positioning
+- short-form video
+- book trailer
+- launch copy
+- social captions
+- author/book presentation
+- international reader-facing material
+- Amazon launch content
+- backlist connection
+
+Do not promise:
+
+sales
+ranking
+bestseller status
+Amazon success
+virality
+
+
+==================================================
+FOLLOW-UP 1
+==================================================
+
+Send approximately:
+
+4-5 days after the first email
+
+ONLY if no genuine reply has been received.
+
+Length:
+
+40-90 words.
+
+Do not write:
+
+"Just following up."
+
+Return to the specific observation.
+
+Example structure:
+
+- mention the original book/opportunity
+- add one small relevant thought
+- ask whether they would like to see the idea
+
+
+==================================================
+FOLLOW-UP 2
+==================================================
+
+Send approximately:
+
+10-12 days after the first email
+
+ONLY if no genuine reply has been received.
+
+Length:
+
+30-70 words.
+
+This is the final follow-up.
+
+Be respectful.
+
+Do not pressure.
+
+After Follow-Up 2:
+
+STOP.
+
+
+==================================================
+NO-REPLY FOLLOW-UP SAFETY
+==================================================
+
+ANY genuine reply immediately cancels all automated no-reply follow-ups.
+
+Examples of genuine reply:
+
+- interested
+- not interested
+- question
+- price question
+- assistant reply
+- agent reply
+- publisher reply
+- request for website
+- request for details
+- "not now"
+- "contact me later"
+
+Do not send another automated no-reply follow-up once a genuine response exists.
+
+
+==================================================
+LIVE REPLY HANDLING
+==================================================
+
+DO NOT automatically generate live conversation replies inside Workflow 2.
+
+The user will bring genuine author replies to ChatGPT manually.
+
+The live-reply stage should consider:
+
+- full email thread
+- author tone
+- exact question
+- research from this Opportunity Audit
+- primary opportunity
+- do_not_pitch
+- latest information supplied by author
+
+
+A real author reply may reveal NEW INFORMATION that changes the opportunity.
+
+Example:
+
+Research suggests backlist revival.
+
+Author replies:
+
+"My second book has just been translated into English and I plan to release it on Amazon."
+
+The opportunity should immediately be reconsidered.
+
+Possible new primary opportunity:
+
+ENGLISH-MARKET LAUNCH PACKAGE.
+
+
+Do not remain attached to the old pitch when the author provides better current information.
+
+
+==================================================
+POSITIVE-REPLY PITCHING FORMAT
+==================================================
+
+When an author responds positively and the user later asks for a reply, the ideal manual format is:
+
+1. Acknowledge naturally.
+2. Use the author's new information.
+3. Explain how it changes or strengthens the opportunity.
+4. Present ONE focused direction.
+5. Mention a few concrete deliverables naturally.
+6. If they ask price, answer directly.
+7. Ask whether they want the exact package/details.
+
+Example logic:
+
+"Since the English version is already finished and you're planning to launch it on Amazon, I think that's where we should start."
+
+This is better than:
+
+"I would adjust my original strategy and focus the first phase on English-market penetration."
+
+Prefer human language.
+
+
+==================================================
+PRICE RULE FOR LIVE REPLIES
+==================================================
+
+If an author directly asks:
+
+"How much?"
+
+"What does this cost?"
+
+"What are your terms?"
+
+answer directly.
+
+Do not dodge the question.
+
+Do not force them through another sales step first.
+
+The price must correspond to an actual defined package.
+
+
+==================================================
+TRUST / SPAM SAFETY
+==================================================
+
+If the author questions legitimacy:
+
+do NOT continue selling immediately.
+
+Instead:
+
+- acknowledge the concern
+- correct factual mistakes
+- explain identity/process honestly
+- provide website/reference only when relevant or requested
+- do not overwhelm them
+
+
+If author explicitly says:
+
+NO PAID SERVICES
+NO INTEREST
+DO NOT CONTACT
+STOP EMAILING
+
+then:
+
+outreach_recommendation = DO NOT CONTACT
+
+and stop pitching.
+
+
+==================================================
+WEBSITE LINK RULE
+==================================================
+
+Do NOT automatically include The Author Ledger website in every cold email.
+
+Use it when:
+
+- author asks who you are
+- author asks for website
+- author asks for references
+- legitimacy question arises
+- user explicitly requests it
+
+
+==================================================
+SENDER IDENTITY
+==================================================
+
+For new outreach use:
+
+Blessing Anthony
+The Author Ledger
+
+
+If the context is specifically editorial:
+
+Blessing Anthony
+Editor, The Author Ledger
+
+
+Do not switch sender names between emails.
+
+
+==================================================
+OUTREACH LANGUAGE
+==================================================
+
+Use the verified:
+
+outreach_language
+
+from Workflow 1 unless new research provides a better-supported choice.
+
+Write naturally in that language.
+
+Do not translate English sales phrases literally.
+
+The email must sound like it was originally written in the recipient's language.
+
+
+==================================================
+PERSONALIZATION TEST
+==================================================
+
+After writing the first email, remove:
+
+- author name
+- book title
+
+Then ask:
+
+Could this same email be sent to 10-20 unrelated authors?
+
+If YES:
+
+FAIL.
+
+Rewrite.
+
+
+==================================================
+RESEARCH USAGE TEST
+==================================================
+
+The email must visibly benefit from the research.
+
+Do NOT spend time researching:
+
+- translation
+- website
+- audiobook
+- book connections
+- launch status
+
+and then write a generic email that ignores those findings.
+
+
+==================================================
+FACTUAL SAFETY
+==================================================
+
+Do not claim:
+
+"I read your book"
+
+unless the book was actually read.
+
+Prefer:
+
+"I was looking at..."
+
+"I noticed..."
+
+"I came across..."
+
+"I was reading about..."
+
+"I looked more closely at..."
+
+
+Do not invent:
+
+- sales
+- rankings
+- readership
+- rights ownership
+- promotion gaps
+- audience size
+- awards
+- translations
+- campaign success
+
+
+==================================================
+NO GUARANTEES
+==================================================
+
+Never promise:
+
+- bestseller ranking
+- guaranteed book sales
+- Amazon ranking
+- viral videos
+- publisher interest
+- agent interest
+- media placement
+- award nominations
+- guaranteed traffic
+- guaranteed readership
+- guaranteed ROI
+
+
+==================================================
+OUTPUT EMAIL COLUMNS
+==================================================
+
+After opportunity research add:
+
+subject_line
+email_body
+followup_1_subject
+followup_1_body
+followup_2_subject
+followup_2_body
+
+
+Do NOT add Gmail operational fields.
+
+
+==================================================
+FINAL WORKFLOW 2 OUTPUT COLUMNS
+==================================================
+
+Preserve ALL Workflow 1 columns.
+
+Then append:
+
+audiobook_status
+audio_rights_status
+website_status
+newsletter_status
+reader_magnet_status
+book_video_status
+short_form_video_status
+media_kit_status
+direct_sales_status
+launch_status
+event_activity
+translation_activity
+backlist_opportunity
+spotlight_opportunity
+primary_opportunity
+primary_opportunity_evidence
+primary_opportunity_confidence
+secondary_opportunity
+secondary_opportunity_evidence
+do_not_pitch
+do_not_pitch_reason
+outreach_recommendation
+subject_line
+email_body
+followup_1_subject
+followup_1_body
+followup_2_subject
+followup_2_body
+
+
+==================================================
+DO NOT ADD WORKFLOW 3 FIELDS
+==================================================
+
+Do NOT add:
+
+send_status
+date_sent
+gmail_thread_id
+gmail_message_id
+reply_status
+reply_date
+last_inbound_date
+needs_reply
+conversation_status
+followup_1_due
+followup_1_sent
+followup_1_sent_at
+followup_2_due
+followup_2_sent
+followup_2_sent_at
+followup_count
+bounce_status
+bounce_date
+do_not_contact
+last_activity
+
+Those belong to Workflow 3.
+
+
+==================================================
+QUALITY CONTROL FOR EACH AUTHOR
+==================================================
+
+Before finalizing each row ask:
+
+1. Is the author still a valid current lead?
+2. Did I verify the most important Workflow 1 facts?
+3. Did I inspect what the author already has?
+4. Did I avoid assuming NOT FOUND = DOES NOT EXIST?
+5. Did I identify one genuine current opportunity?
+6. Is the opportunity connected to what the author is doing NOW?
+7. Did I identify what NOT to pitch?
+8. Am I pitching something the author already has?
+9. Did I choose only one primary opportunity?
+10. Is the primary opportunity confidence HIGH or MEDIUM?
+11. Does the email visibly use author-specific research?
+12. Does the email avoid a service catalogue?
+13. Does it sound natural?
+14. Does it avoid AI/corporate phrases?
+15. Does it avoid price in the first cold email?
+16. Does it end with a simple invitation to hear the specific idea?
+17. Is Follow-Up 1 genuinely personalized?
+18. Is Follow-Up 2 genuinely personalized?
+19. Are factual claims supported?
+20. Have I avoided guarantees?
+
+
+==================================================
+FINAL OUTPUT
+==================================================
+
+Return:
+
+UTF-8 CSV
+
+Recommended filename:
+
+Author_Ledger_Opportunity_Audited_Outreach_READY.csv
+
+
+Do not output a PDF.
+
+Do not output a DOCX.
+
+Do not output an XLSX unless explicitly requested.
+
+Do not output fake summary rows inside the CSV.
+
+
+==================================================
+FINAL RUN REPORT
+==================================================
+
+Separately report:
+
+Total leads received
+Leads re-verified
+Leads rejected during final audit
+
+SEND PRIMARY OFFER count
+SEND CHOICE OF TWO count
+EDITORIAL SPOTLIGHT ONLY count
+HOLD count
+DO NOT CONTACT count
+
+Primary opportunity counts by type
+
+Examples:
+
+Author Spotlight
+Audiobook
+Book video
+Short-form content
+Website
+Website refresh
+Newsletter
+Reader magnet
+Backlist revival
+International launch
+English-market launch
+Amazon launch content
+Media kit
+Direct sales
+Custom package
+
+Audiobook EXISTS count
+Audiobook NOT FOUND count
+Audio-rights UNCLEAR count
+
+Strong website count
+Functional website count
+Weak/outdated website count
+No official website found count
+
+Newsletter ACTIVE count
+Newsletter NOT FOUND count
+
+Book-video opportunity count
+Short-form-content opportunity count
+Backlist-opportunity STRONG count
+Translation-activity ACTIVE count
+
+Authors with important do_not_pitch restrictions
+
+Emails successfully generated
+Emails requiring manual review
+
+Major research uncertainties
+Major rights uncertainties
+Major language uncertainties
+Important corrections to Workflow 1 data
+
+
+==================================================
+FINAL PRINCIPLE
+==================================================
+
+DO NOT THINK:
+
+"What can I sell this author?"
+
+THINK:
+
+"What is this author doing right now, what do they already have, and is there one useful opportunity I can genuinely see?"
+
+Then communicate that observation naturally.
+
+The outreach should feel like:
+
+RESEARCH
++
+RELEVANCE
++
+CURIOSITY
+
+not:
+
+SERVICE LIST
++
+SALES PITCH.
+
+
+WORKFLOW ORDER:
+
+LOAD WORKFLOW 1 CSV
+↓
+FINAL FACT CHECK
+↓
+CONFIRM CURRENT RELEVANCE
+↓
+AUDIT AUTHOR'S EXISTING ASSETS
+↓
+RESEARCH LAUNCH / TRANSLATION / BACKLIST / MARKET ACTIVITY
+↓
+IDENTIFY REAL OPPORTUNITIES
+↓
+IDENTIFY DO-NOT-PITCH ITEMS
+↓
+CHOOSE ONE PRIMARY OPPORTUNITY
+↓
+OPTIONAL SECONDARY OPPORTUNITY
+↓
+WRITE HUMAN FIRST EMAIL
+↓
+WRITE FOLLOW-UP 1
+↓
+WRITE FOLLOW-UP 2
+↓
+EXPORT CSV
+↓
+WAIT FOR REAL AUTHOR REPLIES
+↓
+HANDLE REAL REPLIES MANUALLY

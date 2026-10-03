@@ -1,0 +1,43 @@
+Hi Hannes,
+
+As promised, here is a short review of the order execution block in Sharrow.mq5 (OnTick entry section, lines 4854 to 5035, plus GetFinalLotSize, AdjustStopsForBroker and HandleTrailingStop). None of it touches signals or your per-pair calibration.
+
+1. Rejected orders are only handled when EnableDebug is on
+What I saw: in the BUY and SELL branches (lines 4941 and 4996) the failure log and the ActivateMarginBlock(lot) call sit inside if(!order_success && EnableDebug).
+Why it matters live: with debug off, a NO_MONEY rejection never sets the margin block, so the EA resends the same order every tick silently.
+What I'd change: move the error handling out of the debug condition and keep only the verbose prints behind it.
+
+2. Volume is not snapped to the broker step
+What I saw: GetFinalLotSize returns global_lot_size and FixedLot unchecked (lines 2041 to 2046). The risk path at line 2054 uses NormalizeDouble(lot / step, 4) * step, which is not a multiple of the step (0.1234 stays 0.1234).
+Why it matters live: TRADE_RETCODE_INVALID_VOLUME on brokers with a 0.01 or 0.1 step.
+What I'd change: route every path through one helper:
+  double NormLot(double v){
+     v = MathFloor(v / g_volume_step + 1e-9) * g_volume_step;
+     return MathMax(g_min_lot, MathMin(g_max_lot, v));
+  }
+
+3. No magic number or position ownership
+What I saw: no SetExpertMagicNumber anywhere, and PositionSelect(_Symbol) (lines 1298, 4854) treats any position on the symbol as Sharrow's.
+Why it matters live: a manual trade or another EA blocks entries, and HandleTrailingStop will move its SL.
+What I'd change: trade.SetExpertMagicNumber(Magic) in OnInit, then loop PositionsTotal() and match POSITION_SYMBOL plus POSITION_MAGIC.
+
+4. Retry and retcode logic
+What I saw: the only retry is for INVALID_STOPS. The extra checks use MQL4 codes 130, 134 and 131, which GetLastError() never returns in MQL5.
+Why it matters live: REQUOTE, PRICE_CHANGED and PRICE_OFF around the H1 open just drop the trade.
+What I'd change: branch on trade.ResultRetcode(), retry those three once or twice with a fresh SymbolInfoTick, and treat success as retcode DONE (or DONE_PARTIAL), not only the bool.
+
+5. Stops and freeze level
+What I saw: AdjustStopsForBroker (line 1544) and the trailing code (line 1407) use SYMBOL_TRADE_STOPS_LEVEL only. A buy SL is measured from Ask, but it triggers on Bid. SYMBOL_TRADE_FREEZE_LEVEL is read for logging but never enforced before PositionModify.
+Why it matters live: INVALID_STOPS when the spread widens, and TRADE_RETCODE_FROZEN spam from trailing near price.
+What I'd change: measure buy SL/TP from Bid and sell from Ask, use max(stops, freeze) as the minimum, and skip the modify while price is inside the freeze band.
+
+6. No pre-send gate
+What I saw: OrderCalcMargin at line 4906 only feeds a debug print, there is no SYMBOL_TRADE_MODE check, and the filling mode is never set.
+Why it matters live: close-only or disabled symbols and exchange-execution brokers that reject the default FOK filling just produce failed sends.
+What I'd change: trade.SetTypeFillingBySymbol(_Symbol) in OnInit, skip when SYMBOL_TRADE_MODE is not FULL (or not the right direction), and run OrderCheck() before Buy/Sell.
+
+If you'd like, I can implement all six as a small isolated patch that leaves the strategy untouched, tested on a demo before you take it live. Just let me know and I'll send over a quote.
+
+Best regards,
+Oseni Ibrahim
+Trading Bot Developer
