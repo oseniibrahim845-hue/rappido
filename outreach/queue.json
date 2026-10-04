@@ -7939,7 +7939,7 @@
   "email": "0@altugoren.dev",
   "subject": "MQL5 companion for metatrader5-sdk",
   "body": "Hi Altug,\n\nI came across metatrader5-sdk on npm, your Node.js SDK for the MetaTrader 5 Web API. It's a useful bridge for JavaScript teams that don't want to touch Python or MQL.\n\nWeb API integrations handle accounts and trades well, but some features only run inside the terminal: custom indicators, EA-side risk rules and chart objects. I'm an MQL4/MQL5 developer and could write companion EAs or examples for your README showing how a Node app and an MT5 expert advisor work together. I can also help if you take on client work that needs an MQL component.\n\nIf that's of interest, I can send over a short example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 01:00 UTC",
   "lead": {
    "name": "Altug Oren",
@@ -9679,7 +9679,7 @@
   "email": "contact@sqphi.com",
   "subject": "Execution examples on top of ccxt-pandas",
   "body": "Hi Sigma Quantiphi team,\n\nI came across ccxt-pandas. Placing and cancelling live orders through the same DataFrame API used for OHLCV and order books takes away a lot of glue code, and the 20 examples cover useful ground.\n\nI'm a trading bot developer working on exchange API integration, bot maintenance and risk modules. I'd be glad to help on a contract basis, whether that's more examples covering full execution loops, such as a grid or TWAP bot with position limits, fixes for exchange-specific order quirks, or client bots you build on top of the library.\n\nIf extra capacity would help, would it be useful if I sent over a short example bot built on ccxt-pandas?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-01 13:03 UTC",
   "lead": {
    "name": "",
