@@ -1301,7 +1301,7 @@
   "email": "itszeeshanrajput@gmail.com",
   "subject": "MQL5 side of your MT5-TradeBot API",
   "body": "Hi Zeeshan,\n\nI came across MT5-TradeBot API, your REST layer for testing and backtesting Expert Advisors on MetaTrader 5. It is a useful idea, since most traders struggle to run EA tests repeatably.\n\nI am an MQL4/MQL5 developer and thought there may be room to work together. Projects like this usually need EA-side pieces too: small MQL5 helpers that export tester results cleanly, input sets for optimization runs, or fixing third-party EAs that clients want to push through the API. If you pick up client work where the strategy code itself needs writing or repairing, I could take on that part as a subcontractor.\n\nIf that sounds relevant, I can send over a few examples of EA work I have done. Would that be useful?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-28 16:39 UTC",
   "lead": {
    "name": "Zeeshan Rajput",
