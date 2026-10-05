@@ -5468,7 +5468,7 @@
   "email": "amoncheruiyothq@gmail.com",
   "subject": "Sharing MQL4/MQL5 work between developers",
   "body": "Hi Amon,\n\nI came across your MQL5 Projects repository with its collection of Expert Advisors, indicators and scripts, and saw that you work across MQL4, MQL5 and Python for traders who want automated solutions.\n\nI'm a MetaTrader developer doing similar work: MT4 and MT5 EAs, MT4-to-MT5 conversions, TradingView-to-MT5 integrations and Telegram alerts. Solo developers often get client requests in waves, so I wanted to suggest a simple partnership where we pass overflow or specialised jobs to each other, for example you keep the Python and analysis side while I take an MQL port or a copier module.\n\nIf that sounds reasonable, I can send over a few examples of my MQL5 code first.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 13:00 UTC",
   "lead": {
    "name": "Amon Cheruiyot",
