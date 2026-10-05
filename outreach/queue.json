@@ -11415,7 +11415,7 @@
   "email": "artico.bandurini@gmail.com",
   "subject": "ibkr-client and IBKR trading systems",
   "body": "Hi ibkr-client team,\n\nI noticed ibkr-client handles IBKR's Web API both through IB Gateway and via direct OAuth 1.0a, with an RxJS WebSocket client that backs off on reconnects. I also saw that other packages like @huskly/ibkr-client now build on it.\n\nI'm a trading bot developer working on broker API integrations, risk management and MT4/MT5 Expert Advisors. Anyone integrating ibkr-client into a full trading system needs order management, position sync and risk controls around it. If you take on client projects of that kind, or want help with the OAuth 2.0 work you mention, I would be glad to contribute or partner.\n\nWould you be open to discussing it?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 21:02 UTC",
   "lead": {
    "name": "",
