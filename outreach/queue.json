@@ -4236,7 +4236,7 @@
   "email": "gifariksuryo@gmail.com",
   "subject": "MQL5 side of XAUBot AI",
   "body": "Hi Gifari,\n\nI came across XAUBot AI and liked how the XGBoost model, SMC features and HMM regime detection are combined for XAUUSD on MetaTrader 5. I also saw SURGE-WSI following a similar path.\n\nSince the logic lives in Python, the terminal only acts on what the bridge sends. I build MQL5 Expert Advisors, and a small companion EA could keep the daily loss limit, session filter and trailing or breakeven rules running inside MT5 even if the Python side disconnects or restarts.\n\nIf that fits where the project is heading, I can send over a short example of how I usually structure that kind of guard EA. Would that be useful?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 05:00 UTC",
   "lead": {
    "name": "Gifari Kemal Suryo",
