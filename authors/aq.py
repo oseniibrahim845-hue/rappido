@@ -43,6 +43,7 @@ def disclose(b):
 
 def ok(r):
     b = r["email_body"]; wc = len(re.findall(r"\w+", b))
+    b = re.sub(r"(\S)best\?", r"\1 best?", b); r["email_body"] = b  # fix missing space before "best?"
     return (r.get("personalization_status") == "Ready" and 160 <= wc <= 275 and "—" not in b and "–" not in b
             and not BANNED.search(b) and "Oseni Ibrahim" in b and "@" in r["email"])
 
