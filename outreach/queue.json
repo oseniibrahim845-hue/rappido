@@ -13268,7 +13268,7 @@
   "email": "ignaciorotth@gmail.com",
   "subject": "Traderswing's MT5 gRPC bridge",
   "body": "Hi Ignacio,\n\nI came across Traderswing on your profile, including the bidirectional gRPC bridge between Spring WebFlux and MetaTrader 5 and the Lightweight Charts v5 terminal.\n\nThe MT5 end of a bridge like that is where the difficult cases live: partial fills, requotes, terminal restarts and syncing positions after a reconnect. I'm an MQL5 developer who works on exactly that, and I'd be glad to help on the MetaTrader side.\n\nI work from a clear written spec, test on demo before going live, and keep the code readable so you can change it yourself later.\n\nWould a short written proposal be useful?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-02 09:03 UTC",
   "lead": {
    "name": "Ignacio Rotth",
