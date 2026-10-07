@@ -8079,7 +8079,7 @@
   "email": "mfalme.dev@gmail.com",
   "subject": "MQL5 help for Synapse MT5",
   "body": "Hi there,\n\nI came across synapse-mt5 on npm, the native C++ MCP server that connects AI assistants to MetaTrader 5 without Python. The repo name, MCP-MQL5, suggests a good share of the work happens on the MQL5 side.\n\nI'm an MQL4/MQL5 developer and could help extend that part: new tools for indicator buffers or chart objects, EA-side risk limits the AI can't bypass, or MT4 support if users ask for it. I'm happy to work within your architecture and hand back clean source.\n\nWould it be useful if I sent over a short example of one of those tools?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-01 01:00 UTC",
   "lead": {
    "name": "",
