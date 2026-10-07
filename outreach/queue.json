@@ -2275,7 +2275,7 @@
   "email": "kaleemullahkhan.contact@gmail.com",
   "subject": "MT5 versions of the UT Bot tools",
   "body": "Hi Kaleem,\n\nI came across your UT-Bot-Trading-System repository, with the UT Bot Alerts indicator and the UT Bot Phase EA, and noticed that most of your products, like the Multi-Symbol Trend Pullback EA and the RSI scanner, are built for MT4.\n\nA growing share of buyers now trade on MT5-only brokers and prop firms, so MT5 versions could open the products to more people. I'm an MQL4/MQL5 developer and could port the UT Bot tools to MQL5 while keeping the same inputs and signals, then check that both versions match in the Strategy Tester.\n\nI could also help when custom development requests come in faster than you can handle them.\n\nWould it be useful if I sent over a short example of an MT4-to-MT5 port?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-29 00:37 UTC",
   "lead": {
    "name": "Kaleem Ullah Khan",
@@ -3424,7 +3424,7 @@
   "email": "tipcsy@gmail.com",
   "subject": "MQL5 companion for TradeForge",
   "body": "Hi Tibor,\n\nI came across TradeForge, your Python framework for MetaTrader 5 with the live engine, Optuna optimisation and Telegram control.\n\nPython-driven MT5 setups often benefit from a small MQL5 companion running in the terminal, one that draws signals and levels on the chart and acts as a last safety check on order size and daily loss if the Python side misbehaves. I'm a trading bot developer working in MQL4/MQL5, and I could build that companion to fit TradeForge's config format and read the same parameters your optimiser produces.\n\nWould it be useful if I sent over a short example?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-09-30 01:28 UTC",
   "lead": {
    "name": "Balkanyi Tibor",
@@ -14473,7 +14473,7 @@
   "email": "mohmmaed211@gmail.com",
   "subject": "Turning your Telegram analysis into executed trades",
   "body": "Hi Mohmmaed,\n\nI came across your Telegram Trading Analysis Bot, with the economic calendar, the Pro-tier macro analysis and the admin panel for subscribers.\n\nA feature many paid Telegram bots add next is execution: letting Pro users connect a MetaTrader 5 account or an exchange API key so selected setups are placed automatically, with their own lot size and daily loss limit.\n\nI'm a trading bot developer working on Telegram integration, MT4/MT5 Expert Advisors and copiers, exchange API integration and risk modules. I'd be glad to build that execution piece as an add-on to your bot.\n\nWould it be useful if I sent over a short example?\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-02 13:02 UTC",
   "lead": {
    "name": "Mohmmaed K. AL-Sudani",
@@ -14501,7 +14501,7 @@
   "email": "listmarco@gmail.com",
   "subject": "Execution and risk help around NeuraLiquid",
   "body": "Hi Marco,\n\nI came across NeuraLiquid on your profile, the Hyperliquid perpetuals bot with a dual-analyst signal setup running as an agent.\n\nWhen an agent makes trading decisions, the parts that matter most are usually outside the model: hard position and drawdown limits, clean handling of rejected orders, and the option to route the same signals to another venue such as Binance, Bybit or an MT5 broker.\n\nI'm a trading bot developer working on exchange API integration, risk modules, MetaTrader 5 and bot maintenance. If you want help with that layer, for NeuraLiquid or for client projects, I'd be glad to collaborate.\n\nIf this sounds useful, I can send over a short example.\n\nBest regards,\nOseni Ibrahim\nTrading Bot Developer",
-  "status": "sent",
+  "status": "replied",
   "sent_at": "2026-10-03 01:00 UTC",
   "lead": {
    "name": "Marco",
