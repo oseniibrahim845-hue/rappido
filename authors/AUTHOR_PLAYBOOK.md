@@ -25,5 +25,5 @@ Reply in the prospect's language. Output format: READY-TO-SEND REPLY / ENGLISH T
 If an important detail is missing, ask the user first.
 
 ## Author Spotlight is PAID ($200) - user decision 2026-10-02
-Every first email states the Spotlight is a paid feature (no number). Quote $200 when the author asks or shows interest.
+First emails do not mention price or say paid (user decision 2026-10-08). Never say it is free. When the author replies, be upfront that the Spotlight is paid and quote the price (confirm $150 vs $200 with the user).
 If an author only wants a free feature, reply honestly that it is paid and close politely (see Gabriela Exilart thread).

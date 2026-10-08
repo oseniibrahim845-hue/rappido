@@ -25,23 +25,18 @@ Hi <first_name>,
 
 <personalized_opening: 2-3 natural sentences built on the verified detail about the author or <book_title>. No em dashes. Do not claim to have read the book.>
 
-I would love to invite you to be featured in an Author Spotlight on The Author Ledger. The feature is designed to introduce readers to your work, the story behind your book, and the experiences or ideas that have shaped your journey as an author.
+I would love to feature you in an Author Spotlight on The Author Ledger. It is a short feature that tells readers about your book, the story behind it, and your journey as an author.
 
-Alongside our editorial features, we also support authors with professionally produced audiobook editions, cinematic book trailers, short promotional reels, author websites, press kits, Amazon A+ graphics, and book relaunch materials.
+We also help authors with audiobooks, book trailers, short promo videos, author websites, and Amazon graphics.
 
-If a short trailer or a few promotional reels for <book_title> is something you have been considering, we can handle the full production. It is entirely optional and separate from the Spotlight.
-
-The Author Spotlight is a paid feature, and I would be happy to share the details and pricing if it sounds like a good fit.
-
-Would you be interested in hearing more about the feature and the option I believe would suit <book_title> best?
+Would you like to hear more about the Spotlight?
 
 Warm regards,
 Oseni Ibrahim
 The Author Ledger
 
-(Spanish-language authors: write the same structure in natural Spanish, tú (vos for Argentina), including
-"El Author Spotlight es una publicación paga, y con gusto te comparto los detalles y el precio si te interesa.")
-Never mention AI or guarantees. No em dashes or en dashes anywhere. The finished body must be 180-260 words.
+(Spanish-language authors: write the same structure in natural Spanish, tú (vos for Argentina), using the same short structure)
+Never mention AI or guarantees. Use simple sixth grade English. No hyphens inside words, no brackets or parentheses, no em dashes or en dashes anywhere. Do not mention that the Spotlight is paid and do not say it is free (user decision 2026-10-08). The finished body must be 80-180 words.
 
 Process: launch 4 parallel general-purpose subagents (model sonnet), one per group, each writing
 authors/spotlight/bank_<YYYYMMDDHHMM>_fast_<group>.json and aiming for 6-8 Ready rows within ~45 searches.

@@ -32,7 +32,8 @@ PAID_ES = "El Author Spotlight es una publicación paga, y con gusto te comparto
 PAID_ES_PL = "El Author Spotlight es una publicación paga, y con gusto les comparto los detalles y el precio si les interesa."
 
 def disclose(b):
-    """Make sure every first email says the Spotlight is paid (user decision 2026-10-02, price $200)."""
+    """No longer adds a paid line to first emails (user decision 2026-10-08). Be upfront about price once the author replies."""
+    return b
     if re.search(r"paid feature|publicaci[oó]n paga|servicio pago", b, re.I): return b
     ps = b.split("\n\n")
     es = ps[0].lower().startswith("hola")
@@ -44,7 +45,7 @@ def disclose(b):
 def ok(r):
     b = r["email_body"]; wc = len(re.findall(r"\w+", b))
     b = re.sub(r"(\S)best\?", r"\1 best?", b); r["email_body"] = b  # fix missing space before "best?"
-    return (r.get("personalization_status") == "Ready" and 160 <= wc <= 275 and "—" not in b and "–" not in b
+    return (r.get("personalization_status") == "Ready" and 70 <= wc <= 200 and "—" not in b and "–" not in b
             and not BANNED.search(b) and "Oseni Ibrahim" in b and "@" in r["email"])
 
 cmd = sys.argv[1]
