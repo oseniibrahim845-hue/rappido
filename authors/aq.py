@@ -11,7 +11,7 @@ D = os.path.dirname(os.path.abspath(__file__)); Q = os.path.join(D, "queue.json"
 SEEN = os.path.join(D, "intl", "SEEN_EMAILS.txt")
 FU_DAYS = 5
 FOLLOWUPS_ENABLED = False  # user 2026-10-03: "we don't need follow up"
-DAILY_CAP = 100  # user rule 2026-10-03: at most 100 outreach emails in any rolling 24 hours (first emails + follow-ups)
+DAILY_CAP = 50  # user rule 2026-10-08 (was 100): at most 50 outreach emails in any rolling 24 hours (first emails + follow-ups)
 
 def sent_last_24h():
     def recent(ts):
