@@ -123,12 +123,18 @@ def build(test=False, state_file="/tmp/leads_state.json", dry=False, flow="both"
         "options": {"caseSensitive": True, "leftValue": "", "typeValidation": "loose"},
         "conditions": [{"id": nid(), "leftValue": "={{ $json.dry_run }}", "rightValue": True,
                         "operator": {"type": "boolean", "operation": "true", "singleValue": True}}], "combinator": "and"}})
-    send_params = {"fromEmail": "=Oseni Ibrahim <YOUR_SENDING_ADDRESS@yourdomain.com>", "toEmail": "={{ $json.email }}",
-                   "subject": "={{ $json.subject }}", "emailFormat": "text", "text": "={{ $json.body }}", "options": {"appendAttribution": False}}
     if test:
-        send_params["fromEmail"] = "Oseni Ibrahim <test@example.com>"
-    send = node("Send Email", "n8n-nodes-base.emailSend", 2.1, [1200, 200], send_params,
-                credentials={"smtp": {"id": "REPLACE", "name": "SMTP account"}}, onError="continueErrorOutput")
+        # the test copy sends through a local SMTP server because the Gmail node needs a real Google login
+        send = node("Send Email", "n8n-nodes-base.emailSend", 2.1, [1200, 200],
+                    {"fromEmail": "Oseni Ibrahim <test@example.com>", "toEmail": "={{ $json.email }}", "subject": "={{ $json.subject }}",
+                     "emailFormat": "text", "text": "={{ $json.body }}", "options": {"appendAttribution": False}},
+                    credentials={"smtp": {"id": "REPLACE", "name": "SMTP account"}}, onError="continueErrorOutput")
+    else:
+        send = node("Send Email (Gmail)", "n8n-nodes-base.gmail", 2.2, [1200, 200],
+                    {"resource": "message", "operation": "send", "sendTo": "={{ $json.email }}", "subject": "={{ $json.subject }}",
+                     "emailType": "text", "message": "={{ $json.body }}",
+                     "options": {"appendAttribution": False, "senderName": "Oseni Ibrahim"}},
+                    credentials={"gmailOAuth2": {"id": "REPLACE", "name": "Gmail account"}}, onError="continueErrorOutput")
     now_expr = "={{ $now.toISO() }}"
     key = "={{ $('Loop Over Leads').item.json.email }}"
     if test:
@@ -157,8 +163,8 @@ def build(test=False, state_file="/tmp/leads_state.json", dry=False, flow="both"
     link(nodes[0]["name"], "Read Leads"); link("Read Leads", "Pick Batch"); link("Pick Batch", "Loop Over Leads")
     link("Loop Over Leads", "Dry Run?", out=1)
     link("Dry Run?", "Wait Between Sends", out=0)      # dry run: skip sending
-    link("Dry Run?", "Send Email", out=1)
-    link("Send Email", "Mark Sent", out=0); link("Send Email", "Mark Failed", out=1)
+    link("Dry Run?", send["name"], out=1)
+    link(send["name"], "Mark Sent", out=0); link(send["name"], "Mark Failed", out=1)
     link("Mark Sent", "Wait Between Sends"); link("Mark Failed", "Wait Between Sends")
     link("Wait Between Sends", "Loop Over Leads")
 
@@ -171,11 +177,13 @@ def build(test=False, state_file="/tmp/leads_state.json", dry=False, flow="both"
         known = node("Known Emails List", "n8n-nodes-base.code", 2, [480, y], {"jsCode":
             "const fs=require('fs');const rows=JSON.parse(fs.readFileSync('%s','utf8'));return [{json:{emails:rows.map(r=>String(r.email).toLowerCase())}}];" % state_file})
     else:
-        trig2 = node("New Mail (IMAP)", "n8n-nodes-base.emailReadImap", 2, [0, y],
-            {"mailbox": "INBOX", "postProcessAction": "nothing", "format": "simple", "options": {}},
-            credentials={"imap": {"id": "REPLACE", "name": "IMAP account"}})
+        trig2 = node("New Mail (Gmail)", "n8n-nodes-base.gmailTrigger", 1.4, [0, y],
+            {"pollTimes": {"item": [{"mode": "everyX", "value": 10, "unit": "minutes"}]}, "simple": False,
+             "filters": {"labelIds": ["INBOX"], "q": "-from:me"}, "options": {}},
+            credentials={"gmailOAuth2": {"id": "REPLACE", "name": "Gmail account"}})
         feed = node("Mail Feed", "n8n-nodes-base.code", 2, [240, y], {"jsCode":
-            "return $input.all().map(i=>({json:{from:i.json.from||'',subject:i.json.subject||'',text:i.json.textPlain||i.json.text||''}}));"})
+            "return $input.all().map(i=>{const j=i.json;const from=(j.from&&j.from.text)||j.From||'';"
+            "return {json:{from,subject:j.subject||j.Subject||'',text:j.text||j.textPlain||j.snippet||''}};});"})
         sheet2 = node("Read Leads For Mail", "n8n-nodes-base.googleSheets", 4.5, [480, y],
             {"operation": "getAll", "documentId": sheet_ref(), "sheetName": tab_ref(), "returnAll": True},
             credentials={"googleSheetsOAuth2Api": {"id": "REPLACE", "name": "Google Sheets account"}})

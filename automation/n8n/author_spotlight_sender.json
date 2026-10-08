@@ -2,7 +2,7 @@
  "name": "Author Spotlight Sender 50 per day",
  "nodes": [
   {
-   "id": "b54c7682-52a4-46fd-9900-3fa7ee61f7ae",
+   "id": "8600f3a9-2029-4f82-957b-4ebe3ce43b18",
    "name": "Every Hour 8 to 5",
    "type": "n8n-nodes-base.scheduleTrigger",
    "typeVersion": 1.2,
@@ -22,7 +22,7 @@
    }
   },
   {
-   "id": "ab104cd8-0955-4fdf-80cb-668fe27d0093",
+   "id": "895f1fec-8847-4aa6-ab34-3b285eb0633c",
    "name": "Read Leads",
    "type": "n8n-nodes-base.googleSheets",
    "typeVersion": 4.5,
@@ -52,7 +52,7 @@
    }
   },
   {
-   "id": "c9e9aeee-340d-4b87-86ac-5ae9194d1359",
+   "id": "02378692-4adb-471b-acc9-addf6b92c39a",
    "name": "Pick Batch",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -65,7 +65,7 @@
    }
   },
   {
-   "id": "28cc982d-4d38-46c2-b5f0-fdd07950a64b",
+   "id": "28c2403b-05e3-4033-91be-4525f2dd77cf",
    "name": "Loop Over Leads",
    "type": "n8n-nodes-base.splitInBatches",
    "typeVersion": 3,
@@ -79,7 +79,7 @@
    }
   },
   {
-   "id": "076ca112-e6bf-4f60-ac3e-bd0ffc6451bb",
+   "id": "1623c4b1-20e9-4b51-892c-35170bf6d459",
    "name": "Dry Run?",
    "type": "n8n-nodes-base.if",
    "typeVersion": 2,
@@ -96,7 +96,7 @@
      },
      "conditions": [
       {
-       "id": "ee7e16fd-3756-4e88-8e90-90e739a20433",
+       "id": "c6d5b7ca-2a4e-4480-96de-3cf68ca6100e",
        "leftValue": "={{ $json.dry_run }}",
        "rightValue": true,
        "operator": {
@@ -111,34 +111,36 @@
    }
   },
   {
-   "id": "f13d021f-2f7f-4315-a24d-3d0c918f7195",
-   "name": "Send Email",
-   "type": "n8n-nodes-base.emailSend",
-   "typeVersion": 2.1,
+   "id": "99d738e8-1820-4911-a412-7c64ab608416",
+   "name": "Send Email (Gmail)",
+   "type": "n8n-nodes-base.gmail",
+   "typeVersion": 2.2,
    "position": [
     1200,
     200
    ],
    "parameters": {
-    "fromEmail": "=Oseni Ibrahim <YOUR_SENDING_ADDRESS@yourdomain.com>",
-    "toEmail": "={{ $json.email }}",
+    "resource": "message",
+    "operation": "send",
+    "sendTo": "={{ $json.email }}",
     "subject": "={{ $json.subject }}",
-    "emailFormat": "text",
-    "text": "={{ $json.body }}",
+    "emailType": "text",
+    "message": "={{ $json.body }}",
     "options": {
-     "appendAttribution": false
+     "appendAttribution": false,
+     "senderName": "Oseni Ibrahim"
     }
    },
    "credentials": {
-    "smtp": {
+    "gmailOAuth2": {
      "id": "REPLACE",
-     "name": "SMTP account"
+     "name": "Gmail account"
     }
    },
    "onError": "continueErrorOutput"
   },
   {
-   "id": "788ea5ea-6c03-4a59-b656-4771f708a728",
+   "id": "ba97aafa-b828-4ea8-a2ef-fdcde1d8045f",
    "name": "Mark Sent",
    "type": "n8n-nodes-base.googleSheets",
    "typeVersion": 4.5,
@@ -180,7 +182,7 @@
    }
   },
   {
-   "id": "55df0f5e-d291-4f80-950d-1e4988fe8cbf",
+   "id": "8c0054b3-08a8-4b0b-a670-6e96dfa3182f",
    "name": "Mark Failed",
    "type": "n8n-nodes-base.googleSheets",
    "typeVersion": 4.5,
@@ -222,7 +224,7 @@
    }
   },
   {
-   "id": "173f40a7-42b0-46f2-a84b-22ca4517596c",
+   "id": "8178aecc-c50e-408a-a275-c2a0b81d3ff1",
    "name": "Wait Between Sends",
    "type": "n8n-nodes-base.wait",
    "typeVersion": 1.1,
@@ -237,7 +239,7 @@
    }
   },
   {
-   "id": "2f90efc6-cea3-4787-abc0-b651d9fe3aaf",
+   "id": "de70b6a9-903a-4084-b4eb-fe453324f4f7",
    "name": "Read Leads For Mail",
    "type": "n8n-nodes-base.googleSheets",
    "typeVersion": 4.5,
@@ -267,29 +269,42 @@
    }
   },
   {
-   "id": "7764e5bf-62f2-4fef-95c4-c58430975e68",
-   "name": "New Mail (IMAP)",
-   "type": "n8n-nodes-base.emailReadImap",
-   "typeVersion": 2,
+   "id": "b931b83d-dfbc-45fd-aee6-9bd227a059f2",
+   "name": "New Mail (Gmail)",
+   "type": "n8n-nodes-base.gmailTrigger",
+   "typeVersion": 1.4,
    "position": [
     0,
     600
    ],
    "parameters": {
-    "mailbox": "INBOX",
-    "postProcessAction": "nothing",
-    "format": "simple",
+    "pollTimes": {
+     "item": [
+      {
+       "mode": "everyX",
+       "value": 10,
+       "unit": "minutes"
+      }
+     ]
+    },
+    "simple": false,
+    "filters": {
+     "labelIds": [
+      "INBOX"
+     ],
+     "q": "-from:me"
+    },
     "options": {}
    },
    "credentials": {
-    "imap": {
+    "gmailOAuth2": {
      "id": "REPLACE",
-     "name": "IMAP account"
+     "name": "Gmail account"
     }
    }
   },
   {
-   "id": "42691241-7745-4f09-b45b-aacf9f1c182a",
+   "id": "82f906d2-8f8f-4e38-bfe3-2e2b33e01202",
    "name": "Mail Feed",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -298,11 +313,11 @@
     600
    ],
    "parameters": {
-    "jsCode": "return $input.all().map(i=>({json:{from:i.json.from||'',subject:i.json.subject||'',text:i.json.textPlain||i.json.text||''}}));"
+    "jsCode": "return $input.all().map(i=>{const j=i.json;const from=(j.from&&j.from.text)||j.From||'';return {json:{from,subject:j.subject||j.Subject||'',text:j.text||j.textPlain||j.snippet||''}};});"
    }
   },
   {
-   "id": "199693fb-73a2-437a-b851-e39bc81144ba",
+   "id": "1f8a32b1-e288-45ed-bad2-e12ac9976a9c",
    "name": "Known Emails List",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -315,7 +330,7 @@
    }
   },
   {
-   "id": "ec84062a-3de7-4a44-af7d-76bbaf4574a3",
+   "id": "83497955-e125-4bc3-aee9-14cdb87cbd72",
    "name": "Classify Mail",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -328,7 +343,7 @@
    }
   },
   {
-   "id": "047cdac7-3591-4011-ba5e-af53371f7a05",
+   "id": "ebc6ebb2-4932-4440-80d3-8b6972690a5b",
    "name": "Mark Bounced or Replied",
    "type": "n8n-nodes-base.googleSheets",
    "typeVersion": 4.5,
@@ -426,14 +441,14 @@
     ],
     [
      {
-      "node": "Send Email",
+      "node": "Send Email (Gmail)",
       "type": "main",
       "index": 0
      }
     ]
    ]
   },
-  "Send Email": {
+  "Send Email (Gmail)": {
    "main": [
     [
      {
@@ -484,7 +499,7 @@
     ]
    ]
   },
-  "New Mail (IMAP)": {
+  "New Mail (Gmail)": {
    "main": [
     [
      {

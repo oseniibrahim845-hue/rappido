@@ -2,7 +2,7 @@
  "name": "TEST Author Spotlight Sender 50 per day",
  "nodes": [
   {
-   "id": "c7d590c2-7b96-4af7-a300-395c43a60811",
+   "id": "5d9ee765-2b58-40e2-be0f-f9cd4341ab93",
    "name": "Trigger",
    "type": "n8n-nodes-base.manualTrigger",
    "typeVersion": 1,
@@ -13,7 +13,7 @@
    "parameters": {}
   },
   {
-   "id": "54c573cb-a368-4016-b502-990e699cedd9",
+   "id": "0ea716ce-4d45-4224-b809-7183ded783d1",
    "name": "Read Leads",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -26,7 +26,7 @@
    }
   },
   {
-   "id": "c14d4cb4-a189-414b-841e-c87ad885744f",
+   "id": "6bf6308a-4eac-4b74-807c-de668d26d685",
    "name": "Pick Batch",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -39,7 +39,7 @@
    }
   },
   {
-   "id": "5fc92f6e-502e-47ca-87bb-289fdf362f85",
+   "id": "34435385-bd6d-426f-b55c-5e110afa45aa",
    "name": "Loop Over Leads",
    "type": "n8n-nodes-base.splitInBatches",
    "typeVersion": 3,
@@ -53,7 +53,7 @@
    }
   },
   {
-   "id": "3946fff7-5634-47e8-b05a-3d0cc14757d9",
+   "id": "9cc5c90f-5986-475e-9b8b-249a04a11ef6",
    "name": "Dry Run?",
    "type": "n8n-nodes-base.if",
    "typeVersion": 2,
@@ -70,7 +70,7 @@
      },
      "conditions": [
       {
-       "id": "4e467515-30df-43c9-b17c-4ef4eabbc2dd",
+       "id": "b468fed1-184e-4bb0-a7a5-9bce79d7a550",
        "leftValue": "={{ $json.dry_run }}",
        "rightValue": true,
        "operator": {
@@ -85,7 +85,7 @@
    }
   },
   {
-   "id": "4300b8a2-b8f0-4ca8-8def-ecad6ef1fe16",
+   "id": "53582e62-9d66-4a93-9122-abab7f691644",
    "name": "Send Email",
    "type": "n8n-nodes-base.emailSend",
    "typeVersion": 2.1,
@@ -112,7 +112,7 @@
    "onError": "continueErrorOutput"
   },
   {
-   "id": "2b122648-b613-4582-b597-5227e10265ce",
+   "id": "3afafab4-9444-4aa0-951f-386d3e5c2b69",
    "name": "Mark Sent",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -125,7 +125,7 @@
    }
   },
   {
-   "id": "b8ac86aa-0546-4ccd-879d-aca15f0ccf93",
+   "id": "b437ef0d-e956-43b7-b881-f74b705743ba",
    "name": "Mark Failed",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -138,7 +138,7 @@
    }
   },
   {
-   "id": "159f6c0c-d3fc-4bc4-a305-7c1e04f05dd8",
+   "id": "7cf7e5f0-7ca9-4f9d-8abd-e2f4136eb867",
    "name": "Wait Between Sends",
    "type": "n8n-nodes-base.wait",
    "typeVersion": 1.1,
@@ -153,7 +153,7 @@
    }
   },
   {
-   "id": "30853eff-4395-4ba5-ae1a-bc0133f23f03",
+   "id": "7946556b-70f8-47a8-86e9-f57cc45fb5e6",
    "name": "Test Mail Feed",
    "type": "n8n-nodes-base.manualTrigger",
    "typeVersion": 1,
@@ -164,7 +164,7 @@
    "parameters": {}
   },
   {
-   "id": "43e770ec-a7e2-4032-b72b-3dfe2e5d9ba0",
+   "id": "3213a8ed-a275-4b20-83fd-786999479522",
    "name": "Mail Feed",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -177,7 +177,7 @@
    }
   },
   {
-   "id": "cb11ae12-6830-4045-a2b9-fff2b21f10ce",
+   "id": "51113c58-7aac-43f8-b969-823a6898e129",
    "name": "Known Emails List",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -190,7 +190,7 @@
    }
   },
   {
-   "id": "10c40adc-8911-40db-b64e-783dcb282e20",
+   "id": "de81025c-2af5-40c5-b395-90cd9452ebc7",
    "name": "Classify Mail",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
@@ -203,7 +203,7 @@
    }
   },
   {
-   "id": "8db0c0a2-c65d-4c9b-89c9-60889f29de20",
+   "id": "66f73877-0d80-4eed-8929-e1ad6d084284",
    "name": "Mark Bounced or Replied",
    "type": "n8n-nodes-base.code",
    "typeVersion": 2,
