@@ -1,0 +1,384 @@
+{
+ "name": "TEST Author Spotlight Sender 50 per day",
+ "nodes": [
+  {
+   "id": "c7d590c2-7b96-4af7-a300-395c43a60811",
+   "name": "Trigger",
+   "type": "n8n-nodes-base.manualTrigger",
+   "typeVersion": 1,
+   "position": [
+    0,
+    0
+   ],
+   "parameters": {}
+  },
+  {
+   "id": "54c573cb-a368-4016-b502-990e699cedd9",
+   "name": "Read Leads",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    240,
+    0
+   ],
+   "parameters": {
+    "jsCode": "const fs=require('fs');const rows=JSON.parse(fs.readFileSync('/tmp/leads_state.json','utf8'));return rows.map(r=>({json:r}));"
+   }
+  },
+  {
+   "id": "c14d4cb4-a189-414b-841e-c87ad885744f",
+   "name": "Pick Batch",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    480,
+    0
+   ],
+   "parameters": {
+    "jsCode": "const CFG = {\n  DAILY_CAP: 50,      // never more than this many sends in any rolling 24 hours\n  PER_RUN: 5,         // sends per scheduled run (10 runs a day x 5 = 50)\n  DRY_RUN: false,   // true = build the emails but do not send or mark anything\n};\n\nconst rows = $input.all().map(i => i.json);\nconst now = Date.now();\nconst DAY = 24 * 3600 * 1000;\nconst st = r => String(r.status || '').trim().toLowerCase();\n\nconst sentLast24h = rows.filter(r => st(r) === 'sent' && r.sent_at && (now - new Date(r.sent_at).getTime()) < DAY).length;\nconst remaining = Math.max(0, CFG.DAILY_CAP - sentLast24h);\nconst limit = Math.min(CFG.PER_RUN, remaining);\nif (limit === 0) return [];\n\nconst emailOk = e => /^[^\\s@,;]+@[^\\s@,;]+\\.[^\\s@,;]{2,}$/.test(String(e || '').trim());\nconst clean = t => String(t || '')\n  .replace(/[\u2014\u2013]/g, ', ')\n  .replace(/(?<=[a-z])-(?=[a-z])/g, ' ')\n  .replace(/\\s*\\(([^)]*)\\)/g, ', $1')\n  .replace(/[\\[\\]]/g, '')\n  .replace(/\\s+,/g, ',').replace(/,\\s*,/g, ',').replace(/  +/g, ' ').trim();\n\n// anyone who already has a status other than pending is never contacted again\nconst blocked = new Set(rows.filter(r => st(r) && st(r) !== 'pending').map(r => String(r.email).trim().toLowerCase()));\n\nconst SUBJECTS = [\n  b => `An Author Spotlight for ${b}`,\n  b => `A short feature about ${b}`,\n];\nconst hash = s => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);\n\nconst picked = [];\nconst used = new Set();\nfor (const r of rows) {\n  if (picked.length >= limit) break;\n  const status = st(r);\n  if (status && status !== 'pending') continue;\n  const email = String(r.email || '').trim().toLowerCase();\n  if (!emailOk(email) || blocked.has(email) || used.has(email)) continue;\n  const first = clean(r.first_name) || 'there';\n  const book = clean(r.book_title);\n  const opening = clean(r.personalized_opening);\n  if (!book || !opening) continue;               // never send without a real personal opening\n  used.add(email);\n  const subject = SUBJECTS[hash(email) % SUBJECTS.length](book);\n  const body = [\n    `Hi ${first},`,\n    opening,\n    `I run The Author Ledger, where we share author stories with readers. I would love to write a short Spotlight about you and ${book}.`,\n    `Here is how it works. I send you a few easy questions. You answer them in your own words. Then I turn your answers into a clean article that you can share with your readers. It should take about 10 minutes of your time.`,\n    `We also help authors with audiobooks, book trailers, and short promo videos. That is separate, and only if you want it.`,\n    `If you would like to be featured, just reply with the word yes and I will send the questions. If this is not for you, tell me and I will not write again.`,\n    `Warm regards,\\nOseni Ibrahim\\nThe Author Ledger`,\n  ].join('\\n\\n');\n  picked.push({ json: { email, first_name: first, book_title: book, subject, body, dry_run: CFG.DRY_RUN } });\n}\nreturn picked;\n"
+   }
+  },
+  {
+   "id": "5fc92f6e-502e-47ca-87bb-289fdf362f85",
+   "name": "Loop Over Leads",
+   "type": "n8n-nodes-base.splitInBatches",
+   "typeVersion": 3,
+   "position": [
+    720,
+    0
+   ],
+   "parameters": {
+    "batchSize": 1,
+    "options": {}
+   }
+  },
+  {
+   "id": "3946fff7-5634-47e8-b05a-3d0cc14757d9",
+   "name": "Dry Run?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2,
+   "position": [
+    960,
+    100
+   ],
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose"
+     },
+     "conditions": [
+      {
+       "id": "4e467515-30df-43c9-b17c-4ef4eabbc2dd",
+       "leftValue": "={{ $json.dry_run }}",
+       "rightValue": true,
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ],
+     "combinator": "and"
+    }
+   }
+  },
+  {
+   "id": "4300b8a2-b8f0-4ca8-8def-ecad6ef1fe16",
+   "name": "Send Email",
+   "type": "n8n-nodes-base.emailSend",
+   "typeVersion": 2.1,
+   "position": [
+    1200,
+    200
+   ],
+   "parameters": {
+    "fromEmail": "Oseni Ibrahim <test@example.com>",
+    "toEmail": "={{ $json.email }}",
+    "subject": "={{ $json.subject }}",
+    "emailFormat": "text",
+    "text": "={{ $json.body }}",
+    "options": {
+     "appendAttribution": false
+    }
+   },
+   "credentials": {
+    "smtp": {
+     "id": "REPLACE",
+     "name": "SMTP account"
+    }
+   },
+   "onError": "continueErrorOutput"
+  },
+  {
+   "id": "2b122648-b613-4582-b597-5227e10265ce",
+   "name": "Mark Sent",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1440,
+    120
+   ],
+   "parameters": {
+    "jsCode": "const fs=require('fs');const f='/tmp/leads_state.json';const rows=JSON.parse(fs.readFileSync(f,'utf8'));const e=$('Loop Over Leads').item.json.email;const r=rows.find(x=>String(x.email).toLowerCase()===e);r.status='sent';r.sent_at=new Date().toISOString();fs.writeFileSync(f,JSON.stringify(rows,null,1));return [{json:{email:e,status:'sent'}}];"
+   }
+  },
+  {
+   "id": "b8ac86aa-0546-4ccd-879d-aca15f0ccf93",
+   "name": "Mark Failed",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1440,
+    300
+   ],
+   "parameters": {
+    "jsCode": "const fs=require('fs');const f='/tmp/leads_state.json';const rows=JSON.parse(fs.readFileSync(f,'utf8'));const e=$('Loop Over Leads').item.json.email;const r=rows.find(x=>String(x.email).toLowerCase()===e);r.status='failed';r.error=String($json.error||'send failed').slice(0,200);fs.writeFileSync(f,JSON.stringify(rows,null,1));return [{json:{email:e,status:'failed'}}];"
+   }
+  },
+  {
+   "id": "159f6c0c-d3fc-4bc4-a305-7c1e04f05dd8",
+   "name": "Wait Between Sends",
+   "type": "n8n-nodes-base.wait",
+   "typeVersion": 1.1,
+   "position": [
+    1680,
+    200
+   ],
+   "parameters": {
+    "resume": "timeInterval",
+    "amount": 1,
+    "unit": "seconds"
+   }
+  },
+  {
+   "id": "30853eff-4395-4ba5-ae1a-bc0133f23f03",
+   "name": "Test Mail Feed",
+   "type": "n8n-nodes-base.manualTrigger",
+   "typeVersion": 1,
+   "position": [
+    0,
+    600
+   ],
+   "parameters": {}
+  },
+  {
+   "id": "43e770ec-a7e2-4032-b72b-3dfe2e5d9ba0",
+   "name": "Mail Feed",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    240,
+    600
+   ],
+   "parameters": {
+    "jsCode": "const fs=require('fs');return JSON.parse(fs.readFileSync('/tmp/leads_state.json.inbox','utf8')).map(m=>({json:m}));"
+   }
+  },
+  {
+   "id": "cb11ae12-6830-4045-a2b9-fff2b21f10ce",
+   "name": "Known Emails List",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    480,
+    600
+   ],
+   "parameters": {
+    "jsCode": "const fs=require('fs');const rows=JSON.parse(fs.readFileSync('/tmp/leads_state.json','utf8'));return [{json:{emails:rows.map(r=>String(r.email).toLowerCase())}}];"
+   }
+  },
+  {
+   "id": "10c40adc-8911-40db-b64e-783dcb282e20",
+   "name": "Classify Mail",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    960,
+    600
+   ],
+   "parameters": {
+    "jsCode": "\n// Input: the list of known lead emails. Mails come from the Mail Feed node as { from, subject, text }. Output: { kind: 'bounce'|'reply'|'ignore', email }\nconst known = ($input.first().json.emails || []).map(e => e.toLowerCase());\nconst out = [];\nfor (const it of $('Mail Feed').all()) {\n  const m = it.json;\n  const from = String(m.from || '').toLowerCase();\n  const text = String(m.text || m.textPlain || '');\n  const isBounce = /mailer-daemon|postmaster|mail delivery|delivery status/.test(from + ' ' + String(m.subject || '').toLowerCase());\n  if (isBounce) {\n    const cand = (text.match(/[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,}/g) || []).map(e => e.toLowerCase());\n    const hit = cand.find(e => known.includes(e));\n    out.push({ json: { kind: hit ? 'bounce' : 'ignore', email: hit || '' } });\n    continue;\n  }\n  const sender = (from.match(/[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}/) || [''])[0];\n  out.push({ json: { kind: known.includes(sender) ? 'reply' : 'ignore', email: sender } });\n}\nreturn out.filter(o => o.json.kind !== 'ignore');\n"
+   }
+  },
+  {
+   "id": "8db0c0a2-c65d-4c9b-89c9-60889f29de20",
+   "name": "Mark Bounced or Replied",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1200,
+    600
+   ],
+   "parameters": {
+    "jsCode": "const fs=require('fs');const f='/tmp/leads_state.json';const rows=JSON.parse(fs.readFileSync(f,'utf8'));for(const i of $input.all()){const r=rows.find(x=>String(x.email).toLowerCase()===i.json.email);if(r&&(!r.status||r.status==='pending'||r.status==='sent')){r.status=i.json.kind==='bounce'?'bounced':'replied';}}fs.writeFileSync(f,JSON.stringify(rows,null,1));return $input.all();"
+   }
+  }
+ ],
+ "connections": {
+  "Trigger": {
+   "main": [
+    [
+     {
+      "node": "Read Leads",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Read Leads": {
+   "main": [
+    [
+     {
+      "node": "Pick Batch",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Pick Batch": {
+   "main": [
+    [
+     {
+      "node": "Loop Over Leads",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Loop Over Leads": {
+   "main": [
+    [],
+    [
+     {
+      "node": "Dry Run?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Dry Run?": {
+   "main": [
+    [
+     {
+      "node": "Wait Between Sends",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "Send Email",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Send Email": {
+   "main": [
+    [
+     {
+      "node": "Mark Sent",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "Mark Failed",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Mark Sent": {
+   "main": [
+    [
+     {
+      "node": "Wait Between Sends",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Mark Failed": {
+   "main": [
+    [
+     {
+      "node": "Wait Between Sends",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Wait Between Sends": {
+   "main": [
+    [
+     {
+      "node": "Loop Over Leads",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Test Mail Feed": {
+   "main": [
+    [
+     {
+      "node": "Mail Feed",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Mail Feed": {
+   "main": [
+    [
+     {
+      "node": "Known Emails List",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Known Emails List": {
+   "main": [
+    [
+     {
+      "node": "Classify Mail",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "Classify Mail": {
+   "main": [
+    [
+     {
+      "node": "Mark Bounced or Replied",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1",
+  "timezone": "UTC"
+ },
+ "active": false
+}
