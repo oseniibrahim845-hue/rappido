@@ -1,0 +1,11 @@
+Subject: First PR for python-signal: symbol mapping in ImentoreSlave
+
+Hi Breno,
+
+My first PR for python-signal is ready. It adds symbol mapping to ImentoreSlave (latest 3.00-04 with ImentoreLib-13). The slave now resolves the master symbol on the follower broker. It checks an explicit mapping input first (e.g. XAUUSD=GOLD;US30=DJ30), then an optional prefix/suffix, then the exact name, then an optional auto-detect (off by default) for suffixes like EURUSD.m or EURUSDpro. Results are cached and each mapping is logged once. Unresolved symbols get one clear log message and keep the old behavior.
+
+Default settings leave existing setups unchanged. I could not compile it here, so please build it in MetaEditor. The description includes a two-broker demo test plan.
+
+Best regards,
+Oseni Ibrahim
+Trading Bot Developer
