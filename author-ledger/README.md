@@ -1,6 +1,6 @@
-# The Author Ledger — author lead scouting (run 1, PARTIAL)
+# The Author Ledger — author lead scouting (runs 1–2, PARTIAL — 132 leads)
 
-- `author_ledger_leads.csv` — the 17-column outreach CSV (77 rows).
+- `author_ledger_leads.csv` — the 17-column outreach CSV (132 rows, 52 with an email to confirm).
 - `author_ledger_sources.csv` — per-row audit trail (language, email_source, source URLs).
 - `raw/` — per-region JSONL from the research agents. `pipeline/` — brief, merge/QA and email-check scripts.
 
