@@ -1,4 +1,5 @@
 # Author Spotlight send runbook (scheduled every 4h, user approved 2026-10-02: "send all ... do the outreach the way we did crypto")
+UPDATE (user, 2026-10-11): sending now uses the NEW Gmail oseniibrahim865@gmail.com, 20 emails per rolling 3 hours, sent one at a time with 2 to 4 minutes between emails (aq.py enforces this; the lines below describe the older 845 rule).
 HARD RULE (user, 2026-10-03): never more than 50 outreach emails in any rolling 24 hours (lowered from 100 on 2026-10-08 because mail was landing in spam). aq.py next/fu enforce this automatically; if they return 0 items, send nothing.
 
 1. cd /home/user/rappido && git pull origin claude/kind-fermat-wa8eun (scouting runs push new rows to this branch).

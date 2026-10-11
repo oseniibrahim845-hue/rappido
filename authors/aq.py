@@ -11,12 +11,17 @@ D = os.path.dirname(os.path.abspath(__file__)); Q = os.path.join(D, "queue.json"
 SEEN = os.path.join(D, "intl", "SEEN_EMAILS.txt")
 FU_DAYS = 5
 FOLLOWUPS_ENABLED = False  # user 2026-10-03: "we don't need follow up"
-DAILY_CAP = 50  # user rule 2026-10-08 (was 100): at most 50 outreach emails in any rolling 24 hours (first emails + follow-ups)
+# User rule 2026-10-11: sending moved to the new Gmail oseniibrahim865@gmail.com, 20 emails per rolling 3 hours
+# (earlier 845 account rule was 50 per 24h). Only sends stamped with this account count toward the cap.
+ACCOUNT = "oseniibrahim865@gmail.com"
+WINDOW_HOURS = 3
+DAILY_CAP = 20
 
 def sent_last_24h():
-    def recent(ts):
-        return ts and now - datetime.datetime.strptime(ts[:16], "%Y-%m-%d %H:%M") <= datetime.timedelta(hours=24)
-    return sum(1 for e in q if recent(e.get("sent_at"))) + sum(1 for e in q if recent(e.get("followup_at")))
+    def recent(e):
+        ts = e.get("sent_at")
+        return ts and e.get("acct") == ACCOUNT and now - datetime.datetime.strptime(ts[:16], "%Y-%m-%d %H:%M") <= datetime.timedelta(hours=WINDOW_HOURS)
+    return sum(1 for e in q if recent(e))
 EXCLUDE_COUNTRIES = ("nigeria",)  # user decision 2026-10-02: no Nigerian leads
 BANNED = re.compile(r"\b(AI|artificial intelligence|inteligencia artificial|synthetic|sint[eé]tic|automated|automatizad|"
                     r"voice clon|clonaci[oó]n de voz|text-to-speech|texto a voz|guarantee|garantiz)", re.I)
@@ -84,7 +89,7 @@ elif cmd == "mark":
         e = idx.get(em.lower())
         if not e: print("unknown", em); continue
         e["status"] = st
-        if st == "sent": e["sent_at"] = stamp
+        if st == "sent": e["sent_at"] = stamp; e["acct"] = ACCOUNT
     save(); print("marked", st, len(sys.argv) - 3)
 elif cmd in ("fu", "fudone"):
     def due(e):
@@ -118,4 +123,4 @@ elif cmd in ("fu", "fudone"):
 elif cmd == "stats":
     from collections import Counter
     print(dict(Counter(e["status"] for e in q)), "followups sent:", sum(1 for e in q if e.get("followup_at")),
-          "| sent in last 24h:", sent_last_24h(), "of cap", DAILY_CAP)
+          "| sent in last", WINDOW_HOURS, "h from", ACCOUNT + ":", sent_last_24h(), "of cap", DAILY_CAP)
