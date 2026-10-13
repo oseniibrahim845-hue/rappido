@@ -45,6 +45,11 @@ for path in sorted(p for p in glob.glob(os.path.join(HERE, "work", "*.jsonl")) i
             continue
         r = {k: (r.get(k) or "") for k in KEYS + ["review_reason"]}
         r["research_date"] = r["research_date"] or TODAY
+        m = re.match(r"^\s*([^(\-]+?)\s*(?:\((.*)\)|-\s.*)?\s*$", r["country"], re.S)
+        if m and m.group(1).strip() != r["country"].strip():
+            evidence = r["country"].strip()[len(m.group(1).strip()):].strip()
+            r["country"] = m.group(1).strip()
+            r["workflow2_notes"] = (r["workflow2_notes"] + f" | Country evidence: {evidence}").strip(" |")
         k = norm(r["author_full_name"])
         if not k:
             continue

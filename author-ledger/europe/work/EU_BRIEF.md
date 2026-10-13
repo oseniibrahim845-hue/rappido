@@ -97,3 +97,9 @@ ROUND 5 GOAL: ~110 new READY rows. Mine the ENTIRE 2025–2027 lists of the publ
 - Norway: ole.bjerkebakke@cappelendamm.no (presse.cappelendamm.no/contact_people); Finland: tiedotus@wsoy.fi (wsoy.fi/medialle/)
 - Spain: afite@edestino.es (Destino Spanish fiction, Planeta press kits); maria.lopezr@planeta.es (Istoría)
 - Discovery: piper.de/debuetromane; fischerverlage.de/spezial/highlights-herbst-2026; editions-jclattes.fr/livres/a-paraitre/; Livres Hebdo "68 primo romanciers rentrée 2026"; gyldendal.no hostens-boker-2026; IKAR edicny plan 2026 PDFs; 746books.com Irish fiction 2026
+
+## Round 7 — ADDITIONAL VERIFIED CONTACTS / LEADS (from round 6)
+- France: vtaillefer@ / nstraub@ / mrousset@calmann-levy.fr (Calmann-Lévy rentrée pages 2024–2025; check current)
+- Spain: maria.lopezr@planeta.es (Istoría, planetadelibros.com/editorial/istoria/635); afite@edestino.es confirmed at planetadelibros.com/prensa/ediciones-destino/7
+- Switzerland: presse@keinundaber.de confirmed at keinundaber.ch/de/service/presse/
+- Discovery: Prometheus Najaar 2026 catalogue PDF; Kein & Aber Vorschau Frühling 2026 PDF; WSOY syksy 2026 (issuu); Otava releases on sttinfo.fi; Irish Times 2026-01-14 Irish debuts (Tully, Kinsella, Morgan, Cunning); IKAR Oct–Dec 2026 plans; Patakis autumn 2026; Garzanti 2026 debuts (Agnese Messina, Roberta Di Lorenzo – no press email yet); KiWi/Fischer leads Luna Ali, Charlotte Gneuß, Lenz Koppelstätter, Orkun Ertener
