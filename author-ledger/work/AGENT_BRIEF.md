@@ -49,3 +49,14 @@ Write in the author's professional language when you can reliably tell it (e.g. 
 
 ## Finish
 When done, reply with a short summary: number of leads written, how many with emails, regions covered, and gaps. Do not paste the leads in your reply.
+
+---
+# SEARCH-ONLY MODE ADDENDUM (overrides conflicting rules above)
+The environment's network policy blocks opening web pages (WebFetch/curl fail). The user has chosen to proceed using **WebSearch only**. Do NOT try WebFetch or curl — they will fail and waste time.
+
+- Research each author with WebSearch (use "standard" mode; several targeted searches per author: name + book, name + interview, name + award, name + contact/email).
+- **Facts**: use only facts that appear in search results. Prefer hooks confirmed by at least two results (book premise/setting, award, a named interview topic). Never invent quotes; only quote if the exact wording appears in a result, otherwise paraphrase cautiously ("you've spoken about...").
+- **source_urls**: the result URLs the facts came from (these were seen in search results, not opened).
+- **Email**: record an email ONLY if the address itself literally appears in the search result text AND is attributed to an author-controlled, agency, university or literary-org page (email_source_url = that result's URL; add "email seen in search result" to hook_note). Otherwise leave email "" and automation_action "SKIP_NO_EMAIL". Expect most rows to have no email — that is fine. Never construct an email.
+- personalization_status "DEEP RESEARCHED" only when the hook is solidly supported; skip authors you cannot support rather than writing weak rows.
+- Target count: the number given in your task (it supersedes earlier numbers).
