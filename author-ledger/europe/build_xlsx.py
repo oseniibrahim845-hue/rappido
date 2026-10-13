@@ -24,15 +24,14 @@ def norm(s):
 master = {norm(l) for l in open(os.path.join(HERE, "work", "EXISTING_MASTER_NAMES.txt")) if l.strip()}
 ready, review, dups, seen, seen_direct = [], [], [], {}, set()
 FIX = {}
-fp = os.path.join(HERE, "work", "zz_fixes.jsonl")
-if os.path.exists(fp):
+for fp in sorted(glob.glob(os.path.join(HERE, "work", "zz_fixes*.jsonl"))):
     for line in open(fp, encoding="utf-8"):
         if line.strip():
             try:
                 f = json.loads(line); FIX[norm(f.get("author_full_name", ""))] = f
             except Exception:
                 pass
-for path in sorted(p for p in glob.glob(os.path.join(HERE, "work", "*.jsonl")) if not p.endswith("zz_fixes.jsonl")):
+for path in sorted(p for p in glob.glob(os.path.join(HERE, "work", "*.jsonl")) if not os.path.basename(p).startswith("zz_fixes")):
     for line in open(path, encoding="utf-8"):
         if not line.strip():
             continue

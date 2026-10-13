@@ -51,3 +51,15 @@ Agents (type "Agent"; only for authors the agency's own page lists as clients of
 - Oslo Literary Agency: evy.tillman@osloliteraryagency.no, henrik@osloliteraryagency.no
 - Ahlbäck (Finland): satu@ahlbackagency.com, noora@ahlbackagency.com
 - Bonnier Rights (Sweden): johanna.lindborg@bonnierrights.se
+
+## Round 3 — ADDITIONAL VERIFIED CONTACTS (from round 2)
+- UK: press@bloodhoundbooks.com (bloodhoundbooks.com/submissions); publicity@headofzeus.com (headofzeus.com/about); grace.samuel@fireflypress.co.uk (fireflypress.co.uk/about/contact-details/; Wales, re-check age)
+- Germany: presse@rowohlt.de (rowohlt.de/verlag/presse); presse@loewe-verlag.de (loewe-verlag.de/presse/kontakte-service/)
+- France: crousseau@jclattes.fr (JC Lattès head of press); solene.deltell@gallimard-jeunesse.fr (gallimard-jeunesse.fr/professionnels/journalistes.html)
+- Switzerland: presse@diogenes.ch (diogenes.ch/presse.html); presse@zytglogge.ch (zytglogge.ch/kontakt-c-48); presse@unionsverlag.ch
+- Denmark: presse@gyldendal.dk (gyldendal.dk/gyldendal/salg-marketing-og-presse)
+- Greece: pressoffice@metaixmio.gr / dora@metaixmio.gr (Metaixmio); Romania: claudia.fitcoschi@polirom.ro (polirom.ro/pag/16-promovare)
+- Bulgaria: julia.petkova@colibri.bg (colibri.bg/bg/p/kontakti); Croatia: rights@fraktura.hr (fraktura.hr/copyrights/); Slovenia: pr@mkz.si (Mladinska knjiga, sikstinska.mladinska.com/za-medije/)
+- Poland: agnieszka@czarne.com.pl (czarne.com.pl/dla-mediow); promocja@wydawnictwoliterackie.pl; promocja@marginesy.com.pl; Slovakia: carna.lucia@ikar.sk (ikar.sk/kontakty.html)
+- Spain: prensaes@sextopiso.com (sextopiso.es contacto); epalacios@siruela.com (Siruela, older catalogue); Planeta press kits list per-title press contacts (e.g. easpas@planeta.es)
+- Belgium: evi.vanoverveld@standaarduitgeverij.be (Standaard children's, standaarduitgeverij.be/pers-2/)
