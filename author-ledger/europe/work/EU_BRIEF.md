@@ -77,3 +77,14 @@ Agents (type "Agent"; only for authors the agency's own page lists as clients of
 - Spain: prensacomics@planeta.es (Planeta Cómic)
 - Czechia: zdena.krikavova@argo.cz (argo.cz/kontakty/); frantova.helena@euromedia.cz (Euromedia/Kalibr, euromedia.cz/en/for-media/)
 - Good discovery pages: bloodhoundbooks.com/2026-titles ; Profile Autumn 2026 catalogue PDF ; Diogenes Herbst 2026 ; Picus 2026 catalogue
+
+## Round 5 — ADDITIONAL VERIFIED CONTACTS (from round 4)
+- Netherlands: publiciteit@amboanthos.nl (Ambo|Anthos)
+- Italy: ufficiostampa@sellerio.it (Sellerio)
+- Finland: nina.kuusisto@otava.fi, anni.gullichsen@otava.fi (Otava press)
+- Greece: press@patakis.gr (Patakis)
+- Romania: pr@litera.ro (Litera); emanuela.mihailiuc@humanitas.ro (Humanitas)
+- France: cseube@editions-thierry-magnier.com (Thierry Magnier)
+- Ireland: PGBooksPublicity@penguinrandomhouse.co.uk (Sandycove/Penguin Ireland)
+- Germany: S. Fischer press contacts (fischerverlage.de press page)
+ROUND 5 GOAL: ~110 new READY rows. Mine the ENTIRE 2025–2027 lists of the publishers above (one verified press inbox → many READY authors). Skip megastars; prefer debut / 2nd–4th book authors.
