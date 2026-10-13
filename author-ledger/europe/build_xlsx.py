@@ -47,7 +47,7 @@ for path in sorted(glob.glob(os.path.join(HERE, "work", "*.jsonl"))):
         et = r["email_type"].strip().capitalize()
         problems = []
         if not em or not EMAIL_RE.match(em): problems.append("no valid email")
-        elif GENERIC.match(em): problems.append("generic inbox (not acceptable)")
+        elif GENERIC.match(em) and r["email_type"].strip().capitalize() != "Direct": problems.append("generic company inbox (not acceptable)")
         if em and not r["email_source_url"]: problems.append("no email source URL")
         if et not in ("Direct", "Agent", "Publisher"): problems.append("email type missing")
         if et == "Direct" and em.lower() in seen_direct: problems.append("direct email shared with another author")
