@@ -67,3 +67,10 @@ The environment's network policy blocks opening web pages (WebFetch/curl fail). 
 - Write each lead to the output file immediately after researching it (append; never overwrite; skip names already in the file).
 - Use your OWN scratchpad subfolder for helper scripts: /tmp/claude-0/-home-user-rappido/85eb8748-a21e-58e5-b6eb-a7dcb5a964d2/scratchpad/<your-output-file-stem>/ . Never write to the scratchpad root.
 - If a search is refused because the budget is exhausted, stop immediately and report.
+
+# EMAIL-ONLY ROUNDS (current)
+Only write leads that have a verified email. Proven tactics (from earlier rounds):
+- Quote the name AND the university email domain: `"Jane Doe" "@uoregon.edu"` — snippets then often show the address.
+- Restrict to one department site, e.g. `site:english.umd.edu creative writing faculty`, `site:ntu.ac.uk staff-profiles creative writing`, `site:people.uwe.ac.uk creative writing` — directory snippets list emails.
+- Expert/news profile pages (e.g. news.ubc.ca/expert/...) and CV PDFs on university domains often show emails.
+- Broad queries containing "email" or "@" usually FAIL (the search tool strips them). Don't waste searches on them.

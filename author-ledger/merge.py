@@ -92,3 +92,7 @@ print("by country:", dict(collections.Counter(r["country"] for r in rows).most_c
 us = collections.Counter(r["state"] for r in rows if r["country"]=="United States")
 print("US states covered:", len(us), dict(us))
 for b in bad[:40]: print("  rejected:", b)
+
+with open(os.path.join(HERE, "author_ledger_leads_with_email.csv"), "w", newline="", encoding="utf-8") as f:
+    w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore", quoting=csv.QUOTE_ALL); w.writeheader()
+    w.writerows([r for r in rows if r["email"]])
