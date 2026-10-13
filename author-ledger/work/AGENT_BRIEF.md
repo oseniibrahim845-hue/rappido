@@ -60,3 +60,10 @@ The environment's network policy blocks opening web pages (WebFetch/curl fail). 
 - **Email**: record an email ONLY if the address itself literally appears in the search result text AND is attributed to an author-controlled, agency, university or literary-org page (email_source_url = that result's URL; add "email seen in search result" to hook_note). Otherwise leave email "" and automation_action "SKIP_NO_EMAIL". Expect most rows to have no email — that is fine. Never construct an email.
 - personalization_status "DEEP RESEARCHED" only when the hook is solidly supported; skip authors you cannot support rather than writing weak rows.
 - Target count: the number given in your task (it supersedes earlier numbers).
+
+# EFFICIENCY RULES (search budget is ~200 WebSearch calls per turn, SHARED by all agents)
+- You have a hard personal budget stated in your task (e.g. 15 searches). Count them. Stop when you reach it.
+- Aim for ~2 searches per lead: one discovery search that surfaces several authors at once (e.g. "2025 [prize] shortlist [country]"), then one targeted search per author ("Name Book interview") that confirms the hook + city. Include "email" in the targeted query only when the author is likely on a university/faculty page.
+- Write each lead to the output file immediately after researching it (append; never overwrite; skip names already in the file).
+- Use your OWN scratchpad subfolder for helper scripts: /tmp/claude-0/-home-user-rappido/85eb8748-a21e-58e5-b6eb-a7dcb5a964d2/scratchpad/<your-output-file-stem>/ . Never write to the scratchpad root.
+- If a search is refused because the budget is exhausted, stop immediately and report.
