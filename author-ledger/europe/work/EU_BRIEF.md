@@ -33,3 +33,21 @@ Use your own scratchpad subfolder for helper scripts: /tmp/claude-0/-home-user-r
 
 ## Finish with a short report
 Authors researched; new READY; Direct emails; Agent/Publisher emails; NEEDS_REVIEW; duplicates rejected.
+
+## Round 2 — KNOWN VERIFIED CONTACTS (reuse them: pair with more of that publisher's/agency's 2025–2027 authors)
+Publisher press (type "Publisher"; record the source URL given):
+- UK: publicity@walker.co.uk (walker.co.uk/about-us/contact-us/); publicity@littletiger.co.uk (littletiger.co.uk/contact-us); press@profilebooks.com (profilebooks.com/about-profile-books/contact-us/); publicity@usborne.co.uk (usborne.com press page); publicity.enquiries@orionbooks.co.uk for Gollancz (store.gollancz.co.uk/pages/faqs)
+- Ireland: publicity@lilliputpress.ie (lilliputpress.ie/pages/contact); publicity@obrien.ie (obrien.ie/contact); fmurphy@gill.ie (Gill Books FAQ); des.doyle@newisland.ie (New Island announcements)
+- Germany: presse@droemer-knaur.de (droemer-knaur.de/verlag/presse); press@piper.de (piper.de/presse/pressekontakte); presse@dtv.de (dtv.de/service/presse); presse@carlsen.de (carlsen.de/presse/kontakt)
+- Austria/CH: presse@kremayr-scheriau.at; presse@picus.at; blum@literaturbuero.at (Residenz literature PR); jana.steinhoff@schoeffling.de / kaps@jungundjung.at (Kampa)
+- France: presse@bragelonne.fr (bragelonne.fr/contact/); presse@editions-observatoire.com (editions-observatoire.com/la-maison)
+- Italy: ufficiostampa@giunti.it; ufficiostampa.rizzoli@rizzolilibri.it; skstampa@sperling.it; ufficio.stampa@feltrinelli.it
+- Spain/PT: pcordon@planeta.es (Cúpula press kit); comunicacao@leya.com (leya.com/pagina/comunicacao)
+- NL/BE: publiciteit@querido.nl (querido.nl/contact/); Atlas Contact publicists mknake@/ycramer@/mmolijn@atlascontact.nl (atlascontact.nl/contact/publiciteit/); anna.buyse@standaarduitgeverij.be (Manteau/Davidsfonds/Tzara) and gloria.vanheyst@standaarduitgeverij.be (Bruna/Lev./Cargo/Signatuur) (standaarduitgeverij.be/pers/)
+- Romania: pr@nemira.ro (nemira.ro/contacts); Hungary: krisztian@agavekonyvek.hu (agavekonyvek.hu/oldal/kapcsolat); Greece: pr@psichogios.gr (psichogios.gr)
+Agents (type "Agent"; only for authors the agency's own page lists as clients of that agent):
+- Darley Anderson (UK): camilla@darleyanderson.com, jade@darleyanderson.com (darleyanderson.com/team/...)
+- Sandra Bruna (Spain): sbruna@sandrabruna.com, bbruna@sandrabruna.com (sandrabruna.com/en/agency/)
+- Oslo Literary Agency: evy.tillman@osloliteraryagency.no, henrik@osloliteraryagency.no
+- Ahlbäck (Finland): satu@ahlbackagency.com, noora@ahlbackagency.com
+- Bonnier Rights (Sweden): johanna.lindborg@bonnierrights.se
