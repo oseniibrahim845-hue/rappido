@@ -22,6 +22,16 @@ def words(t):
         return cjk // 2
     return len(re.findall(r"\S+", t))
 
+FOUND = {}
+for fp in glob.glob(os.path.join(HERE, "work", "hunt", "found*.jsonl")):
+    for line in open(fp, encoding="utf-8"):
+        if line.strip():
+            try:
+                f = json.loads(line)
+            except Exception:
+                continue
+            if f.get("email") and f.get("email_source_url"):
+                FOUND[norm(f["author_name"])] = f
 rows, issues, seen_name, seen_email, seen_subj = [], collections.Counter(), set(), set(), set()
 bad = []
 for path in sorted(glob.glob(os.path.join(HERE, "work", "*.jsonl"))):
@@ -34,6 +44,9 @@ for path in sorted(glob.glob(os.path.join(HERE, "work", "*.jsonl"))):
         key = norm(name)
         if not key or key in seen_name: issues["dup_or_noname"] += 1; continue
         email = (r.get("email") or "").strip()
+        if not email and key in FOUND:
+            email = FOUND[key]["email"].strip(); r["email_source_url"] = FOUND[key]["email_source_url"]
+            r["hook_note"] = (r.get("hook_note") or "") + " | email: " + FOUND[key].get("note", "")
         if email and (not EMAIL_RE.match(email) or not r.get("email_source_url")):
             issues["email_dropped_unsourced"] += 1; email = ""
         if email and email.lower() in seen_email: issues["dup_email"] += 1; continue
