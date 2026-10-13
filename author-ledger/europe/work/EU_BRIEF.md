@@ -63,3 +63,17 @@ Agents (type "Agent"; only for authors the agency's own page lists as clients of
 - Poland: agnieszka@czarne.com.pl (czarne.com.pl/dla-mediow); promocja@wydawnictwoliterackie.pl; promocja@marginesy.com.pl; Slovakia: carna.lucia@ikar.sk (ikar.sk/kontakty.html)
 - Spain: prensaes@sextopiso.com (sextopiso.es contacto); epalacios@siruela.com (Siruela, older catalogue); Planeta press kits list per-title press contacts (e.g. easpas@planeta.es)
 - Belgium: evi.vanoverveld@standaarduitgeverij.be (Standaard children's, standaarduitgeverij.be/pers-2/)
+
+## Round 4 — ADDITIONAL VERIFIED CONTACTS (from round 3)
+- Germany: meike.blatnik@ullstein.de (Ullstein literature/entertainment press, ullstein.de/service/presse); presse@thienemann-esslinger.de (review copies)
+- Switzerland: presse@diogenes.ch; presse@zytglogge.ch; Unionsverlag press now via tanja.warter@beck.de (unionsverlag.com/info/text.asp?text_id=130)
+- Netherlands: publiciteit@debezigebij.nl (debezigebij.nl/voor-de-pers/); promotie@lemniscaat.nl / hindele@lemniscaat.nl (children's/YA) (lemniscaat.nl/pers)
+- Sweden: sara.dobareh@norstedts.se (norstedts.se/kundservice/medarbetare); ami.moren@nok.se (Natur & Kultur fiction, nok.se/press/Presskontakt/)
+- Denmark: sam@lrforlag.dk (Lindhardt og Ringhof, lindhardtogringhof.dk/mod-forlaget); Norway: presse.litteratur@gyldendal.no (gyldendal.no/om-gyldendal/kontakt-oss/gyldendal-litteratur/)
+- Ireland: peter@peteroconnellmedia.com (Merrion Press PR agency, irishacademicpress.ie/contact-us/)
+- France: presse.ltr@editionslatableronde.fr / al.bonniel@editionslatableronde.fr (La Table Ronde, editionslatableronde.fr/Contacts)
+- Italy: ufficiostampa@edizionieo.it (edizionieo.it/contatti)
+- Portugal: comunicacao.pt@penguinrandomhouse.com (penguinlivros.pt/contactos/)
+- Spain: prensacomics@planeta.es (Planeta Cómic)
+- Czechia: zdena.krikavova@argo.cz (argo.cz/kontakty/); frantova.helena@euromedia.cz (Euromedia/Kalibr, euromedia.cz/en/for-media/)
+- Good discovery pages: bloodhoundbooks.com/2026-titles ; Profile Autumn 2026 catalogue PDF ; Diogenes Herbst 2026 ; Picus 2026 catalogue
