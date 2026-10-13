@@ -88,3 +88,12 @@ Agents (type "Agent"; only for authors the agency's own page lists as clients of
 - Ireland: PGBooksPublicity@penguinrandomhouse.co.uk (Sandycove/Penguin Ireland)
 - Germany: S. Fischer press contacts (fischerverlage.de press page)
 ROUND 5 GOAL: ~110 new READY rows. Mine the ENTIRE 2025–2027 lists of the publishers above (one verified press inbox → many READY authors). Skip megastars; prefer debut / 2nd–4th book authors.
+
+## Round 6 — ADDITIONAL VERIFIED CONTACTS (from round 5)
+- Germany: julia.giordano@ / milena.kahlcke@ (Belletristik, FISCHER Tor) fischerverlage.de (fischerverlage.de/verlag/presse); iwallraff@kiwi-verlag.de (KiWi press, kiwi-verlag.de/verlag/presse); presse@aufbau-verlage.de; presselit@hanser.de / PresseBerlin@hanser.de (hanser-literaturverlage.de/presse)
+- Austria: presse@zsolnay.at; Switzerland: presse@keinundaber.de (keinundaber.ch/kontakt)
+- Italy: comunicazione@fazieditore.it (fazieditore.it/chi-siamo/contatti); ufficio.stampa@neripozza.it (2024 PDF — check current)
+- Netherlands: publiciteit@pbo.nl (Prometheus, uitgeverijprometheus.nl/boekhandel/)
+- Norway: ole.bjerkebakke@cappelendamm.no (presse.cappelendamm.no/contact_people); Finland: tiedotus@wsoy.fi (wsoy.fi/medialle/)
+- Spain: afite@edestino.es (Destino Spanish fiction, Planeta press kits); maria.lopezr@planeta.es (Istoría)
+- Discovery: piper.de/debuetromane; fischerverlage.de/spezial/highlights-herbst-2026; editions-jclattes.fr/livres/a-paraitre/; Livres Hebdo "68 primo romanciers rentrée 2026"; gyldendal.no hostens-boker-2026; IKAR edicny plan 2026 PDFs; 746books.com Irish fiction 2026
