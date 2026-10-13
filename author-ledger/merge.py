@@ -16,7 +16,11 @@ def norm(s):
     return re.sub(r"[^a-z]", "", s)
 
 def words(t):
-    return len(re.findall(r"\S+", t or ""))
+    t = t or ""
+    cjk = len(re.findall(r"[\u3040-\u30ff\u3400-\u9fff]", t))
+    if cjk > 50:  # Chinese/Japanese: approximate words as characters / 2
+        return cjk // 2
+    return len(re.findall(r"\S+", t))
 
 rows, issues, seen_name, seen_email, seen_subj = [], collections.Counter(), set(), set(), set()
 bad = []
