@@ -13,7 +13,7 @@ FU_DAYS = 5
 FOLLOWUPS_ENABLED = False  # user 2026-10-03: "we don't need follow up"
 # User rule 2026-10-11: sending moved to the new Gmail oseniibrahim865@gmail.com, 20 emails per rolling 3 hours
 # (earlier 845 account rule was 50 per 24h). Only sends stamped with this account count toward the cap.
-ACCOUNT = "oseniibrahim865@gmail.com"
+ACCOUNT = "oseniibrahim845@gmail.com"
 WINDOW_HOURS = 3
 DAILY_CAP = 20
 
