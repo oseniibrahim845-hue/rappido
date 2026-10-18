@@ -45,3 +45,6 @@ Authors researched; new READY; Direct emails; Agent/Publisher emails; NEEDS_REVI
 - BenBella / Matt Holt (US): jennifer@benbellabooks.com (media enquiries; benbellabooks.com/contact/)
 - Andrea Brown Literary Agency (US, kids/YA; Agent type only for listed clients): saritza@, caryn@ (reps-wiseman.html), jennifer@ (reps-rofe.html), jamie@, kelly@ (Team/kelly-sonnack), jmatt@ (reps-mattson.html) andreabrownlit.com
 - BookEnds (US): jmcgowan@bookendsliterary.com (bookendsliterary.com/james-mcgowan; clients Tasneem Amiruddin, Marusha Belle, Nicole Wong, Jenny Liao, Kris Coronado, Pamela Courtney)
+- Canada: publicity@ecwpress.com (ecwpress.com/pages/media-press); publicity@dundurn.com (dundurn.com/contact); publicity@houseofanansi.com (houseofanansi.com/pages/contact-us); cynara@arsenalpulp.com (arsenalpulp.com/Media-Review-Copies); promotion@invisiblepublishing.com (confirm source page)
+- US crime: publicity@crookedlanebooks.com (crookedlanebooks.com/contact/)
+- Residence stated as a city/state/province (e.g. "lives in Winnipeg", "Northern Virginia") counts as country stated.
