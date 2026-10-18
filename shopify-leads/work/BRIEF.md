@@ -35,3 +35,4 @@ Use a scratchpad subfolder for helper scripts: /tmp/claude-0/-home-user-rappido/
 
 ## Finish with a short report
 Stores researched; READY; NEEDS_REVIEW; decision-maker vs general emails; duplicates skipped; tactics that worked.
+- Batch 2 leads (US beauty, emails not yet found): SOSHE Beauty, ITP Beauty, Activist Skincare, Plaine Products, Osmia, Vapour Beauty, Nopalera, Bathing Culture.
