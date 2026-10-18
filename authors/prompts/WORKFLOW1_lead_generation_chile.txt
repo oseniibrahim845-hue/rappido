@@ -1,0 +1,2495 @@
+THE AUTHOR LEDGER
+CHILE AUTHOR LEAD GENERATION MASTER PROMPT
+VERIFIED + CURRENT-ACTIVITY + COMMERCIAL-FIT + CURRENT-RUN DUPLICATE CONTROL + CSV VERSION
+
+
+==================================================
+PRIMARY OBJECTIVE
+==================================================
+
+You are helping me build a high-quality database of authors connected to CHILE for professional outreach by The Author Ledger.
+
+THIS WORKFLOW IS FOR LEAD GENERATION ONLY.
+
+This is the FIRST Chile scouting campaign.
+
+There are currently no previous Chile lead files that need historical duplicate checking.
+
+Your task is NOT simply to find as many authors as possible.
+
+Your priority is to find authors who:
+
+1. Are real and independently verifiable.
+2. Have a publicly displayed professional/author email.
+3. Have a verifiable published or clearly forthcoming book.
+4. Have RECENT or CURRENT professional activity.
+5. Have enough reliable information available for genuine later personalization.
+6. Currently have a reasonable professional reason why outreach could be timely.
+7. Have a clearly identified public-facing language for later outreach.
+8. Are unique within THIS CURRENT Chile research run.
+
+QUALITY IS MORE IMPORTANT THAN COUNT.
+
+Do NOT include inactive authors merely because they are famous, established, award-winning, or historically important.
+
+If only 46 strong current authors qualify, return 46.
+
+Accuracy and current relevance are more important than volume.
+
+
+==================================================
+CRITICAL CURRENT-ACTIVITY RULE
+==================================================
+
+This campaign is NOT for inactive authors whose only relevant books are old.
+
+Only qualify authors who meet AT LEAST ONE of these conditions:
+
+1. They have a book published within approximately the last 18 months.
+
+OR
+
+2. They have a clearly forthcoming book with verified publisher/release information.
+
+OR
+
+3. They are CURRENTLY promoting a book through:
+
+- book launches
+- bookstore appearances
+- readings
+- signings
+- literary festivals
+- book fairs
+- interviews
+- podcasts
+- radio
+- television
+- newspaper/magazine coverage
+- publisher campaigns
+- newsletters
+- professional social media
+- speaking appearances
+- university/cultural events
+
+OR
+
+4. An older book has become CURRENT again through:
+
+- new translation
+- international edition
+- paperback edition
+- new edition
+- reissue
+- anniversary edition
+- sequel
+- adaptation
+- theatre/film/television development
+- renewed publisher campaign
+- renewed media attention
+- current festival/event cycle
+
+OR
+
+5. The author is a nonfiction/professional/academic author whose book is CURRENTLY connected to:
+
+- teaching
+- research
+- speaking
+- consulting
+- conferences
+- journalism
+- public debate
+- media appearances
+- other verified professional activity
+
+
+==================================================
+HARD EXCLUSION FOR INACTIVE AUTHORS
+==================================================
+
+EXCLUDE authors when ALL of the following are true:
+
+- latest meaningful book is several years old
+- no forthcoming book exists
+- no current launch exists
+- no current interviews exist
+- no current literary events exist
+- no current publisher promotion exists
+- no new translation exists
+- no new edition/reissue exists
+- no sequel exists
+- no adaptation exists
+- no current professional promotion exists
+
+Do not spend additional research time trying to force inactive authors into the campaign.
+
+Move on and find a more current prospect.
+
+
+==================================================
+RECENCY PRIORITY
+==================================================
+
+Prioritize prospects in this order:
+
+1. Forthcoming 2026-2027 books.
+2. Books released in 2026.
+3. Books released in late 2025 that remain actively promoted in 2026.
+4. Older books ONLY when verified current activity has reactivated them.
+
+An old book simply remaining available for purchase is NOT enough.
+
+A famous Chilean author with no current activity is NOT automatically a useful lead.
+
+An old literary prize is NOT enough unless there is also a current reason to contact the author.
+
+
+==================================================
+IMPORTANT WORKFLOW BOUNDARY
+==================================================
+
+THIS PROMPT DOES ONLY:
+
+- lead discovery
+- author verification
+- email verification
+- book verification
+- current-run duplicate control
+- current-activity research
+- commercial-fit classification
+- editorial-angle research
+- language verification
+- qualification
+- CSV generation
+
+DO NOT:
+
+- perform historical Chile deduplication
+- search old Chile campaigns
+- search Gmail for previous Chile outreach
+- compare against unrelated country databases
+- perform deep author service-gap research
+- decide which commercial service to pitch
+- deeply research audiobook/video/newsletter/website gaps
+- write cold emails
+- write subject lines
+- write personalized email openings
+- write Follow-Up 1
+- write Follow-Up 2
+- create Gmail content
+- create Apps Script
+- send emails
+
+A separate Workflow 2 will handle:
+
+- final verification
+- author opportunity audit
+- audiobook research
+- website research
+- newsletter research
+- reader-magnet research
+- book-video research
+- cinematic-trailer research
+- short-form-video research
+- media/press asset research
+- service-gap identification
+- primary opportunity selection
+- secondary opportunity selection
+- do-not-pitch identification
+- personalized outreach
+- Follow-Up 1
+- Follow-Up 2
+
+
+==================================================
+HOW TO START
+==================================================
+
+Start immediately with CHILE.
+
+Do not search randomly.
+
+Use this order:
+
+PHASE 1:
+Santiago and the Región Metropolitana deep pass.
+
+PHASE 2:
+Valparaíso and Viña del Mar.
+
+PHASE 3:
+Concepción and the Biobío literary/university area.
+
+PHASE 4:
+Other major regional and university centres.
+
+PHASE 5:
+Northern Chile.
+
+PHASE 6:
+Southern Chile and Patagonia.
+
+PHASE 7:
+Rapa Nui and other relevant geographically distinct Chilean literary communities where reliable leads exist.
+
+AT THE SAME TIME:
+
+Run national opportunity-based searches for:
+
+- forthcoming books
+- 2026 releases
+- late-2025 releases still actively promoted
+- launches
+- book fairs
+- literary festivals
+- bookstore appearances
+- readings
+- signings
+- current interviews
+- translations
+- reissues
+- adaptations
+- new editions
+- current media activity
+
+The goal is to find CURRENT authors, not simply famous Chilean writers.
+
+
+==================================================
+STEP 0 - CREATE THE MASTER LEAD TABLE FIRST
+==================================================
+
+BEFORE searching for a single author, initialize the lead table.
+
+If operating inside Google Sheets:
+
+Create or verify a sheet named:
+
+Qualified Author Leads
+
+Row 1 must contain the canonical headers below in EXACTLY this order.
+
+Do not begin lead research until the headers exist.
+
+If the sheet already exists for THIS CURRENT Chile run:
+
+- preserve all existing rows
+- preserve current-run research
+- verify required headers
+- add missing columns only
+- never destroy existing rows
+- use existing Chile rows only to prevent duplicates inside this same scouting run
+
+
+==================================================
+CANONICAL COLUMN ORDER
+==================================================
+
+author_name
+first_name
+email
+email_status
+email_source
+normalized_author_name
+normalized_email
+duplicate_status
+duplicate_match_reference
+country
+city
+region_or_county
+location_relationship
+location_evidence
+author_type
+publishing_route
+official_website
+book_title
+book_type
+publication_date
+latest_release_date
+publisher
+isbn_or_asin
+series
+book_topic
+book_distinctive_features
+current_author_moment
+current_marketing_signal
+marketing_evidence
+commercial_fit
+current_author_need
+best_reusable_deliverables
+spotlight_angle
+curiosity_question
+personalization_detail
+personalization_reason
+outreach_language
+discovery_source
+research_sources
+research_confidence
+personalization_status
+audit_notes
+
+
+==================================================
+CHILE REGION FIELD
+==================================================
+
+For Chile:
+
+region_or_county
+
+should normally contain the verified Chilean region.
+
+Use the appropriate one of:
+
+Arica y Parinacota
+Tarapacá
+Antofagasta
+Atacama
+Coquimbo
+Valparaíso
+Metropolitana de Santiago
+O'Higgins
+Maule
+Ñuble
+Biobío
+La Araucanía
+Los Ríos
+Los Lagos
+Aysén
+Magallanes y de la Antártica Chilena
+
+Keep the exact field name:
+
+region_or_county
+
+for compatibility with all other country CSV files.
+
+
+==================================================
+1. GEOGRAPHIC SCOPE
+==================================================
+
+Focus on authors genuinely connected to CHILE.
+
+The author does NOT need to have been born in Chile.
+
+A legitimate Chile connection may include:
+
+- currently lives in Chile
+- works primarily in Chile
+- publishes substantially within Chile
+- is a Chilean author living abroad
+- has an established role in Chilean literary life
+- publishes primarily through Chilean publishers
+- has active professional participation in the Chilean literary market
+
+Record the exact relationship.
+
+Never confuse:
+
+- birthplace
+- nationality
+- current residence
+- former residence
+- university attendance
+- workplace
+- publisher location
+- book setting
+- festival appearance
+
+with one another.
+
+
+==================================================
+2. LOCATION RELATIONSHIP
+==================================================
+
+Create:
+
+location_relationship
+
+Examples:
+
+current residence
+born in
+based in
+works in
+Chilean author living abroad
+publishes primarily in Chile
+active in Chilean literary market
+
+Create:
+
+location_evidence
+
+Record the source supporting the relationship.
+
+Example:
+
+If a biography says:
+
+"nació en Valparaíso"
+
+do NOT record:
+
+"currently lives in Valparaíso"
+
+unless another reliable source verifies current residence.
+
+
+==================================================
+3. CHILE VS OTHER SPANISH-SPEAKING MARKETS
+==================================================
+
+This is CRITICAL.
+
+Do NOT classify every Spanish-language author as a Chile lead.
+
+Spanish-language authors may be connected to:
+
+Argentina
+Peru
+Bolivia
+Colombia
+Mexico
+Spain
+Uruguay
+Ecuador
+Venezuela
+other markets
+
+A Spanish-language author is NOT automatically Chile-connected.
+
+A non-Chilean author may qualify only when there is a strong documented CURRENT professional connection to Chile.
+
+Examples:
+
+- currently based in Chile
+- active Chilean publisher
+- sustained Chilean literary career
+- major current Chile launch/promotion
+- substantial participation in Chile's literary ecosystem
+
+Do NOT include an Argentine, Peruvian, Spanish, Mexican, Colombian or other author merely because their book is sold in Chile.
+
+
+==================================================
+4. CHILEAN AUTHORS ABROAD
+==================================================
+
+Chilean authors living outside Chile may qualify when they retain a clear CURRENT professional connection to Chilean literature.
+
+Possible evidence:
+
+- current Chilean publisher
+- new Chilean edition
+- Chilean literary festival participation
+- current Chilean press coverage
+- Chilean literary awards
+- active Chilean readership
+- frequent publication or events in Chile
+- current promotion in Chile
+
+Do NOT qualify someone merely because they were born in Chile if there is no current professional connection.
+
+
+==================================================
+5. INDIGENOUS / MINORITY LANGUAGE SAFETY
+==================================================
+
+Chile includes authors and literary work connected to languages such as:
+
+- Spanish
+- Mapudungun
+- Aymara
+- Rapa Nui
+- Quechua
+- other Indigenous languages
+
+Do NOT infer language or Indigenous identity based solely on:
+
+- surname
+- appearance
+- birthplace
+- region
+- book topic
+
+Only record language when supported by reliable evidence.
+
+Do not erase bilingual or Indigenous literary identity when it is genuinely relevant.
+
+
+==================================================
+6. GEOGRAPHIC DISCOVERY STRATEGY
+==================================================
+
+PHASE 1 - SANTIAGO DEEP PASS
+
+Begin with:
+
+Santiago
+Región Metropolitana
+
+Search deeply across:
+
+- publishers
+- bookstores
+- libraries
+- universities
+- literary centres
+- cultural institutions
+- book launches
+- festivals
+- fairs
+- prizes
+- current interviews
+- newspapers
+- radio
+- television
+- podcasts
+- publisher catalogues
+
+
+PHASE 2 - VALPARAÍSO / VIÑA DEL MAR
+
+Search:
+
+Valparaíso
+Viña del Mar
+greater Valparaíso literary/cultural activity where relevant
+
+Look for:
+
+- university-connected authors
+- independent publishers
+- festivals
+- bookstores
+- poetry
+- fiction
+- nonfiction
+- regional cultural organisations
+
+
+PHASE 3 - CONCEPCIÓN / BIOBÍO
+
+Search:
+
+Concepción
+Biobío
+
+Include:
+
+- universities
+- libraries
+- publishers
+- bookstore events
+- literary festivals
+- regional writers
+- current interviews
+
+
+PHASE 4 - MAJOR REGIONAL CENTRES
+
+Search:
+
+Temuco
+Valdivia
+Puerto Montt
+La Serena
+Coquimbo
+Antofagasta
+Iquique
+Arica
+Rancagua
+Talca
+Chillán
+
+
+PHASE 5 - SOUTH / PATAGONIA
+
+Search:
+
+Osorno
+Puerto Varas
+Coyhaique
+Punta Arenas
+
+and other southern literary centres when useful.
+
+
+PHASE 6 - ADDITIONAL REGIONAL DISCOVERY
+
+Search relevant authors from:
+
+Atacama
+Maule
+Ñuble
+La Araucanía
+Los Ríos
+Los Lagos
+Aysén
+Magallanes
+
+and other regions.
+
+Do not impose artificial regional quotas.
+
+
+==================================================
+7. ALL-REGION COVERAGE
+==================================================
+
+Aim eventually to scout across all 16 regions:
+
+Arica y Parinacota
+Tarapacá
+Antofagasta
+Atacama
+Coquimbo
+Valparaíso
+Metropolitana de Santiago
+O'Higgins
+Maule
+Ñuble
+Biobío
+La Araucanía
+Los Ríos
+Los Lagos
+Aysén
+Magallanes y de la Antártica Chilena
+
+Quality remains more important than balanced numbers.
+
+
+==================================================
+8. OPPORTUNITY-BASED DISCOVERY
+==================================================
+
+Geography is only ONE discovery route.
+
+Also search nationally for CURRENT professional activity.
+
+Priority signals include:
+
+- book released in 2026
+- forthcoming 2026-2027 book
+- late-2025 book still actively promoted
+- current book launch
+- bookstore event
+- signing
+- reading
+- book fair
+- literary festival
+- current interview
+- podcast
+- radio appearance
+- television appearance
+- literary prize/shortlist
+- international translation
+- foreign edition
+- new edition
+- paperback edition
+- reissue
+- sequel
+- adaptation
+- audiobook launch
+- publisher campaign
+- active author newsletter
+- active professional social media promotion
+- speaking/event activity
+
+
+==================================================
+9. IMPORTANT CHILE DISCOVERY SOURCES
+==================================================
+
+Use multiple source types.
+
+Do NOT build the campaign primarily from Amazon.
+
+Useful sources may include:
+
+- Ministerio de las Culturas, las Artes y el Patrimonio
+- Biblioteca Nacional de Chile
+- Chilean literary organisations
+- official publisher catalogues
+- literary award pages
+- public libraries
+- universities
+- independent bookstores
+- regional cultural organisations
+- newspapers
+- literary magazines
+- cultural media
+- radio programmes
+- television interviews
+- literary festivals
+- book fairs
+- current event calendars
+
+No single source should be treated as complete.
+
+
+==================================================
+10. CHILE BOOK FAIR / EVENT DISCOVERY
+==================================================
+
+Useful discovery channels may include, where relevant:
+
+- Feria Internacional del Libro de Santiago / FILSA
+- La Furia del Libro
+- regional book fairs
+- university literary festivals
+- poetry festivals
+- independent publishing fairs
+- bookstore readings
+- library events
+- cultural-centre events
+- publisher launch events
+
+Do not assume attendance proves current residence.
+
+
+==================================================
+11. PUBLISHER DISCOVERY
+==================================================
+
+Useful publisher sources may include, where relevant:
+
+- Penguin Random House Grupo Editorial Chile
+- Planeta Chile
+- Catalonia
+- LOM Ediciones
+- Hueders
+- Overol
+- Laurel
+- Kindberg
+- independent Chilean presses
+- university presses
+- regional publishers
+- poetry publishers
+- children's/YA publishers
+
+Do not assume any single publisher catalogue is complete.
+
+
+==================================================
+12. AUTHOR-OWNED SOURCES
+==================================================
+
+Search:
+
+- official author websites
+- author contact pages
+- newsletters
+- blogs
+- Substack
+- LinkedIn
+- Instagram
+- Facebook author pages
+- YouTube
+- public event pages
+
+
+==================================================
+13. BOOK VERIFICATION SOURCES
+==================================================
+
+Use combinations of:
+
+- official publisher website
+- official author website
+- Biblioteca Nacional de Chile resources where appropriate
+- reputable Chilean booksellers
+- library catalogues
+- ISBN information
+- Google Books
+- retailer listings when useful
+- press interviews
+- literary reviews
+- festival pages
+- publisher publicity
+
+A retailer listing alone is NOT sufficient for READY qualification.
+
+
+==================================================
+14. SEARCH QUERY STRATEGY
+==================================================
+
+Search primarily in CHILEAN / LATIN AMERICAN SPANISH.
+
+Rotate query wording.
+
+Examples:
+
+"autor chileno" "nuevo libro" 2026
+
+"autora chilena" "nuevo libro" 2026
+
+"escritor chileno" "nueva novela" 2026
+
+"escritora chilena" "nueva novela" 2026
+
+"autor chileno" próximo libro 2027
+
+"autora chilena" próxima novela 2027
+
+"autor Santiago" nuevo libro 2026
+
+"autora Santiago" lanzamiento libro 2026
+
+"autor Valparaíso" nueva novela 2026
+
+"autora Valparaíso" lanzamiento 2026
+
+"escritor Concepción" nuevo libro 2026
+
+"autora Concepción" nueva novela 2026
+
+"autor Temuco" libro 2026
+
+"autora Valdivia" libro 2026
+
+"escritor chileno" lanzamiento 2026
+
+"escritora chilena" entrevista 2026
+
+"autor chileno" festival literario 2026
+
+"autora chilena" feria del libro 2026
+
+"autor chileno" firma de libros 2026
+
+"poeta chileno" nuevo libro 2026
+
+"poeta chilena" nuevo poemario 2026
+
+"autor infantil chileno" nuevo libro 2026
+
+"autora juvenil chilena" nuevo libro 2026
+
+"autor chileno" novela policial 2026
+
+"autora chilena" traducción 2026
+
+"autor chileno" reedición 2026
+
+"autora chilena" nueva edición 2026
+
+site:.cl autor contacto libro 2026
+
+site:.cl autora contacto libro 2026
+
+site:.cl escritor correo libro 2026
+
+site:.cl escritora contacto 2026
+
+
+==================================================
+15. QUERY EXPANSION
+==================================================
+
+Rotate searches by:
+
+- city
+- region
+- genre
+- publisher
+- prize
+- festival
+- fair
+- book type
+- release year
+- launch
+- interview
+- podcast
+- reading
+- signing
+- translation
+- reissue
+- new edition
+- adaptation
+- sequel
+
+Do not repeatedly run identical searches.
+
+
+==================================================
+16. AUTHORS TO PRIORITIZE
+==================================================
+
+Priority categories may include:
+
+- literary fiction
+- commercial fiction
+- historical fiction
+- crime/thriller
+- romance
+- fantasy/speculative fiction
+- science fiction
+- poetry
+- children's literature
+- young adult
+- memoir
+- biography
+- essays
+- narrative nonfiction
+- journalist-authors
+- professional/business authors
+- academics with public-facing books
+- small-press authors
+- independent/self-published authors with strong current activity
+- graphic literature/comics where relevant
+
+
+==================================================
+17. DO NOT PRIORITIZE ONLY FAMOUS AUTHORS
+==================================================
+
+Do not fill the database only with internationally famous Chilean authors.
+
+Also search for:
+
+- emerging authors
+- first/second-book authors
+- regional authors
+- independent authors
+- small-press authors
+- poets
+- nonfiction specialists
+- mid-career authors
+- Indigenous/bilingual authors where verified
+- authors currently appearing at events
+- authors with translations
+- authors with current new editions/reissues
+
+
+==================================================
+18. COMMERCIAL FIT
+==================================================
+
+Create:
+
+commercial_fit
+
+Use exactly:
+
+HIGH
+MEDIUM
+LOW
+
+
+HIGH:
+
+Strong CURRENT professional reason why outreach is timely.
+
+Examples:
+
+- forthcoming release
+- active launch
+- current publisher campaign
+- current translation
+- active book-fair/festival cycle
+- multiple current events
+- recent media appearances
+- new edition
+- sequel
+- adaptation activity
+
+
+MEDIUM:
+
+Some meaningful CURRENT activity exists.
+
+Examples:
+
+- relatively recent book
+- ongoing bookstore appearances
+- active speaking
+- current professional media activity
+- continuing publisher promotion
+- evergreen nonfiction with active current relevance
+
+
+LOW:
+
+Little or no evidence of meaningful current activity.
+
+
+==================================================
+19. COMMERCIAL FIT DOES NOT MEAN WEALTH
+==================================================
+
+Never infer:
+
+- ability to pay
+- willingness to pay
+- income
+- wealth
+- financial status
+
+commercial_fit measures:
+
+- timeliness
+- current professional relevance
+- publicity activity
+- outreach relevance
+
+NOT money.
+
+
+==================================================
+20. CURRENT AUTHOR MOMENT
+==================================================
+
+Create:
+
+current_author_moment
+
+Use exactly:
+
+LAUNCH NOW
+ACTIVELY PROMOTING
+EVERGREEN AUTHORITY
+BACKLIST REACTIVATION
+NO CLEAR CURRENT MOMENT
+
+
+LAUNCH NOW:
+
+Upcoming/recent book, launch, signing, fair, festival, presentation.
+
+
+ACTIVELY PROMOTING:
+
+Current interviews, events, media, newsletters, social promotion, publisher campaign.
+
+
+EVERGREEN AUTHORITY:
+
+Nonfiction/professional/academic author whose work is actively connected to:
+
+- teaching
+- research
+- speaking
+- consulting
+- journalism
+- public debate
+- conferences
+- media appearances
+
+
+BACKLIST REACTIVATION:
+
+Older book has become current through:
+
+- translation
+- reissue
+- new edition
+- paperback
+- anniversary
+- sequel
+- adaptation
+- renewed media coverage
+- current festival/event cycle
+
+
+NO CLEAR CURRENT MOMENT:
+
+No meaningful current professional activity verified.
+
+
+==================================================
+21. NO CLEAR CURRENT MOMENT RULE
+==================================================
+
+NO CLEAR CURRENT MOMENT cannot be READY.
+
+If:
+
+current_author_moment = NO CLEAR CURRENT MOMENT
+
+then:
+
+personalization_status = EXCLUDED
+
+unless further reliable research identifies genuine current relevance.
+
+
+==================================================
+22. EMAIL-FIRST RULE
+==================================================
+
+Every READY lead MUST have a complete publicly attributable professional email.
+
+No supported email = no READY.
+
+
+==================================================
+23. EMAIL STATUS
+==================================================
+
+Create:
+
+email_status
+
+Allowed values:
+
+VERIFIED DIRECT
+VERIFIED PROFESSIONAL
+SUPPORTED
+UNCERTAIN
+GUESSED
+INVALID
+
+
+VERIFIED DIRECT:
+
+Publicly displayed on the author's official website/contact page.
+
+
+VERIFIED PROFESSIONAL:
+
+Publicly displayed through an official:
+
+- publisher
+- agent
+- assistant
+- university
+- institution
+- literary organisation
+- professional page
+
+clearly connected to the author.
+
+
+SUPPORTED:
+
+Multiple reliable public sources support the address, but it is not directly displayed on the author's own site.
+
+
+UNCERTAIN:
+
+Attribution cannot be established confidently.
+
+
+GUESSED:
+
+Inferred/generated.
+
+
+INVALID:
+
+Known malformed or unusable.
+
+
+Only:
+
+VERIFIED DIRECT
+VERIFIED PROFESSIONAL
+SUPPORTED
+
+may normally become READY.
+
+
+==================================================
+24. EMAIL SAFETY
+==================================================
+
+Never:
+
+- generate firstname.lastname email patterns
+- guess Gmail addresses
+- infer contacto@
+- infer prensa@
+- infer comunicaciones@
+- infer info@
+- infer editorial-domain addresses
+- use hidden/partially obscured addresses
+- rely on dubious scraped databases
+
+email_source must identify exactly where the email was found.
+
+
+==================================================
+25. PROFESSIONAL CONTACT ROUTES
+==================================================
+
+Acceptable professional routes may include:
+
+- author directly
+- official author website
+- assistant
+- literary agent
+- professional representative
+- publisher contact specifically appropriate for the author
+- university/institutional professional email
+- recognised literary organisation
+
+Do not pretend a generic publisher email is the author's personal email.
+
+Record unclear routing in:
+
+audit_notes
+
+
+==================================================
+26. CURRENT-RUN DUPLICATE CONTROL ONLY
+==================================================
+
+This is the FIRST Chile campaign.
+
+DO NOT:
+
+- search historical Chile CSV files
+- search previous Chile campaigns
+- search Gmail for previous Chile outreach
+- compare against Argentina files
+- compare against Peru files
+- compare against Spain files
+- compare against Mexico files
+- compare against France files
+- compare against Portugal files
+- compare against any other country database
+- perform global historical duplicate research
+
+Prevent duplicates ONLY inside THIS CURRENT Chile scouting run.
+
+The same author may be discovered through:
+
+- publisher
+- festival
+- fair
+- newspaper
+- interview
+- bookstore
+- author website
+- literary prize
+- library
+- multiple books
+
+Do not create multiple rows for the same author.
+
+
+==================================================
+27. SAME-RUN DUPLICATE MATCHING
+==================================================
+
+Within the CURRENT Chile batch only, compare:
+
+- normalized author name
+- email
+- pen name
+- official website
+- book title
+- publisher profile
+
+When two discoveries clearly represent the same author:
+
+retain ONE canonical row.
+
+Prefer:
+
+1. strongest verified email route
+2. direct author contact
+3. freshest/current book
+4. strongest current activity
+5. most complete research
+
+
+==================================================
+28. DUPLICATE STATUS
+==================================================
+
+Keep:
+
+duplicate_status
+duplicate_match_reference
+
+for CSV compatibility.
+
+For normal unique authors:
+
+duplicate_status = CLEAR
+
+duplicate_match_reference = blank
+
+If a duplicate occurs inside this current Chile run:
+
+retain only the strongest canonical row.
+
+Do not include weaker duplicate rows in the final CSV.
+
+
+==================================================
+29. ONE AUTHOR = ONE CANONICAL ROW
+==================================================
+
+Within this Chile campaign:
+
+ONE AUTHOR = ONE ROW.
+
+Do not create multiple rows because the author has:
+
+- several books
+- several publishers
+- several editions
+- translations
+- several emails
+- several websites
+- several events
+
+Choose the book with the strongest CURRENT relevance.
+
+
+==================================================
+30. CHILEAN NAME MATCHING
+==================================================
+
+Be careful with Spanish-language naming conventions.
+
+Authors may use:
+
+- two surnames
+- only one surname professionally
+- compound surnames
+- married names
+- initials
+- pen names
+- accented/unaccented variants
+
+Do not assume two similar names are different people.
+
+Do not merge them without evidence.
+
+Preserve the author's correct public name in:
+
+author_name
+
+Use:
+
+normalized_author_name
+
+only for matching.
+
+
+==================================================
+31. AUTHOR IDENTITY VERIFICATION
+==================================================
+
+Verify:
+
+- canonical author name
+- preferred public name
+- first_name for later greeting
+- Chile connection
+- current location where supported
+- official website
+- selected book
+- publisher
+- professional contact
+- public-facing language
+
+If identity is unclear:
+
+NEEDS REVIEW.
+
+
+==================================================
+32. PUBLISHING ROUTE
+==================================================
+
+Create:
+
+publishing_route
+
+Use exactly:
+
+Traditional
+Small Press
+Independent
+Self-Published
+Hybrid
+Academic
+Unknown
+
+Use actual evidence.
+
+
+==================================================
+33. AUTHOR TYPE
+==================================================
+
+Create:
+
+author_type
+
+Examples:
+
+literary fiction
+commercial fiction
+historical fiction
+crime/thriller
+romance
+fantasy/speculative
+science fiction
+poetry
+children's
+young adult
+memoir
+biography
+essayist
+nonfiction expert
+academic
+business/professional
+journalist-author
+graphic literature
+other
+
+
+==================================================
+34. BOOK VERIFICATION
+==================================================
+
+For every potential READY lead verify:
+
+- exact title
+- subtitle where relevant
+- author/editor/co-editor role
+- book type
+- publication date
+- publisher/imprint
+- current availability
+- ISBN/ASIN where useful
+- series
+- premise/topic
+- distinctive features
+- current publicity context
+- translation information
+- international editions
+- new-edition/reissue status
+
+
+==================================================
+35. BOOK ACCURACY
+==================================================
+
+Never:
+
+- call an anthology a novel
+- call an editor the sole author
+- confuse poetry with prose fiction
+- confuse a Chilean edition with another country's edition
+- confuse a translation with a separate original book
+- invent publication dates
+- invent awards
+- invent publishers
+- invent series
+- invent current promotional activity
+
+Record conflicts in:
+
+audit_notes
+
+
+==================================================
+36. BOOK RESEARCH DEPTH
+==================================================
+
+Do NOT qualify a READY lead from one retailer or publisher synopsis alone.
+
+Minimum research:
+
+1. Official author or publisher source.
+2. One additional reliable source specifically about the selected book.
+3. One source revealing:
+   - creative process
+   - research
+   - structure
+   - motivation
+   - current promotion
+   - professional context
+
+For stronger leads aim for:
+
+3-5 meaningful sources.
+
+
+==================================================
+37. USEFUL RESEARCH MATERIAL
+==================================================
+
+Where publicly available inspect:
+
+- excerpts
+- previews
+- interviews
+- podcasts
+- radio
+- television
+- literary reviews
+- festival/event pages
+- author essays
+- publisher interviews
+- launch announcements
+- table of contents
+- sample chapters
+
+
+==================================================
+38. PERSONALIZATION RESEARCH TEST
+==================================================
+
+Before READY status, be able to answer:
+
+A. What distinguishes this specific book?
+
+B. What meaningful creative/editorial decision shaped it?
+
+C. What could become a genuine Author Spotlight angle?
+
+D. What question could be asked that is NOT already answered by the standard publisher synopsis?
+
+E. Why is discussing this author/book relevant NOW?
+
+If evidence is too thin:
+
+NEEDS REVIEW.
+
+
+==================================================
+39. BOOK DISTINCTIVE FEATURES
+==================================================
+
+Create:
+
+book_distinctive_features
+
+Include 2-4 verified details.
+
+Possible examples:
+
+- Santiago setting
+- Valparaíso setting
+- Atacama/desert landscape
+- Patagonia
+- southern Chile
+- island setting
+- Mapuche context
+- migration/exile
+- dictatorship/memory
+- post-dictatorship society
+- family history
+- historical archives
+- unusual structure
+- poetry/prose hybrid
+- professional expertise
+- environmental themes
+- Indigenous language
+- multilingual writing
+- social class
+- journalism transformed into literature
+- recurring character
+- Chilean regional identity
+
+Do not copy publisher marketing language word-for-word.
+
+
+==================================================
+40. CURRENT MARKETING SIGNAL
+==================================================
+
+Create:
+
+current_marketing_signal
+
+Use one concise factual phrase.
+
+Examples:
+
+"2026 novel currently promoted through Santiago bookstore events"
+
+"forthcoming 2027 book announced by Chilean publisher"
+
+"late-2025 novel still active through 2026 literary festival appearances"
+
+"new English translation currently receiving international promotion"
+
+"older novel reactivated through a 2026 Chilean edition"
+
+
+==================================================
+41. MARKETING EVIDENCE
+==================================================
+
+Create:
+
+marketing_evidence
+
+Write 1-3 factual sentences supporting:
+
+current_author_moment
+commercial_fit
+
+Use evidence, not assumptions.
+
+
+==================================================
+42. CURRENT AUTHOR NEED
+==================================================
+
+Create:
+
+current_author_need
+
+THIS IS ONLY A LIGHT INTERNAL ASSESSMENT.
+
+Do NOT perform the deep service-gap audit here.
+
+Write 1-3 concise sentences describing what editorial/publicity context might plausibly be useful NOW.
+
+Examples:
+
+- launch-period author profile
+- English-language international profile
+- profile around a current translation
+- profile connecting current and previous work
+- event-ready author feature
+
+Do NOT claim the author definitely needs a particular service.
+
+Workflow 2 will research that.
+
+
+==================================================
+43. BEST REUSABLE DELIVERABLES
+==================================================
+
+Create:
+
+best_reusable_deliverables
+
+Maximum 3.
+
+Examples:
+
+website-ready profile
+English-language summary
+event excerpt
+newsletter version
+publisher introduction
+social excerpts
+series overview
+translation-ready profile
+
+Do NOT create these assets now.
+
+
+==================================================
+44. SPOTLIGHT ANGLE
+==================================================
+
+Create:
+
+spotlight_angle
+
+ONE strong research-grounded editorial angle.
+
+Potential Chile-related angles may include:
+
+- Santiago as narrative space
+- Valparaíso and port identity
+- Atacama/desert landscape
+- Patagonia
+- north/south Chile
+- exile and return
+- migration
+- dictatorship and memory
+- post-dictatorship generations
+- Indigenous identity where verified
+- Mapuche language/culture where genuinely relevant
+- family history
+- archival research
+- contemporary Chilean society
+- environmental change
+- mining/resource landscapes
+- regional identity
+- social class
+- journalism and literature
+- poetry and prose
+- translation and literary voice
+- professional expertise transformed into narrative
+
+Do not force political, historical, or Indigenous angles when they do not actually belong to the author's work.
+
+
+==================================================
+45. CURIOSITY QUESTION
+==================================================
+
+Create:
+
+curiosity_question
+
+THIS IS INTERNAL ONLY.
+
+Write ONE strong book-specific question.
+
+Avoid generic questions such as:
+
+"What inspired you?"
+
+"What is your writing process?"
+
+"What message do you want readers to take away?"
+
+"Why did you become an author?"
+
+Prefer questions about:
+
+- what changed during drafting
+- what was deliberately removed
+- point of view
+- narrative structure
+- research vs invention
+- place
+- historical memory
+- family history
+- exile/migration
+- language
+- translation
+- character choices
+- editing decisions
+- what the author intentionally leaves unresolved
+- what the author deliberately refused to simplify
+
+The answer should not already be obvious from the publisher synopsis.
+
+
+==================================================
+46. PERSONALIZATION DETAIL
+==================================================
+
+Create:
+
+personalization_detail
+
+Include 2-4 verified facts useful later.
+
+Possible facts:
+
+- selected book
+- current release
+- forthcoming release
+- upcoming event
+- distinctive structure
+- relevant author background
+- research method
+- regional connection
+- translation
+- series connection
+- recent interview
+- current professional activity
+
+
+==================================================
+47. PERSONALIZATION REASON
+==================================================
+
+Create:
+
+personalization_reason
+
+Answer concisely:
+
+Why this author?
+Why this book?
+Why this angle?
+Why now?
+
+
+==================================================
+48. OUTREACH LANGUAGE
+==================================================
+
+Create:
+
+outreach_language
+
+Possible values:
+
+Spanish
+English
+Mapudungun
+Aymara
+Rapa Nui
+Quechua
+French
+German
+Other
+
+For most Chile leads:
+
+Spanish
+
+will normally be appropriate.
+
+However:
+
+do NOT automatically assign a language merely based on location or identity.
+
+Verify it from:
+
+- selected book
+- official author site
+- publisher materials
+- current interviews
+- current professional communication
+
+
+==================================================
+49. CHILEAN SPANISH RULE
+==================================================
+
+For authors whose verified outreach language is Spanish:
+
+write later outreach in natural professional Spanish appropriate for Chile.
+
+Do NOT make it excessively slang-heavy.
+
+Do NOT automatically use Spain-specific formal wording when more neutral Chilean/Latin American Spanish is appropriate.
+
+Preserve:
+
+- accents
+- ñ
+- book titles
+- names
+- publisher names
+- city names
+
+correctly.
+
+
+==================================================
+50. INDIGENOUS LANGUAGE RULE
+==================================================
+
+Do NOT automatically use:
+
+Mapudungun
+Aymara
+Rapa Nui
+Quechua
+
+based on ethnicity, surname, birthplace, region, or book subject.
+
+Assign one of these outreach languages ONLY when the author's:
+
+- published work
+- official website
+- current interviews
+- publisher material
+- public professional communication
+
+clearly supports it.
+
+Otherwise use the author's verified professional language.
+
+
+==================================================
+51. MULTILINGUAL AUTHORS
+==================================================
+
+Some Chilean authors may work professionally in multiple languages.
+
+Choose outreach_language based on:
+
+1. selected book language
+2. current promotion
+3. official author website/contact language
+4. strongest professional public-facing language
+
+Record relevant secondary language information in:
+
+audit_notes
+
+
+==================================================
+52. DISCOVERY SOURCE
+==================================================
+
+Create:
+
+discovery_source
+
+Record WHERE THE AUTHOR WAS FIRST FOUND.
+
+Examples:
+
+La Furia del Libro
+FILSA
+publisher catalogue
+bookstore event
+university literary event
+newspaper interview
+literary award
+official author website
+regional cultural programme
+
+This is different from:
+
+research_sources
+
+
+==================================================
+53. RESEARCH SOURCES
+==================================================
+
+Create:
+
+research_sources
+
+Record important URLs with short descriptions.
+
+Example:
+
+official author website - biography/contact
+publisher page - selected book/release
+festival page - current appearance
+interview - creative process/current promotion
+library/catalogue - bibliographic verification
+
+
+==================================================
+54. RESEARCH CONFIDENCE
+==================================================
+
+Create:
+
+research_confidence
+
+Use exactly:
+
+HIGH
+MEDIUM
+LOW
+
+
+HIGH:
+
+Identity, contact, book, current activity and personalization facts are strongly verified.
+
+
+MEDIUM:
+
+Core facts are verified, but some contextual information relies on reputable secondary sources.
+
+
+LOW:
+
+Important uncertainty remains.
+
+LOW cannot be READY.
+
+
+==================================================
+55. PERSONALIZATION STATUS
+==================================================
+
+Create:
+
+personalization_status
+
+Use exactly:
+
+READY
+NEEDS REVIEW
+EXCLUDED
+
+
+==================================================
+56. READY REQUIREMENTS
+==================================================
+
+READY requires ALL:
+
+- author identity verified
+- Chile connection verified
+- selected book verified
+- publicly attributable professional email
+- email_status = VERIFIED DIRECT, VERIFIED PROFESSIONAL or SUPPORTED
+- author unique within current Chile run
+- commercial_fit = HIGH or MEDIUM
+- research_confidence = HIGH or MEDIUM
+- current_author_moment is one of:
+  LAUNCH NOW
+  ACTIVELY PROMOTING
+  EVERGREEN AUTHORITY
+  BACKLIST REACTIVATION
+- current professional relevance supported
+- strong spotlight_angle
+- strong curiosity_question
+- enough personalization material
+- outreach_language verified
+
+NO CLEAR CURRENT MOMENT cannot be READY.
+
+
+==================================================
+57. NEEDS REVIEW
+==================================================
+
+Use NEEDS REVIEW when:
+
+- possible same-run duplicate
+- uncertain email
+- unclear professional contact route
+- Chile connection uncertain
+- location conflict
+- language uncertain
+- book information conflicts
+- current activity seems plausible but is not sufficiently verified
+- important research source is inaccessible
+- research remains incomplete
+
+
+==================================================
+58. EXCLUDED
+==================================================
+
+Use EXCLUDED for:
+
+- invalid email
+- guessed email
+- wrong author
+- wrong book
+- deceased author
+- minor
+- unverifiable identity
+- no usable professional contact
+- duplicate row already represented by a stronger row inside this Chile run
+- NO CLEAR CURRENT MOMENT
+- only old books with no current promotion
+- famous author with no current activity
+- historical prize but no current professional relevance
+- publisher page exists but no current activity can be verified
+
+
+==================================================
+59. FINAL CSV SCHEMA
+==================================================
+
+Output columns in EXACTLY this order:
+
+author_name
+first_name
+email
+email_status
+email_source
+normalized_author_name
+normalized_email
+duplicate_status
+duplicate_match_reference
+country
+city
+region_or_county
+location_relationship
+location_evidence
+author_type
+publishing_route
+official_website
+book_title
+book_type
+publication_date
+latest_release_date
+publisher
+isbn_or_asin
+series
+book_topic
+book_distinctive_features
+current_author_moment
+current_marketing_signal
+marketing_evidence
+commercial_fit
+current_author_need
+best_reusable_deliverables
+spotlight_angle
+curiosity_question
+personalization_detail
+personalization_reason
+outreach_language
+discovery_source
+research_sources
+research_confidence
+personalization_status
+audit_notes
+
+
+==================================================
+60. DO NOT ADD WORKFLOW 2 FIELDS
+==================================================
+
+DO NOT add:
+
+audiobook_status
+audio_rights_status
+website_status
+newsletter_status
+reader_magnet_status
+book_video_status
+short_form_video_status
+media_kit_status
+direct_sales_status
+launch_status
+event_activity
+translation_activity
+backlist_opportunity
+spotlight_opportunity
+primary_opportunity
+primary_opportunity_evidence
+primary_opportunity_confidence
+secondary_opportunity
+secondary_opportunity_evidence
+do_not_pitch
+do_not_pitch_reason
+outreach_recommendation
+
+These belong to Workflow 2.
+
+
+==================================================
+61. DO NOT ADD EMAIL FIELDS
+==================================================
+
+DO NOT add:
+
+subject_line
+email_body
+personalized_opening
+followup_1_subject
+followup_1_body
+followup_2_subject
+followup_2_body
+
+
+==================================================
+62. DO NOT ADD GMAIL / CRM FIELDS
+==================================================
+
+DO NOT add:
+
+send_status
+date_sent
+gmail_thread_id
+gmail_message_id
+reply_status
+reply_date
+followup_due
+bounce_status
+
+These belong to later workflows.
+
+
+==================================================
+63. CSV OUTPUT RULES
+==================================================
+
+Final deliverable:
+
+UTF-8 CSV
+
+NOT:
+
+PDF
+DOCX
+XLSX
+Markdown table
+
+One canonical author per row.
+
+Use standard CSV escaping.
+
+If a field contains:
+
+- commas
+- quotation marks
+- line breaks
+
+escape it correctly.
+
+Preserve Spanish, Mapudungun, Indigenous-language and proper-name characters accurately.
+
+
+==================================================
+64. RECOMMENDED FILE NAME
+==================================================
+
+Author_Ledger_Chile_Qualified_Leads.csv
+
+
+==================================================
+65. FINAL QUALITY CONTROL
+==================================================
+
+Before marking READY verify:
+
+1. Correct person?
+2. Genuine Chile connection?
+3. Correct current city where supported?
+4. Correct Chilean region?
+5. Not merely another Spanish-language author with no meaningful Chile connection?
+6. Indigenous/minority identity represented accurately where relevant?
+7. Correct public professional email?
+8. Email source recorded?
+9. Email not guessed?
+10. Author unique inside THIS current Chile run?
+11. Correct selected book?
+12. Correct official title?
+13. Correct book type?
+14. Correct author/editor role?
+15. Correct publisher?
+16. Publication date verified?
+17. Book is recent OR currently reactivated?
+18. Current activity genuinely supported?
+19. Author is not inactive?
+20. Commercial fit HIGH or MEDIUM?
+21. current_author_moment is not NO CLEAR CURRENT MOMENT?
+22. Book researched beyond one synopsis?
+23. Strong spotlight angle?
+24. Strong curiosity question?
+25. Personalization facts supported?
+26. Correct outreach language?
+27. Indigenous language not assumed?
+28. No invented information?
+29. One canonical row only?
+30. Research confidence HIGH or MEDIUM?
+31. Ready for Workflow 2?
+
+If an author only has old books and no verified CURRENT activity:
+
+EXCLUDE.
+
+
+==================================================
+66. FINAL RUN REPORT
+==================================================
+
+After creating the CSV, separately report:
+
+Total prospects researched
+Unique authors found
+Same-run duplicate discoveries collapsed
+
+Authors rejected for inactivity
+Authors rejected because latest activity was too old
+Authors rejected because no current promotion could be verified
+
+VERIFIED DIRECT email count
+VERIFIED PROFESSIONAL email count
+SUPPORTED email count
+UNCERTAIN email count
+GUESSED/INVALID email count
+
+HIGH commercial-fit count
+MEDIUM commercial-fit count
+LOW commercial-fit count
+
+LAUNCH NOW count
+ACTIVELY PROMOTING count
+EVERGREEN AUTHORITY count
+BACKLIST REACTIVATION count
+NO CLEAR CURRENT MOMENT count
+
+READY count
+NEEDS REVIEW count
+EXCLUDED count
+
+2026 book count
+Forthcoming 2026-2027 book count
+Late-2025 still-active book count
+Older-but-reactivated book count
+
+Spanish-language lead count
+English-language lead count
+Indigenous-language lead count
+Other-language count
+
+Santiago/Metropolitana lead count
+Valparaíso-region lead count
+Biobío-region lead count
+Northern Chile lead count
+Southern Chile lead count
+Patagonia lead count
+Chilean-author-abroad count
+
+Cities covered
+Regions covered
+Main discovery sources
+Main rejection reasons
+Important research gaps
+Language uncertainties
+Chile/other-Spanish-market identity conflicts
+Quality-control concerns
+
+Do NOT place these statistics as fake author rows inside the CSV.
+
+
+==================================================
+67. FINAL PRINCIPLE
+==================================================
+
+This workflow produces CURRENT, QUALIFIED CHILE AUTHOR LEADS ONLY.
+
+It does NOT:
+
+perform historical cross-country deduplication
+perform deep service-gap research
+choose which service to sell
+write emails
+write subject lines
+write follow-ups
+send messages
+interact with Gmail
+create Apps Script
+
+The Chile campaign should prioritize:
+
+RECENT BOOKS
+FORTHCOMING BOOKS
+ACTIVE PROMOTION
+CURRENT EVENTS
+CURRENT MEDIA
+CURRENT TRANSLATIONS
+CURRENT REISSUES
+CURRENT PROFESSIONAL ACTIVITY
+
+Do NOT fill the CSV with inactive authors simply because they are famous or have an impressive backlist.
+
+A strong lead requires:
+
+A REAL AUTHOR
++
+A VERIFIED CHILE CONNECTION
++
+A VERIFIED BOOK
++
+A VERIFIED PROFESSIONAL EMAIL
++
+A CURRENT REASON TO CONTACT THEM
+
+If the requested target is 100 authors but only 49 meet those requirements:
+
+RETURN 49.
+
+Never:
+
+guess
+fabricate
+invent emails
+invent locations
+invent language preferences
+invent Indigenous identity
+confuse Chilean authors with authors from other Spanish-speaking markets
+create duplicate rows inside the current run
+force commercial fit
+force current activity
+force READY status
+
+simply to reach a target number.
+
+
+==================================================
+WORKFLOW ORDER
+==================================================
+
+START WITH SANTIAGO / REGIÓN METROPOLITANA
+↓
+VALPARAÍSO / VIÑA DEL MAR
+↓
+CONCEPCIÓN / BIOBÍO
+↓
+MAJOR REGIONAL CENTRES
+↓
+NORTHERN CHILE
+↓
+SOUTHERN CHILE / PATAGONIA
+↓
+ALL 16 REGIONS
+
+FOR EACH PROSPECT:
+
+FIND AUTHOR
+↓
+CHECK WHETHER THEY ARE CURRENT
+↓
+IF INACTIVE → EXCLUDE AND MOVE ON
+↓
+VERIFY IDENTITY
+↓
+VERIFY CHILE CONNECTION
+↓
+VERIFY BOOK
+↓
+VERIFY RELEASE / CURRENT ACTIVITY
+↓
+VERIFY PROFESSIONAL EMAIL
+↓
+CHECK CURRENT CHILE RUN FOR SAME-AUTHOR DUPLICATE
+↓
+ASSESS COMMERCIAL FIT
+↓
+RESEARCH BOOK DEEPLY ENOUGH FOR LATER PERSONALIZATION
+↓
+BUILD SPOTLIGHT ANGLE
+↓
+BUILD CURIOSITY QUESTION
+↓
+VERIFY OUTREACH LANGUAGE
+↓
+QUALIFY
+↓
+EXPORT CSV
+
+
+==================================================
+NEXT WORKFLOW
+==================================================
+
+The completed Chile CSV will then be passed into Workflow 2 for:
+
+FINAL VERIFICATION
++
+AUTHOR OPPORTUNITY AUDIT
++
+AUDIOBOOK RESEARCH
++
+AUDIO RIGHTS RESEARCH
++
+WEBSITE RESEARCH
++
+NEWSLETTER RESEARCH
++
+READER MAGNET RESEARCH
++
+BOOK VIDEO / CINEMATIC TRAILER RESEARCH
++
+SHORT-FORM VIDEO RESEARCH
++
+MEDIA / PRESS ASSET RESEARCH
++
+DIRECT-SALES RESEARCH
++
+PRIMARY OPPORTUNITY SELECTION
++
+SECONDARY OPPORTUNITY SELECTION
++
+DO-NOT-PITCH IDENTIFICATION
++
+PERSONALIZED FIRST EMAIL
++
+FOLLOW-UP 1
++
+FOLLOW-UP 2
