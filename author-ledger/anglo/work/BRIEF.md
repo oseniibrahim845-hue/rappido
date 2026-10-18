@@ -65,3 +65,15 @@ Authors researched; new READY; Direct emails; Agent/Publisher emails; NEEDS_REVI
 - US crime publicists: kayla.janas@stmartins.com (also on gigipandian.com, vivienchien.com); alexis.saarela@tor.com (Forge; rachelhowzell.com/contact-us); megan@meganbeatie.com (MB Communications; kairarouda.com/contact/); katelynn@kaypublicity.com (Kay Publicity; edithmaxwell.com/contact/) — search each IN QUOTES to find more author pages. Discovery: escapewithdollycas.com tag crooked-lane-books (bios with residence; unmined: Mollie Ann Cox, Victoria Houston, Kit Gray).
 - CORRECTION: searching a publicist email IN QUOTES does NOT work (search engine doesn't index email strings). Instead: allowed_domains = 5–7 author domains + "publicity contact"; or "<publicist name>" "publicity" author contact. New: sarah.melnyk@stmartins.com (St. Martin's/Minotaur publicity; jenniferhillierbooks.com/contact/).
 - US crime agents (author contact pages): fblack@literarycounsel.com (victoriagilbertmysteries.com/contact); srostan@lgrliterary.com (hannahmorrissey.com/contact); marisa@ / ciara@corvisieroagency.com (elise-scott.com/contact-me). Crooked Lane author pages w/ residence but no date yet: Kira Peikoff, Bailee Abbott, Heather Blake.
+
+## Round 4 — BIG-PUBLISHER IMPRINT PUBLICITY INBOXES (all from hachettebookgroup.com/press-publicity/ unless noted; type Publisher)
+- Grand Central / Balance / Legacy Lit / Twelve: grandcentralpublishing@hbgusa.com
+- Forever (romance): readforever@hbgusa.com (Forever Winter/Summer 2026 preview pages list authors; unmined: Gabriella Gamez, Lucy Smoke, Karelia Stetz-Waters, Summer N. England)
+- Little, Brown / Back Bay / Mulholland / Voracious: publicity@littlebrown.com
+- Orbit / Redhook (SFF): orbit.generic@hbgusa.com
+- Hachette Books / Da Capo / Hachette Go: hachette.books@hbgusa.com
+- Basic Books: basic.publicity@hbgusa.com
+- Little, Brown Books for Young Readers: publicity@lbchildrens.com
+- HarperCollins Australia: publicity@harpercollins.com.au (harpercollins.com.au/pages/media-publicity)
+- HarperCollins publicists on author pages: Heather.Drucker@harpercollins.com (Harper Perennial); sonya.cheuse@harpercollins.com (Ecco); laura.gianino@harpercollins.com (MIRA)
+Pair these with the imprint's 2025–2027 debut/mid-list authors whose hachettebookgroup.com contributor page states residence (search allowed_domains=hachettebookgroup.com "<imprint> 2026 debut lives in").
