@@ -39,3 +39,9 @@ Use your own scratchpad subfolder for helper scripts: /tmp/claude-0/-home-user-r
 
 ## Finish with a short report
 Authors researched; new READY; Direct emails; Agent/Publisher emails; NEEDS_REVIEW; duplicates rejected; NEW verified press/agent contacts (address + source URL) for the next round.
+
+## Round 2 — KNOWN VERIFIED CONTACTS (reuse: pair with more of their 2025–2027 local authors)
+- Berrett-Koehler (US): ckirk@bkpub.com (Christy Kirk, media contact; ideas.bkconnection.com/berrett-koehler-publishers-announces-new-leadership-structure)
+- BenBella / Matt Holt (US): jennifer@benbellabooks.com (media enquiries; benbellabooks.com/contact/)
+- Andrea Brown Literary Agency (US, kids/YA; Agent type only for listed clients): saritza@, caryn@ (reps-wiseman.html), jennifer@ (reps-rofe.html), jamie@, kelly@ (Team/kelly-sonnack), jmatt@ (reps-mattson.html) andreabrownlit.com
+- BookEnds (US): jmcgowan@bookendsliterary.com (bookendsliterary.com/james-mcgowan; clients Tasneem Amiruddin, Marusha Belle, Nicole Wong, Jenny Liao, Kris Coronado, Pamela Courtney)
