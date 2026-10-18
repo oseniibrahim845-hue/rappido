@@ -94,3 +94,9 @@ Pair these with the imprint's 2025–2027 debut/mid-list authors whose hachetteb
 - Kensington leads: 2026 Cozies booklet Jul–Sep sections + other May/Jun authors unmined; kensingtonbooks.com 'Get Booked Up: New Series Roundup' page.
 - Allen & Unwin (AU/NZ): publicity@allenandunwin.com (group publicity, allenandunwin.com/media) — usable for A&U Australia and Aotearoa titles; allenandunwin.co.nz/browse/book/... bio pages state residence. Hachette NZ monthly 'Hachette Highlights' PDFs (hachette.co.nz/downloads/...) for Moa/Little Moa discovery.
 - Publicists (round 6): alice.tibbetts@harpercollins.com (HarperCollins Canada; uzmajalaluddin.com/contact); ljaggers@penguinrandomhouse.com (Berkley; alexandriabellefleur.com/contact); sscanadapublicity@simonandschuster.ca (S&S Canada; marissastapley.com/contact/); kmundellhill@penguinrandomhouse.com (Berkley; jennmckinlay.com/contact-media/). simonandschuster.com author pages state residence ("<name> author biography").
+
+## Round 7 — NEW BIG SEAMS (verified on publisher sites)
+- Pan Macmillan Australia: panpublicity@macmillan.com.au (panmacmillan.com.au/contact-us/ "for all media enquiries") — query panmacmillan.com.au "2026 debut novel author lives in"
+- Allen & Unwin AU/NZ: publicity@allenandunwin.com (allenandunwin.com/media) — query allenandunwin.com "2026 debut novel author lives in <city>"; Anne Cleary "The Nowhere Boy" Jun 2026
+- Sourcebooks (sourcebooks.com/media.html): Landmark cristina.arreola@sourcebooks.com; Fire (YA) karen.masnica@sourcebooks.com; Kids shara.zaval@sourcebooks.com; Bloom/Casablanca siena.koncsol@sourcebooks.com
+- Macmillan US imprint inboxes only on an old page (us.macmillan.com/tradebooksforcourses/contact-us): publicity@stmartins.com, publicity@hholt.com, publicity@flatironbooks.com, tpgpublicity@tor.com — confirm current before use (NEEDS_REVIEW unless re-confirmed on a current page).
