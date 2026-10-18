@@ -77,3 +77,4 @@ Authors researched; new READY; Direct emails; Agent/Publisher emails; NEEDS_REVI
 - HarperCollins Australia: publicity@harpercollins.com.au (harpercollins.com.au/pages/media-publicity)
 - HarperCollins publicists on author pages: Heather.Drucker@harpercollins.com (Harper Perennial); sonya.cheuse@harpercollins.com (Ecco); laura.gianino@harpercollins.com (MIRA)
 Pair these with the imprint's 2025–2027 debut/mid-list authors whose hachettebookgroup.com contributor page states residence (search allowed_domains=hachettebookgroup.com "<imprint> 2026 debut lives in").
+- US SFF: martin@erewhonbooks.com confirmed current (erewhonbooks.com/erewhon-kensington-press-release; Erewhon now a Kensington imprint); jocelyn.bright@tor.com (Tor publicist, imakeupworlds.com/press-kit/ — may be old). Tip: don't combine 'lives in' with email in one query; use Book Riot monthly SFF lists for discovery.
