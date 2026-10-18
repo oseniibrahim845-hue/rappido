@@ -48,3 +48,5 @@ Authors researched; new READY; Direct emails; Agent/Publisher emails; NEEDS_REVI
 - Canada: publicity@ecwpress.com (ecwpress.com/pages/media-press); publicity@dundurn.com (dundurn.com/contact); publicity@houseofanansi.com (houseofanansi.com/pages/contact-us); cynara@arsenalpulp.com (arsenalpulp.com/Media-Review-Copies); promotion@invisiblepublishing.com (confirm source page)
 - US crime: publicity@crookedlanebooks.com (crookedlanebooks.com/contact/)
 - Residence stated as a city/state/province (e.g. "lives in Winnipeg", "Northern Virginia") counts as country stated.
+- Australia: PublicityWBA@walkerbooks.com.au (walkerbooks.com.au/faqs/ and every Walker AI sheet); melissa.luckman@walkerbooks.com.au (walkerbooks.com.au/resources/media/)
+- Australia DIRECT-email goldmine: Walker Books Australia author database https://www.walkerbooks.com.au/wp-content/uploads/resource/Author-database-2026.pdf lists each author's email + state — query it name by name (allowed_domains walkerbooks.com.au, "<author name> email"). Unmined: Sarah Anthony, Robyn Bavati, Jodi Toering, Judy Watson, Anita Thomas, Dianne Wolfer, Sue-Ellen Pashley, Pamela Rushby, Skye Melki-Wegner.
