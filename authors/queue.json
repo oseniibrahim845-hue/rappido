@@ -9283,7 +9283,9 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610071245_fast_uk_cozy_mystery.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-18 15:47 UTC",
+  "acct": "oseniibrahim845@gmail.com"
  },
  {
   "email": "lisa@ljcohen.net",
@@ -9294,6 +9296,8 @@
   "best_offer": "Book Trailer and Promotional Reels",
   "lang": "en",
   "source": "bank_202610071245_fast_us_indie_scifi.json",
-  "status": "pending"
+  "status": "sent",
+  "sent_at": "2026-10-18 15:51 UTC",
+  "acct": "oseniibrahim845@gmail.com"
  }
 ]
