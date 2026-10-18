@@ -4,7 +4,8 @@ Prepared for Oseni Ibrahim (Shopify Automation & Integration Specialist). This i
 
 ## Status
 - See `Shopify_Research_Summary.xlsx` → *By_Country* for the current qualified count against the targets (US 250 · UK 150 · CA 100 · AU 100 · DE 100).
-- Research runs in batches by country, starting with the United States (batch 1 is complete). The UK, Canada, Australia and Germany follow, and Germany is researched with German and English queries.
+- Research runs in batches by country across all five markets. Germany is researched with German and English queries, using each store's Impressum (legal notice) for the email, address and Inhaber/Geschäftsführer.
+- The search tool allows about 200 searches per turn across all research agents, so each batch adds roughly 30–80 qualified rows. Yields fell in later rounds as the easiest stores were already taken.
 - This file and both workbooks are regenerated after every batch.
 
 ## Research approach
@@ -32,6 +33,7 @@ Rows that fail any rule go to the **Needs_Review** sheet with the reason in `las
 - **Shopify evidence varies in strength.** About a third of rows rely on Shopify-style URL structure rather than shop.app proof, and `confidence_score` reflects this (roughly 70–80 vs 80–90).
 - **Most emails are general inboxes.** Small brands rarely publish a founder's personal address. Even so, many rows greet a verified founder by first name.
 - **Some brands are mid-size rather than small** (noted in the source report). Exclude them if you want only micro-brands.
+- **Germany: check UWG §7 before sending.** German unfair-competition law (UWG §7) generally requires prior consent for advertising emails, including to businesses, and German courts apply it strictly. The German rows are researched public business contacts (from the Impressum), but get legal advice or use another first-contact channel before sending cold email to them. The UK (PECR) and Canada (CASL) also have rules on unsolicited commercial email. Include a clear opt-out and honour `do_not_contact`.
 - **Holiday timing.** Emails mention the approaching holiday season, so they are best sent soon after research.
 
 ## Columns used for later automation
