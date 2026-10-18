@@ -43,6 +43,8 @@ for path in sorted(p for p in glob.glob(os.path.join(HERE, "work", "*.jsonl")) i
             r = FIX.pop(norm(r.get("author_full_name", "")))
         if str(r.get("qualification_status", "")).upper() == "EXCLUDED":
             continue
+        if re.match(r"\s*south africa", str(r.get("country", "")), re.I):
+            continue  # client excluded Africa
         r = {k: (r.get(k) or "") for k in KEYS + ["review_reason"]}
         r["research_date"] = r["research_date"] or TODAY
         m = re.match(r"^\s*([^(\-]+?)\s*(?:\((.*)\)|-\s.*)?\s*$", r["country"], re.S)

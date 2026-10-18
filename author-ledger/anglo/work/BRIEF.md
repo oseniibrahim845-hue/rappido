@@ -1,5 +1,5 @@
 # Author Ledger — ENGLISH-SPEAKING MARKETS email-lead campaign (research only, no outreach)
-Client: Oseni Ibrahim, The Author Ledger (author spotlight & book promotion platform). Goal: 500 NEW unique qualified authors in the USA, Canada, Australia, New Zealand and South Africa, each with a publicly attributable professional email. Do NOT send emails or contact anyone.
+Client: Oseni Ibrahim, The Author Ledger (author spotlight & book promotion platform). Goal: 500 NEW unique qualified authors in the USA, Canada, Australia and New Zealand (client EXCLUDED Africa — do not research South African authors), each with a publicly attributable professional email. Do NOT send emails or contact anyone.
 
 ## Environment limits (important)
 - Web pages CANNOT be opened (WebFetch/curl are blocked). Use **WebSearch only**. Facts and emails must literally appear in search-result text.
@@ -34,7 +34,7 @@ Before writing, grep -i the surname in /home/user/rappido/author-ledger/anglo/wo
 
 ## Output — append ONE JSON object per line to your output file (valid JSON)
 {"author_full_name":"","country":"","book_title":"","genre":"","publication_date":"YYYY or YYYY-MM","author_email":"","email_type":"Direct|Agent|Publisher","email_source_url":"","author_website":"","publisher":"","book_source_url":"","recent_activity":"","personalization_detail":"","commercial_fit":"High|Medium|Low + 1 short reason","outreach_language":"English","duplicate_status":"New","qualification_status":"READY|NEEDS_REVIEW","review_reason":"","workflow2_notes":"one line: what Workflow 2 should double-check"}
-- country: plain country name only ("United States", "Canada", "Australia", "New Zealand", "South Africa"); put evidence (e.g. "lives in Denver per own site") in workflow2_notes.
+- country: plain country name only ("United States", "Canada", "Australia", "New Zealand"); put evidence (e.g. "lives in Denver per own site") in workflow2_notes.
 Use your own scratchpad subfolder for helper scripts: /tmp/claude-0/-home-user-rappido/85eb8748-a21e-58e5-b6eb-a7dcb5a964d2/scratchpad/an_<tag>/
 
 ## Finish with a short report
