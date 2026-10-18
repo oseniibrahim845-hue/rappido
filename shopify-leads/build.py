@@ -36,6 +36,31 @@ def words(body):
     return len(re.findall(r"\b[\wÄÖÜäöüß'-]+\b", body))
 
 
+NICHES = [("Pet products and accessories", r"\bpet|dog|cat\b|puppy|canine|feline"),
+          ("Baby and children's products", r"baby|kid|child|toddler|nursery|infant|toy"),
+          ("Jewelry and accessories", r"jewel|ring|necklace|earring|watch|bracelet|schmuck"),
+          ("Skincare and beauty products", r"skin|beauty|cosmetic|makeup|hair|fragrance|perfume|soap|self-tan|lip|nail|kosmetik"),
+          ("Automotive accessories", r"auto|car care|vehicle|truck|off-?road|motorcycle|moto|jeep|detail"),
+          ("Electronics and accessories", r"electronic|phone|case|charger|cable|audio|laptop|gadget|tech|magsafe"),
+          ("Fitness and sports equipment", r"fitness|gym|kettlebell|sport|cycl|bike|outdoor|camp|hammock|hik|climb|yoga|weight"),
+          ("Specialty food and beverage brands", r"coffee|tea\b|teas\b|chocolate|sauce|snack|food|spice|honey|beverage|wine|candy|roast"),
+          ("Health and wellness products", r"wellness|supplement|herbal|vitamin|health|sleep|cbd|gummies"),
+          ("Kitchen and household products", r"kitchen|cook|skillet|cast iron|clean|laundry|household|storage|cutlery"),
+          ("Home decor and furniture", r"home|decor|furniture|candle|rug|bedding|lighting|interior|wohn|pillow|throw|textile"),
+          ("Fashion and clothing brands", r"fashion|cloth|apparel|wear|swim|denim|dress|shirt|boutique|shoe|footwear|hat|mode|bag")]
+
+
+def niche(n, p=""):
+    t = f"{n} {p}".lower()
+    for name, pat in NICHES:
+        if re.search(pat, str(n).lower()):
+            return name
+    for name, pat in NICHES:
+        if re.search(pat, t):
+            return name
+    return n or "Other"
+
+
 FIX = {}
 for fp in sorted(glob.glob(os.path.join(HERE, "work", "zz_fix*.jsonl"))):
     for line in open(fp, encoding="utf-8"):
@@ -61,6 +86,7 @@ for path in sorted(glob.glob(os.path.join(HERE, "work", "*.jsonl"))):
             continue
         r = {k: ("" if r.get(k) is None else r.get(k)) for k in COLS + ["review_reason"]}
         r["website"] = "https://" + d
+        r["product_niche"] = niche(r["product_niche"], r["product_or_collection"])
         em = str(r["email"]).strip()
         src = os.path.basename(path)
         if d in seen_dom or (em and em.lower() in seen_mail):
