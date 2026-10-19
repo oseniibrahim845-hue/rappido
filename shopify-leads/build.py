@@ -31,6 +31,14 @@ def domain(u):
     return d[4:] if d.startswith("www.") else d
 
 
+SENT = {}
+_sl = os.path.join(os.path.dirname(os.path.abspath(__file__)), "work", "send_log.jsonl")
+if os.path.exists(_sl):
+    for _l in open(_sl, encoding="utf-8"):
+        if _l.strip():
+            _d = json.loads(_l); SENT[_d["email"].lower()] = _d
+
+
 def words(body):
     body = re.split(r"\n\s*(Best regards|Viele Grüße|Mit freundlichen Grüßen),", body)[0]
     return len(re.findall(r"\b[\wÄÖÜäöüß'-]+\b", body))
@@ -117,6 +125,9 @@ for path in sorted(glob.glob(os.path.join(HERE, "work", "*.jsonl"))):
         r["email_verification_status"] = r["email_verification_status"] or ("PUBLICLY_LISTED" if r["contact_source_url"] else "UNVERIFIED")
         r["send_status"] = "NOT_SENT"; r["reply_status"] = "NO_REPLY"; r["do_not_contact"] = "FALSE"
         r["date_sent"] = r["gmail_thread_id"] = ""
+        sent = SENT.get(em.lower())
+        if sent:
+            r["send_status"] = "SENT"; r["date_sent"] = sent["date_sent"]; r["gmail_thread_id"] = sent["thread_id"]
         r["research_date"] = r["research_date"] or TODAY
         try:
             r["confidence_score"] = int(r["confidence_score"])
