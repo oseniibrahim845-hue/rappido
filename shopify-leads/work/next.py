@@ -1,5 +1,5 @@
 import json
-q=json.load(open('send_queue_day2.json'))
+q=json.load(open('send_queue_day3.json'))
 sent={json.loads(l)['email'] for l in open('send_log.jsonl') if l.strip()}
 for d in q:
     if d['email'] not in sent:
