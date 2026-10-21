@@ -37,6 +37,12 @@ if os.path.exists(_sl):
     for _l in open(_sl, encoding="utf-8"):
         if _l.strip():
             _d = json.loads(_l); SENT[_d["email"].lower()] = _d
+BOUNCED = {}
+_bl = os.path.join(os.path.dirname(_sl), "bounces.jsonl")
+if os.path.exists(_bl):
+    for _l in open(_bl, encoding="utf-8"):
+        if _l.strip():
+            _d = json.loads(_l); BOUNCED[_d["email"].lower()] = _d
 
 
 def words(body):
@@ -140,6 +146,9 @@ for path in sorted(glob.glob(os.path.join(HERE, "work", "*.jsonl"))):
             r["personalization_status"] = "NEEDS_REVIEW"; r["automation_action"] = "HOLD"
             r["last_error"] = "; ".join(probs + ([r["review_reason"]] if r["review_reason"] else []))
             review.append(r)
+        if em.lower() in BOUNCED:
+            r["send_status"] = "BOUNCED"; r["do_not_contact"] = "TRUE"
+            r["last_error"] = "; ".join(x for x in (r["last_error"], "Bounced: " + BOUNCED[em.lower()]["reason"]) if x)
 
 # lead ids per country
 cnt = collections.Counter()
